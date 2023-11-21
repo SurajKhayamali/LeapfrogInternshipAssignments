@@ -86,6 +86,10 @@ button {
   margin-top: 16px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 575px) {
   /* For tablets: */
 
@@ -138,7 +142,7 @@ button {
   }
 
   .rectangle-21 {
-    max-width: 60%;
+    min-width: 60%;
   }
 
   .rectangle-22 {
