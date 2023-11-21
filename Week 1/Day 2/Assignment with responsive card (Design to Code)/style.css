@@ -1,0 +1,120 @@
+body {
+    /* background: var(--Header-text, #343D33); */
+    background: #343D33;
+    margin: 40px 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 16px;
+    gap: 8px;
+}
+
+.rectangle-21 {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    order: 1;
+}
+
+.rectangle-22 {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    order: 2;
+}
+
+.content > .text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    order: 3;
+}
+
+.heading {
+    /* color: var(--white, #FFF); */
+    color: #FFF;
+    /* text-align: center; */
+
+    /* text/medium title */
+    font-family: Libre Baskerville;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%; /* 37.4px */
+    text-transform: capitalize;
+
+    margin-bottom: 0 0 0 16px;
+}
+
+.sub-heading {
+    /* color: var(--white, #FFF); */
+    color: #FFF;
+    /* text-align: center; */
+
+    /* text/small body */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+button {
+    /* all: unset; */
+    display: inline-flex;
+    padding: 15px 30px;
+    /* align-items: center; */
+    gap: 10px;
+
+    /* border: 2px solid var(--white, #FFF); */
+    border: 2px solid #FFF;
+    background: inherit;
+
+    /* color: var(--white, #FFF); */
+    color: #FFF;
+
+    /* buttons text */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 2.1px;
+    text-transform: uppercase;
+}
+
+@media only screen and (min-width: 575px) {
+    /* For tablets: */
+
+    .content {
+        gap: 20px;
+    }
+
+    .content > .text-content {
+        align-items: flex-start;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    /* For desktop: */
+
+    .rectangle-22 {
+        width: 100%;
+        height: auto;
+        flex-shrink: 0;
+        order: 3;
+    }
+
+    .content > .text-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        order: 2;
+    }
+}
