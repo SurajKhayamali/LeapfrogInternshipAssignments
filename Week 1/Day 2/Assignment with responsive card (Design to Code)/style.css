@@ -140,15 +140,19 @@ button {
   .image {
     max-width: 1040px;
   }
+
+  .content {
+    gap: 40px;
+  }
   
   .rectangle-21 {
     /* flex: 1; */
     /* max-width: 534px; */
     /* width: 534px;
     height: 354px; */
-    margin-right: 89px;
+    /* margin-right: 89px; */
     /* flex-shrink: 0; */
-    max-width: 50%;
+    max-width: 60%;
 
     /* flex-basis: calc(50% - 179px); 50% width minus spacing */
     /* flex-basis: 50%; */
