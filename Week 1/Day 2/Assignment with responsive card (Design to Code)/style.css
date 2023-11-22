@@ -155,7 +155,7 @@ button:hover {
   }
 
   .rectangle-21 {
-    min-width: 60%;
+    width: 534px;
   }
 
   .rectangle-22 {
@@ -168,7 +168,7 @@ button:hover {
   }
 
   .content > .text-content {
-    max-width: 30%;
+    width: 417px;
     order: 2;
   }
 }
