@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #343d33;
   margin: 56px 16px 64px 16px; /* top | right | bottom | left */
@@ -155,7 +161,10 @@ button:hover {
   }
 
   .rectangle-21 {
-    width: 534px;
+    /* flex-basis: calc(50% - 96px * 2); */
+    flex-basis: 1%;
+
+    flex-grow: 0;
   }
 
   .rectangle-22 {
@@ -168,7 +177,10 @@ button:hover {
   }
 
   .content > .text-content {
-    width: 417px;
     order: 2;
+    
+    /* flex-basis: calc(50% - 96px * 2); */
+    flex-basis: 1%;
+    flex-grow: 1;
   }
 }
