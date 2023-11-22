@@ -1,29 +1,30 @@
+/* For desktop: Default */
+
 body {
   background: #343d33;
-  margin: 56px 16px 64px 16px; /* top | right | bottom | left */
+  margin: 96px 179px 96px 179px;  /* top | right | bottom | left */
 }
 
 /* Helper reusable classes start */
 .center {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
 .image {
-  width: 100%;
+  max-width: 1040px;
   height: auto;
   flex-shrink: 0;
-  max-width: 344px;
 }
 /* Helper reusable classes end */
 
 .content {
-  gap: 8px;
+  gap: 40px;
 }
 
-.rectangle-21 {
+/* .rectangle-21 {
   order: 1;
 }
 
@@ -33,7 +34,7 @@ body {
 
 .content > .text-content {
   order: 3;
-}
+} */
 
 .heading {
   color: #fff;
@@ -90,11 +91,20 @@ button:hover {
   cursor: pointer;
 }
 
-@media only screen and (min-width: 575px) {
+button:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
   /* For tablets: */
 
   body {
     margin: 96px 105px 104px 105px;
+  }
+
+  .center {
+    flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .image {
@@ -102,47 +112,18 @@ button:hover {
   }
 
   .content {
+    flex-direction: row;
     gap: 20px;
   }
 
-  .content > .text-content {
-    align-items: flex-start;
-  }
-
-  .heading {
-    font-size: 45px;
-
-    margin: 40px 0 8px 0;
-    text-align: start;
-  }
-
-  .sub-heading {
-    font-size: 20px;
-    text-align: start;
-  }
-
-  button {
-    padding: 20px 40px;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  /* For desktop: */
-
-  body {
-    margin: 96px 179px 96px 179px;
-  }
-
-  .image {
-    max-width: 1040px;
-  }
-
-  .content {
-    gap: 40px;
-  }
-
   .rectangle-21 {
-    min-width: 60%;
+    /* flex: 1; */
+    /* max-width: 534px; */
+    /* width: 534px;
+    height: 354px; */
+    /* margin-right: 89px; */
+    /* flex-shrink: 0; */
+    max-width: 60%;
   }
 
   .rectangle-22 {
@@ -155,7 +136,19 @@ button:hover {
   }
 
   .content > .text-content {
+    /* flex: 1; */
+    /* width: auto;
+    max-width: 417px; */
+    /* width: auto; */
+    /* width: 417px; */
+    /* height: 354px; */
+    /* flex-shrink: 0; */
+
     max-width: 30%;
+    /* max-width: 417px; */
     order: 2;
+
+    /* 2 * 179px */
+    /* flex: 0 0 calc(50% - 358px);  */
   }
 }

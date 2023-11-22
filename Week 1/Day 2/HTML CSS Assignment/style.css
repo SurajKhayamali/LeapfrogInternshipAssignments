@@ -32,6 +32,9 @@
 }
 
 .sub-heading {
+}
+
+.sub-heading-text {
   color: #84829a;
   font-family: Poppins;
   font-size: 16px;
@@ -39,6 +42,15 @@
   font-weight: 500;
   line-height: 124.5%; /* 19.92px */
   letter-spacing: -0.08px;
+}
+
+.vertical-seperator {
+  width: 100%;
+  height: 100%;
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+  background: #84829a;
+  border: 0.5px #84829a solid;
 }
 
 .options {
@@ -64,7 +76,7 @@
 }
 
 .footer-text {
-  color: #84829a;
+    color: #84829a;
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
