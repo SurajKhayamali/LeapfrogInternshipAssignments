@@ -1,6 +1,13 @@
 body {
   background: #343d33;
   margin: 56px 16px 64px 16px; /* top | right | bottom | left */
+
+  background-image: url("./assets/plant accent.png");
+  background-repeat: no-repeat;
+  /* background-color: #cccccc; */
+  background-position: bottom;
+  background-position-x: 150px;
+  background-position-y: 350px;
 }
 
 /* Helper reusable classes start */
@@ -16,6 +23,7 @@ body {
   height: auto;
   flex-shrink: 0;
   max-width: 344px;
+  /* visibility: hidden; */
 }
 /* Helper reusable classes end */
 
@@ -95,6 +103,9 @@ button:hover {
 
   body {
     margin: 96px 105px 104px 105px;
+    
+    background-position-x: 330px;
+    background-position-y: 750px;
   }
 
   .image {
@@ -131,6 +142,8 @@ button:hover {
 
   body {
     margin: 96px 179px 96px 179px;
+    
+    background-position: right;
   }
 
   .image {
