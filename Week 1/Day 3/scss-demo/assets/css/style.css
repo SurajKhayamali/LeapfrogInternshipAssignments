@@ -331,6 +331,10 @@ button {
   color: #ffffff;
 }
 
+figure {
+  margin: 0;
+}
+
 .container {
   padding: 0 24px;
 }
@@ -384,24 +388,38 @@ button {
 .header__logo {
   margin: 0;
 }
-.header__logo figure {
-  margin: 0;
-}
 .header__nav {
+  display: none;
+}
+@media screen and (min-width: 576px) {
+  .header__nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+  }
+  .header__nav a {
+    color: #b6b3eb;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+  }
+  .header__nav a:hover {
+    color: #ffffff;
+    font-weight: 500;
+  }
+}
+@media screen and (min-width: 576px) {
+  .header__menu {
+    display: none;
+  }
+}
+.header__menu-icon {
+  width: 2rem;
+  height: 2rem;
+  fill: #ffffff;
   display: flex;
   align-items: center;
-  list-style: none;
-  gap: 2rem;
-}
-.header__nav a {
-  color: #b6b3eb;
-  font-weight: 400;
-  font-size: 1rem;
-  transition: color 0.2s ease-in-out;
-}
-.header__nav a:hover {
-  color: #ffffff;
-  font-weight: 500;
 }
 
 /*# sourceMappingURL=style.css.map */

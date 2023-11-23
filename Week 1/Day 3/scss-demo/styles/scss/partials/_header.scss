@@ -5,28 +5,43 @@
 
   &__logo {
     margin: 0;
-
-    figure {
-      margin: 0;
-    }
   }
 
   &__nav {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: $gap-large;
+    display: none;
 
-    a {
-      color: $fade-white;
-      font-weight: $font-weight-regular;
-      font-size: $font-size-base;
-      transition: color 0.2s ease-in-out;
+    @media screen and (min-width: $breakpoint-small) {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: $gap-large;
 
-      &:hover {
-        color: $white;
-        font-weight: $font-weight-medium;
+      a {
+        color: $fade-white;
+        font-weight: $font-weight-regular;
+        font-size: $font-size-base;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+          color: $white;
+          font-weight: $font-weight-medium;
+        }
       }
+    }
+  }
+
+  &__menu {
+    @media screen and (min-width: $breakpoint-small) {
+      display: none;
+    }
+
+    &-icon {
+      width: 2rem;
+      height: 2rem;
+      fill: $white;
+
+      display: flex;
+      align-items: center;
     }
   }
 }

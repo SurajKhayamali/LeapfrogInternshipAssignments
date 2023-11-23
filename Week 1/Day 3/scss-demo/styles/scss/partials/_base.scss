@@ -20,3 +20,8 @@ button {
     background-color: $primary;
     color: $white;
 }
+
+// reset default figure margin
+figure {
+    margin: 0;
+}
