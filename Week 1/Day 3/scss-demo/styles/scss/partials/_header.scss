@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    margin: 0;
+
+    figure {
+      margin: 0;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: $gap-large;
+
+    a {
+      color: $fade-white;
+      font-weight: $font-weight-regular;
+      font-size: $font-size-base;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: $white;
+        font-weight: $font-weight-medium;
+      }
+    }
+  }
+}

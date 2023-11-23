@@ -1,0 +1,11 @@
+.container {
+  padding: 0 $padding-medium;
+  @media screen and (min-width: $breakpoint-medium) {
+    padding: 0 $padding-large;
+  }
+  @media screen and (min-width: $breakpoint-large) {
+    padding: 0;
+    max-width: $max-width-large;
+    margin: 0 auto;
+  }
+}

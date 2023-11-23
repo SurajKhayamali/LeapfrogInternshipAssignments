@@ -1,0 +1,50 @@
+$font-family: "Plus Jakarta Sans", sans-serif;
+
+// font sizes
+$font-size-base: 1rem; // 16px
+$font-size-heading: 2.5rem; // 40px
+$font-size-card-heading: 1.25rem; // 20px
+
+// font weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// colors
+$primary: #5d55ff;
+$black: #1d1c31;
+$white: #ffffff;
+$fade-white: #b6b3eb;
+$color-text-body: transparentize($black, 0.6);
+$color-link: $black;
+
+// spacing
+$gap-default: 1rem; // 16px
+$gap-large: 2rem; // 32px
+$gap-small: 0.5rem; // 8px
+$gap-medium: 1.5rem; // 24px
+$margin-bottom-title: 2.5rem; // 40px
+$spacing-card-items: 2rem; // 32px
+
+// line heights
+$line-height-default: 1.75; // 28px
+
+// border radius
+$border-radius: 8px;
+
+// padding
+$padding-default: 16px;
+$padding-large: 32px;
+$padding-medium: 24px;
+$padding-small: 12px;
+
+// breakpoints
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;
+
+// max-widths
+$max-width-small: 540px;
+$max-width-medium: 720px;
+$max-width-large: 960px;

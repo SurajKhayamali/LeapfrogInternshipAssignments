@@ -1,0 +1,37 @@
+.btn {
+  font-weight: $font-weight-medium;
+  border-radius: $border-radius;
+  border: none;
+  cursor: pointer;
+
+  // default button is meduim sized
+  padding: $padding-default $padding-large;
+
+  // small sized button
+  &-small {
+    padding: $padding-small $padding-medium;
+  }
+  &-large {
+    padding: $padding-medium $padding-large;
+  }
+
+  // primary button
+  &-primary {
+    background-color: $white;
+    color: $primary;
+
+    &:hover {
+      background-color: darken($white, 10%);
+    }
+  }
+  // secondary button
+  &-secondary {
+    background-color: transparentize($white, 0.8);
+    color: $white;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}
