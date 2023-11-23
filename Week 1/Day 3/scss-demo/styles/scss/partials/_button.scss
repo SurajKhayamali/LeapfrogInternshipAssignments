@@ -34,4 +34,17 @@
       background-color: $primary;
     }
   }
+
+  // outlined button
+  &-outlined {
+    background-color: transparent;
+    color: $white;
+    border: 1px solid transparentize($white, 0.8);
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $white;
+      color: $black;
+    }
+  }
 }

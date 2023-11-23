@@ -1,0 +1,66 @@
+.features {
+    text-align: center;
+
+    &__title {
+        font-size: $font-size-medium;
+        font-weight: $font-weight-bold;
+        padding: $padding-medium 0;
+        margin: 0;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: $gap-default;
+        padding: $padding-medium;
+        border-radius: $border-radius;
+        background-color: $white;
+        box-shadow: 0 0 0.5rem rgba($black, 0.1);
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+            transform: translateY(-0.5rem);
+        }
+
+        &-icon {
+            width: 3rem;
+            height: 3rem;
+            fill: $primary;
+        }
+
+        &-title {
+            font-size: $font-size-card-heading;
+            font-weight: $font-weight-bold;
+            margin: 0;
+        }
+
+        &-description {
+            font-size: $font-size-small;
+            color: $color-text-body;
+            margin: 0;
+        }
+
+        &-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-size-small;
+            color: $black;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+
+            &:hover {
+                color: $fade-white;
+                fill: $primary;
+            }
+
+            &-text, &-icon {
+                // font-size: $font-size-medium;
+                // width: $font-size-medium;
+                // height: $font-size-medium;
+            }
+        }
+    }
+}

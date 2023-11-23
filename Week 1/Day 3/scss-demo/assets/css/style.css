@@ -5,7 +5,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap");
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -330,6 +330,30 @@ button {
   background-color: #5d55ff;
   color: #ffffff;
 }
+.bg-primary a {
+  color: #b6b3eb;
+  font-weight: 400;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+.bg-primary a:hover {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.bg-white {
+  background-color: #ffffff;
+  color: #1d1c31;
+}
+.bg-white a {
+  font-weight: 400;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+.bg-white a:hover {
+  color: rgba(29, 28, 49, 0.4);
+  font-weight: 500;
+}
 
 figure {
   margin: 0;
@@ -379,6 +403,16 @@ figure {
 .btn-secondary:hover {
   background-color: #5d55ff;
 }
+.btn-outlined {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.2s ease-in-out;
+}
+.btn-outlined:hover {
+  background-color: #ffffff;
+  color: #1d1c31;
+}
 
 .header {
   display: flex;
@@ -398,16 +432,6 @@ figure {
     list-style: none;
     gap: 2rem;
   }
-  .header__nav a {
-    color: #b6b3eb;
-    font-weight: 400;
-    font-size: 1rem;
-    transition: color 0.2s ease-in-out;
-  }
-  .header__nav a:hover {
-    color: #ffffff;
-    font-weight: 500;
-  }
 }
 @media screen and (min-width: 576px) {
   .header__menu {
@@ -420,6 +444,105 @@ figure {
   fill: #ffffff;
   display: flex;
   align-items: center;
+}
+
+.banner {
+  text-align: center;
+}
+.banner__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 24px 0;
+  margin: 0;
+}
+.banner__description {
+  font-size: 0.875rem;
+  color: #b6b3eb;
+  margin-bottom: 32px;
+}
+.banner__cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.banner__stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: start;
+  margin-bottom: 24px;
+}
+.banner__stats-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 8px;
+}
+.banner__stats-title {
+  font-size: 0.875rem;
+  color: #b6b3eb;
+  margin: 8px 0;
+}
+.banner__image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.features {
+  text-align: center;
+}
+.features__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 24px 0;
+  margin: 0;
+}
+.features__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 24px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 0 0.5rem rgba(29, 28, 49, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+.features__card:hover {
+  transform: translateY(-0.5rem);
+}
+.features__card-icon {
+  width: 3rem;
+  height: 3rem;
+  fill: #5d55ff;
+}
+.features__card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+.features__card-description {
+  font-size: 0.875rem;
+  color: rgba(29, 28, 49, 0.4);
+  margin: 0;
+}
+.features__card-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #1d1c31;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+.features__card-link:hover {
+  color: #b6b3eb;
+  fill: #5d55ff;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -2,6 +2,8 @@ $font-family: "Plus Jakarta Sans", sans-serif;
 
 // font sizes
 $font-size-base: 1rem; // 16px
+$font-size-medium: 1.5rem; // 24px
+$font-size-small: 0.875rem; // 14px
 $font-size-heading: 2.5rem; // 40px
 $font-size-card-heading: 1.25rem; // 20px
 
@@ -16,6 +18,7 @@ $primary: #5d55ff;
 $black: #1d1c31;
 $white: #ffffff;
 $fade-white: #b6b3eb;
+// $fade-white: transparentize($white, 0.2);
 $color-text-body: transparentize($black, 0.6);
 $color-link: $black;
 
@@ -38,6 +41,13 @@ $padding-default: 16px;
 $padding-large: 32px;
 $padding-medium: 24px;
 $padding-small: 12px;
+
+// margins
+$margin-default: 16px;
+$margin-large: 32px;
+$margin-medium: 24px;
+$margin-small: 12px;
+$margin-xsmall: 8px;
 
 // breakpoints
 $breakpoint-small: 576px;
