@@ -517,10 +517,9 @@ figure {
   color: #b6b3eb;
   margin: 8px 0;
 }
-.banner__image {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.banner__image-mastercard {
+  transform: translate(-25%, -120%);
+  margin-bottom: -162px;
 }
 
 .features {
