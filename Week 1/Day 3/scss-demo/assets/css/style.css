@@ -349,7 +349,7 @@ button {
 }
 
 .bg-white {
-  background-color: #ffffff;
+  background-color: #f8f8f8;
   color: #1d1c31;
 }
 .bg-white a {
@@ -367,6 +367,9 @@ button {
 }
 .bg-white .btn-primary:hover {
   background-color: #2c22ff;
+}
+.bg-white input {
+  background-color: #f8f8f8;
 }
 
 .title {

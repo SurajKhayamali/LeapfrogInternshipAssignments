@@ -45,7 +45,7 @@ button {
 }
 
 .bg-white {
-    background-color: $white;
+    background-color: $white-bg;
     color: $black;
 
     a {
@@ -69,6 +69,10 @@ button {
                 background-color: darken($primary, 10%);
             }
         }
+    }
+
+    input {
+        background-color: $white-bg;
     }
 }
 
