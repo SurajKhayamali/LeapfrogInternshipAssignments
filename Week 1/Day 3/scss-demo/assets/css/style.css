@@ -552,4 +552,34 @@ figure {
   fill: #5d55ff;
 }
 
+.cta__image {
+  width: 100%;
+  height: auto;
+}
+.cta__info {
+  padding: 24px;
+  background-color: #ffffff;
+  color: rgba(29, 28, 49, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(29, 28, 49, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+.cta__info:hover {
+  box-shadow: 0 0 20px rgba(29, 28, 49, 0.2);
+}
+.cta__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.cta__description {
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+.cta__download {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
 /*# sourceMappingURL=style.css.map */
