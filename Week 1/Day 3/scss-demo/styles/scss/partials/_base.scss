@@ -72,6 +72,26 @@ button {
     }
 }
 
+.title {
+    font-size: $font-size-medium;
+    font-weight: $font-weight-bold;
+    margin: 0;
+    line-height: 2.6;
+}
+
+.description {
+    font-size: $font-size-small;
+    font-weight: $font-weight-regular;
+    line-height: 2;
+    margin: 0;
+
+    //     @if $background == $primary {
+    //         color: $fade-white;
+    //     } @else {
+    //         color: $color-text-body;
+    //     }
+}
+
 // reset default figure margin
 figure {
     margin: 0;

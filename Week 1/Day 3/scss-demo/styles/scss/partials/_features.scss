@@ -1,11 +1,9 @@
 .features {
     text-align: center;
+    padding: $padding-large 0;
 
     &__title {
-        font-size: $font-size-medium;
-        font-weight: $font-weight-bold;
         padding: $padding-medium 0;
-        margin: 0;
     }
 
     &__cards {
@@ -27,6 +25,7 @@
         background-color: $white;
         box-shadow: 0 0 0.5rem rgba($black, 0.1);
         transition: transform 0.2s ease-in-out;
+        width: 100%;
 
         &:hover {
             transform: translateY(-0.5rem);
@@ -41,12 +40,6 @@
         &-title {
             font-size: $font-size-card-heading;
             font-weight: $font-weight-bold;
-            margin: 0;
-        }
-
-        &-description {
-            font-size: $font-size-small;
-            color: $color-text-body;
             margin: 0;
         }
 
@@ -70,6 +63,10 @@
             //     width: $font-size-medium;
             //     height: $font-size-medium;
             // }
+
+            &-icon {
+                @include backgroundSVGandColor("../img/arrow_forward.svg", $black);
+            }
         }
     }
 }

@@ -5,25 +5,12 @@
     gap: $gap-medium;
     padding: $padding-medium;
 
-    &__title {
-        font-size: $font-size-medium;
-        font-weight: $font-weight-bold;
-        margin: 0;
-        line-height: 2.6;
-    }
-
     // &__content {
     // }
 
     &__footer {
         display: flex;
         gap: $gap-default;
-
-        &-text {
-            font-size: $font-size-small;
-            font-weight: $font-weight-regular;
-            margin: 0;
-        }
 
         &-icon {
             @include backgroundSVGandColor("../img/arrow_forward.svg");
@@ -64,12 +51,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        &-title {
-            font-size: $font-size-small;
-            font-weight: $font-weight-regular;
-            margin: 0;
         }
     }
 
