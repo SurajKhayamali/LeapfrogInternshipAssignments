@@ -1,0 +1,14 @@
+// Referenced from:
+// https://stackoverflow.com/questions/13367868/how-to-modify-the-fill-color-of-an-svg-image-when-being-served-as-background-ima
+// https://stackoverflow.com/a/46904983
+@mixin backgroundSVGandColor($filepath, $color: $white) {
+    background-color: $color;
+    -webkit-mask-image: url($filepath);
+    mask: url($filepath);
+
+    // width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
