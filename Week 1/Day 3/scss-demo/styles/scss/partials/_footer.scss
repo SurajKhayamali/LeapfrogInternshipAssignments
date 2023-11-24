@@ -15,6 +15,23 @@
         }
     }
 
+    &__top {
+        @media screen and (min-width: $breakpoint-small) {
+            display: flex;
+            align-items: center;
+            gap: $gap-large;
+        }
+    }
+
+    &__divider {
+        display: none;
+        @media screen and (min-width: $breakpoint-small) {
+            display: block;
+            border-bottom: 0.5px solid $color-text-body;
+            margin: $margin-medium 0;
+        }
+    }
+
     &__bottom {
         display: flex;
         align-items: center;
@@ -36,10 +53,13 @@
 
     &__social {
         width: 100%;
-        order: -1;
         display: flex;
         align-items: center;
         gap: $gap-large;
         margin: 0;
+        @media screen and (min-width: $breakpoint-small) {
+            order: 1;
+            width: auto;
+        }
     }
 }
