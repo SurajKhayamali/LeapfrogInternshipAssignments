@@ -654,6 +654,13 @@ figure {
   width: 100%;
   height: auto;
 }
+@media screen and (min-width: 576px) {
+  .cta__image {
+    max-width: 80%;
+    padding: 10%;
+    margin-bottom: -285px;
+  }
+}
 .cta__info {
   padding: 24px;
   background-color: #ffffff;
@@ -664,6 +671,18 @@ figure {
 }
 .cta__info:hover {
   box-shadow: 0 0 20px rgba(29, 28, 49, 0.2);
+}
+@media screen and (min-width: 576px) {
+  .cta__info {
+    max-width: min(60%, 528px);
+    transform: translate(50%, 0%);
+  }
+}
+@media screen and (min-width: 768px) {
+  .cta__info {
+    max-width: min(60%, 688px);
+    transform: translate(50%, -50%);
+  }
 }
 .cta__title {
   line-height: 1.55;
