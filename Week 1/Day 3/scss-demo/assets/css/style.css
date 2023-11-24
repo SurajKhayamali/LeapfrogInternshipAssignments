@@ -691,4 +691,43 @@ figure {
   align-self: flex-start;
 }
 
+.footer {
+  padding: 24px;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+.footer__links {
+  display: flex;
+  gap: 2rem;
+}
+.footer__links .title {
+  line-height: normal;
+}
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer__link {
+  color: rgba(29, 28, 49, 0.4);
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: color 0.2s ease-in-out;
+}
+.footer__link:hover {
+  color: #1d1c31;
+}
+.footer__social {
+  width: 100%;
+  order: -1;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

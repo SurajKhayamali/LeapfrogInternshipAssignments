@@ -1,0 +1,45 @@
+.footer {
+    padding: $padding-medium;
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    &__links {
+        display: flex;
+        gap: $gap-large;
+
+        .title {
+            line-height: normal;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: $gap-default;
+    }
+
+    &__link {
+        color: $color-text-body;
+        font-size: $font-size-small;
+        font-weight: $font-weight-regular;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            color: $black;
+        }
+    }
+
+    &__social {
+        width: 100%;
+        order: -1;
+        display: flex;
+        align-items: center;
+        gap: $gap-large;
+        margin: 0;
+    }
+}
