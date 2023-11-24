@@ -336,7 +336,7 @@ button {
   font-size: 1rem;
   transition: color 0.2s ease-in-out;
 }
-.bg-primary a:hover {
+.bg-primary a:hover, .bg-primary a:active {
   color: #ffffff;
   font-weight: 500;
 }

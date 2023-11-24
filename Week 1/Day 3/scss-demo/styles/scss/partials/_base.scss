@@ -26,7 +26,8 @@ button {
         font-size: $font-size-base;
         transition: color 0.2s ease-in-out;
 
-        &:hover {
+        &:hover,
+        &:active {
             color: $white;
             font-weight: $font-weight-medium;
         }
