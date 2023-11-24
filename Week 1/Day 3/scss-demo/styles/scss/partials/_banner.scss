@@ -2,11 +2,24 @@
     text-align: center;
     // margin-top: 90px;
 
+    @media screen and (min-width: $breakpoint-small) {
+        display: flex;
+        text-align: start;
+    }
+
     &__title {
         font-size: $font-size-medium;
         font-weight: $font-weight-bold;
         padding: $padding-medium 0;
         margin: 0;
+
+        @media screen and (min-width: $breakpoint-small) {
+            font-size: $font-size-large;
+        }
+
+        @media screen and (min-width: $breakpoint-medium) {
+            font-size: $font-size-xlarge;
+        }
     }
 
     &__description {
@@ -21,6 +34,11 @@
         justify-content: center;
         align-items: center;
         gap: $gap-default;
+
+        @media screen and (min-width: $breakpoint-small) {
+            flex-direction: row;
+            justify-content: start;
+        }
     }
 
     &__stats {
@@ -31,6 +49,10 @@
         text-align: start;
         // margin: 0;
         margin-bottom: $margin-medium;
+
+        @media screen and (min-width: $breakpoint-small) {
+            justify-content: start;
+        }
 
         &-value {
             font-size: $font-size-medium;
@@ -56,6 +78,13 @@
             // transform: translate(0, 0);
             transform: translate(-25%, -120%);
             margin-bottom: -162px;
+
+            @media screen and (min-width: $breakpoint-small) {
+                transform: translate(30%, -230%);
+            }
+            @media screen and (min-width: $breakpoint-medium) {
+                transform: translate(50%, -230%);
+            }
         }
     }
 }

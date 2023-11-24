@@ -480,11 +480,27 @@ figure {
 .banner {
   text-align: center;
 }
+@media screen and (min-width: 576px) {
+  .banner {
+    display: flex;
+    text-align: start;
+  }
+}
 .banner__title {
   font-size: 1.5rem;
   font-weight: 700;
   padding: 24px 0;
   margin: 0;
+}
+@media screen and (min-width: 576px) {
+  .banner__title {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .banner__title {
+    font-size: 3rem;
+  }
 }
 .banner__description {
   font-size: 0.875rem;
@@ -498,6 +514,12 @@ figure {
   align-items: center;
   gap: 1rem;
 }
+@media screen and (min-width: 576px) {
+  .banner__cta {
+    flex-direction: row;
+    justify-content: start;
+  }
+}
 .banner__stats {
   display: flex;
   justify-content: center;
@@ -505,6 +527,11 @@ figure {
   gap: 1rem;
   text-align: start;
   margin-bottom: 24px;
+}
+@media screen and (min-width: 576px) {
+  .banner__stats {
+    justify-content: start;
+  }
 }
 .banner__stats-value {
   font-size: 1.5rem;
@@ -520,6 +547,16 @@ figure {
 .banner__image-mastercard {
   transform: translate(-25%, -120%);
   margin-bottom: -162px;
+}
+@media screen and (min-width: 576px) {
+  .banner__image-mastercard {
+    transform: translate(30%, -230%);
+  }
+}
+@media screen and (min-width: 768px) {
+  .banner__image-mastercard {
+    transform: translate(50%, -230%);
+  }
 }
 
 .features {
