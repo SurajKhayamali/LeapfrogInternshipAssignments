@@ -548,15 +548,15 @@ figure {
   background-color: #ffffff;
   box-shadow: 0 0 0.5rem rgba(29, 28, 49, 0.1);
   transition: transform 0.2s ease-in-out;
-  width: 100%;
+  max-width: 304px;
 }
 .features__card:hover {
   transform: translateY(-0.5rem);
 }
-.features__card-icon {
-  width: 3rem;
-  height: 3rem;
-  fill: #5d55ff;
+.features__card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 .features__card-title {
   font-size: 1.25rem;
