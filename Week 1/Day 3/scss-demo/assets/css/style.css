@@ -501,6 +501,13 @@ figure {
   padding: 24px 0;
   margin: 0;
 }
+.features__cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
 .features__card {
   display: flex;
   flex-direction: column;

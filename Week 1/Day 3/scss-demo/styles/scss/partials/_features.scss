@@ -8,6 +8,14 @@
         margin: 0;
     }
 
+    &__cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: $gap-medium;
+    }
+
     &__card {
         display: flex;
         flex-direction: column;
@@ -56,7 +64,8 @@
                 fill: $primary;
             }
 
-            &-text, &-icon {
+            &-text,
+            &-icon {
                 // font-size: $font-size-medium;
                 // width: $font-size-medium;
                 // height: $font-size-medium;
