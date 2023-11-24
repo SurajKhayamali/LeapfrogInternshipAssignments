@@ -1,0 +1,13 @@
+.clients {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-small) {
+        list-style: none;
+        margin: 0 auto;
+        padding: $padding-medium;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
