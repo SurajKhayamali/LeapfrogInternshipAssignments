@@ -1,0 +1,26 @@
+.subscribe {
+    // &__info {
+    // }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-medium;
+        padding: $padding-medium 0;
+
+        &-input {
+            border: 0;
+            border-bottom: 1px solid $color-text-body;
+            transition: all 0.2s ease-in-out;
+
+            &:focus {
+                outline: none;
+                border-color: $primary;
+            }
+        }
+
+        &-button {
+            align-self: flex-start;
+        }
+    }
+}

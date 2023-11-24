@@ -340,6 +340,13 @@ button {
   color: #ffffff;
   font-weight: 500;
 }
+.bg-primary .btn-primary {
+  background-color: #ffffff;
+  color: #5d55ff;
+}
+.bg-primary .btn-primary:hover {
+  background-color: #e6e6e6;
+}
 
 .bg-white {
   background-color: #ffffff;
@@ -353,6 +360,13 @@ button {
 .bg-white a:hover {
   color: rgba(29, 28, 49, 0.4);
   font-weight: 500;
+}
+.bg-white .btn-primary {
+  background-color: #5d55ff;
+  color: #ffffff;
+}
+.bg-white .btn-primary:hover {
+  background-color: #2c22ff;
 }
 
 figure {
@@ -654,6 +668,25 @@ figure {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.subscribe__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 24px 0;
+}
+.subscribe__form-input {
+  border: 0;
+  border-bottom: 1px solid rgba(29, 28, 49, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+.subscribe__form-input:focus {
+  outline: none;
+  border-color: #5d55ff;
+}
+.subscribe__form-button {
+  align-self: flex-start;
 }
 
 /*# sourceMappingURL=style.css.map */

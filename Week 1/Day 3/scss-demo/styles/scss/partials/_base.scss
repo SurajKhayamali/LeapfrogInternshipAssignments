@@ -31,6 +31,17 @@ button {
             font-weight: $font-weight-medium;
         }
     }
+
+    .btn {
+        &-primary {
+            background-color: $white;
+            color: $primary;
+
+            &:hover {
+                background-color: darken($white, 10%);
+            }
+        }
+    }
 }
 
 .bg-white {
@@ -46,6 +57,17 @@ button {
         &:hover {
             color: transparentize($black, 0.6);
             font-weight: $font-weight-medium;
+        }
+    }
+
+    .btn {
+        &-primary {
+            background-color: $primary;
+            color: $white;
+
+            &:hover {
+                background-color: darken($primary, 10%);
+            }
         }
     }
 }
