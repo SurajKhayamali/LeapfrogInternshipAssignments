@@ -1,0 +1,66 @@
+.container {
+  padding: 0 $padding-medium;
+  @media screen and (min-width: $breakpoint-medium) {
+    padding: 0 $padding-large;
+  }
+  @media screen and (min-width: $breakpoint-large) {
+    padding: 0;
+    max-width: $breakpoint-large;
+    margin: 0 auto;
+  }
+}
+
+.bg-primary {
+  background-color: $bg-primary;
+  color: $white;
+
+  a {
+    color: $secondary;
+
+    &:hover,
+    &:active {
+      color: $white;
+    }
+  }
+
+  input {
+    background-color: darken($bg-secondary, 10%);
+  }
+}
+
+.bg-secondary {
+  background-color: $bg-secondary;
+  color: $black;
+
+  a {
+    color: $secondary;
+
+    &:hover {
+      color: transparentize($secondary, 0.6);
+    }
+  }
+
+  input {
+    background-color: darken($bg-primary, 15%);
+  }
+}
+
+.title {
+  font-size: $font-size-xlarge;
+  font-weight: $font-weight-extra-bold;
+  margin: 0;
+
+  &-light {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.description {
+  font-size: $font-size-medium;
+  font-weight: $font-weight-bold;
+  margin: 0;
+
+  &-light {
+    font-weight: $font-weight-regular;
+  }
+}

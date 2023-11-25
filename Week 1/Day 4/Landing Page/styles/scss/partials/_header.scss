@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $padding-large 0;
+
+  &__logo {
+    margin: 0;
+
+    a {
+      color: $white;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-large) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: $gap-large;
+      }
+    }
+  }
+
+  &__cta {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-large) {
+      display: block;
+    }
+  }
+
+  &__menu {
+    @media screen and (min-width: $breakpoint-large) {
+      display: none;
+    }
+
+    &-icon {
+      width: 2rem;
+      height: 2rem;
+      fill: $white;
+
+      display: flex;
+      align-items: center;
+    }
+  }
+}

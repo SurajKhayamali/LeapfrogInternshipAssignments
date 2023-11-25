@@ -1,0 +1,52 @@
+$font-family: "Montserrat", sans-serif;
+
+// font sizes
+$font-size-base: 1rem; // 16px
+$font-size-normal: 1.25rem; // 20px
+$font-size-small: 0.875rem; // 14px
+$font-size-medium: 1.5rem; // 24px
+$font-size-large: 2rem; // 32px
+$font-size-xlarge: 3rem; // 48px
+$font-size-heading: 2.5rem; // 40px
+
+// font weights
+$font-weight-light: 400;
+$font-weight-regular: 500;
+$font-weight-medium: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+
+// colors
+$primary: #17c2ec;
+$black: #000000;
+$white: #ffffff;
+$secondary: transparentize($white, 0.5);
+
+// background colors
+$bg-primary: #0b153c;
+$bg-secondary: #c4c4c4;
+$bg-white: $secondary;
+
+// spacing
+$gap-default: 20px;
+$gap-medium: 30px;
+$gap-large: 40px;
+
+// border radius
+$border-radius: 20px;
+$border-radius-large: 50px;
+$border-radius-xlarge: 150px;
+
+// padding
+$padding-default: 20px;
+$padding-medium: 25px;
+$padding-large: 40px;
+
+// margins
+$margin-default: 50px;
+$margin-medium: 70px;
+
+// breakpoints
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;

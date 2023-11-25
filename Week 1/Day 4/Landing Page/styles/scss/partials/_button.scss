@@ -1,0 +1,44 @@
+.btn {
+  font-size: $font-size-medium;
+  font-weight: $font-weight-bold;
+  border-radius: $border-radius;
+  border: none;
+  cursor: pointer;
+
+  // default button is meduim sized
+  padding: $padding-default $padding-medium;
+
+  // primary button
+  &-primary {
+    background-color: $primary;
+    color: $white;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+  }
+
+  // secondary button
+  &-secondary {
+    background-color: transparentize($bg-secondary, 0.9);
+    color: $primary;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $bg-secondary;
+    }
+  }
+
+  // outlined button
+  &-outlined {
+    background-color: transparent;
+    color: $white;
+    border: 1px solid $primary;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}
