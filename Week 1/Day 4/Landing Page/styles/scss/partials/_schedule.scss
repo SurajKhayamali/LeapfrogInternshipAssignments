@@ -6,19 +6,19 @@
         width: 20px;
         height: 20px;
 
-        @media screen and (min-width: $breakpoint-medium) {
+        @include respond-to("medium") {
             width: 30px;
             height: 30px;
         }
     }
 
-    &__title {
+    @include e("title") {
         display: flex;
         align-items: center;
         gap: $gap-small;
         padding-bottom: $padding-large;
 
-        @media screen and (min-width: $breakpoint-medium) {
+        @include respond-to("medium") {
             gap: $gap-default;
         }
 
@@ -29,7 +29,7 @@
         }
     }
 
-    &__form {
+    @include e("form") {
         display: flex;
         flex-direction: column;
         gap: $gap-default;
@@ -37,14 +37,13 @@
         border-radius: $border-radius $border-radius 0 0;
         padding: $padding-small $padding-small 0 $padding-small;
 
-        @media screen and (min-width: $breakpoint-medium) {
+        @include respond-to("medium") {
             display: grid;
             grid-auto-flow: row;
             grid-template-columns: repeat(2, 1fr);
             padding: $padding-medium;
         }
-
-        @media screen and (min-width: $breakpoint-large) {
+        @include respond-to("large") {
             display: flex;
             flex-direction: row;
             // flex-wrap: wrap;
@@ -53,12 +52,12 @@
             padding: $padding-large;
         }
 
-        &-group {
+        @include m("group") {
             display: flex;
             align-items: center;
             gap: $gap-small;
 
-            &-input {
+            @include m("input") {
                 display: flex;
                 flex-direction: column;
 
@@ -111,12 +110,12 @@
             }
         }
 
-        &-submit {
+        @include m("submit") {
             width: max-content;
         }
     }
 
-    &__image {
+    @include e("image") {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -124,12 +123,12 @@
         padding-top: $padding-xsmall;
         padding-bottom: $padding-xsmall;
 
-        @media screen and (min-width: $breakpoint-medium) {
+        @include respond-to("medium") {
             gap: $gap-default;
             padding-top: $padding-small;
             padding-bottom: $padding-small;
         }
-        @media screen and (min-width: $breakpoint-large) {
+        @include respond-to("large") {
             gap: $gap-large;
             padding-top: $padding-default;
             padding-bottom: $padding-default;

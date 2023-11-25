@@ -1,9 +1,9 @@
 @mixin container-defaults {
     padding: 0 $padding-medium;
-    @media screen and (min-width: $breakpoint-medium) {
+    @include respond-to("medium") {
         padding: 0 $padding-large;
     }
-    @media screen and (min-width: $breakpoint-large) {
+    @include respond-to("large") {
         padding: 0;
         max-width: 1440px;
         margin: 0 auto;

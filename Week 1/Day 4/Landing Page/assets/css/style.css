@@ -351,7 +351,7 @@ figure {
   background-color: #ffffff;
   color: #000000;
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .bg-secondary {
     background-color: #c4c4c4;
   }
@@ -369,12 +369,12 @@ figure {
 .container {
   padding: 0 25px;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .container {
     padding: 0 40px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .container {
     padding: 0;
     max-width: 1440px;
@@ -653,7 +653,7 @@ figure {
   width: 20px;
   height: 20px;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .schedule img {
     width: 30px;
     height: 30px;
@@ -665,7 +665,7 @@ figure {
   gap: 10px;
   padding-bottom: 40px;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .schedule__title {
     gap: 20px;
   }
@@ -695,7 +695,7 @@ figure {
   border-radius: 20px 20px 0 0;
   padding: 10px 10px 0 10px;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .schedule__form {
     display: grid;
     grid-auto-flow: row;
@@ -703,7 +703,7 @@ figure {
     padding: 25px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .schedule__form {
     display: flex;
     flex-direction: row;
@@ -711,16 +711,16 @@ figure {
     padding: 40px;
   }
 }
-.schedule__form-group {
+.schedule__form--group {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.schedule__form-group-input {
+.schedule__form--group--input {
   display: flex;
   flex-direction: column;
 }
-.schedule__form-group-input label {
+.schedule__form--group--input label {
   font-size: 0.875rem;
   font-weight: 500;
   margin: 0;
@@ -728,28 +728,28 @@ figure {
   color: rgba(255, 255, 255, 0.5);
 }
 @media (min-width: 768px) {
-  .schedule__form-group-input label {
+  .schedule__form--group--input label {
     font-size: 1.25rem;
   }
 }
 @media (min-width: 1024px) {
-  .schedule__form-group-input label {
+  .schedule__form--group--input label {
     font-size: 1.5rem;
   }
 }
-.schedule__form-group-input input,
-.schedule__form-group-input select {
+.schedule__form--group--input input,
+.schedule__form--group--input select {
   background-color: transparent;
   border: none;
 }
-.schedule__form-group-input input:focus,
-.schedule__form-group-input select:focus {
+.schedule__form--group--input input:focus,
+.schedule__form--group--input select:focus {
   outline: none;
   background-color: #0b153c;
 }
-.schedule__form-group-input input,
-.schedule__form-group-input input::placeholder,
-.schedule__form-group-input select {
+.schedule__form--group--input input,
+.schedule__form--group--input input::placeholder,
+.schedule__form--group--input select {
   font-size: 0.875rem;
   font-weight: 500;
   margin: 0;
@@ -757,27 +757,27 @@ figure {
   color: #ffffff;
 }
 @media (min-width: 768px) {
-  .schedule__form-group-input input,
-  .schedule__form-group-input input::placeholder,
-  .schedule__form-group-input select {
+  .schedule__form--group--input input,
+  .schedule__form--group--input input::placeholder,
+  .schedule__form--group--input select {
     font-size: 1.25rem;
   }
 }
 @media (min-width: 1024px) {
-  .schedule__form-group-input input,
-  .schedule__form-group-input input::placeholder,
-  .schedule__form-group-input select {
+  .schedule__form--group--input input,
+  .schedule__form--group--input input::placeholder,
+  .schedule__form--group--input select {
     font-size: 1.5rem;
   }
 }
-.schedule__form-group-input input[type=date]::-webkit-calendar-picker-indicator {
+.schedule__form--group--input input[type=date]::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
-.schedule__form-group-input:focus {
+.schedule__form--group--input:focus {
   outline: none;
   border-color: #17c2ec;
 }
-.schedule__form-submit {
+.schedule__form--submit {
   width: max-content;
 }
 .schedule__image {
@@ -788,14 +788,14 @@ figure {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .schedule__image {
     gap: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .schedule__image {
     gap: 40px;
     padding-top: 20px;
