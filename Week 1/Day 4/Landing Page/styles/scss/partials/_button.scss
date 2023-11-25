@@ -8,6 +8,18 @@
   // default button is meduim sized
   padding: $padding-default $padding-medium;
 
+  // large button
+  @include m("large") {
+    min-width: 150px;
+
+    @include respond-to("medium") {
+      min-width: 250px;
+    }
+    @include respond-to("large") {
+      min-width: 350px;
+    }
+  }
+
   // primary button
   &-primary {
     background-color: $primary;
@@ -21,7 +33,7 @@
 
   // secondary button
   &-secondary {
-    background-color: $bg-secondary-light;
+    background-color: $bg-secondary-lighter;
     color: $primary;
     transition: background-color 0.2s ease-in-out;
 

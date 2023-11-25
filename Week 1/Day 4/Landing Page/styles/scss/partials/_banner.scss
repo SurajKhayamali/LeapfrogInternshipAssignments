@@ -25,7 +25,8 @@
         font-weight: $font-weight-bold;
     }
 
-    &__title {
+    &__title,
+    a {
         @include text-defaults;
         font-size: $font-size-medium;
         font-weight: $font-weight-extra-bold;

@@ -1,0 +1,92 @@
+.check {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-default;
+    border-radius: $border-radius;
+    background-color: $bg-secondary-lightest;
+    // padding: $padding-small;
+    margin-top: $margin-large;
+
+    @include respond-to("medium") {
+        margin-top: $margin-default;
+    }
+
+    @include e("header") {
+        padding: $padding-small;
+        background-color: $bg-secondary-lightest;
+        border-radius: $border-radius-small $border-radius-small 0 0;
+        text-align: center;
+
+        @include respond-to("large") {
+            padding: $padding-large;
+            text-align: left;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-default;
+        border-radius: $border-radius;
+        padding: $padding-small;
+
+        @include respond-to("medium") {
+            padding: $padding-large;
+        }
+
+        @include respond-to("large") {
+            max-width: unset;
+            margin: unset;
+            flex-direction: row;
+            justify-content: flex-start;
+
+            & > * {
+                flex: 1;
+            }
+        }
+
+        input {
+            background-color: transparent;
+            color: $white;
+            border: 3px solid $secondary;
+            border-radius: $border-radius-small;
+            padding: $padding-default;
+
+            &::placeholder {
+                color: $secondary;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: $primary;
+            }
+        }
+
+        button {
+            max-width: max-content;
+            border: 3px solid $primary;
+            border-radius: $border-radius-small;
+
+            &:hover {
+                color: $white;
+            }
+        }
+
+        @include m("submit") {
+            color: $primary;
+        }
+    }
+
+    &__footer {
+        background-color: $bg-secondary-lightest;
+        border-radius: $border-radius-small;
+        padding: $padding-default;
+        text-align: center;
+        color: $primary;
+        margin: 0 $padding-small;
+
+        @include respond-to("medium") {
+            margin: 0 $padding-large;
+        }
+    }
+}

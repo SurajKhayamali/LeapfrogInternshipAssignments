@@ -3,7 +3,7 @@
   color: $white;
 
   a {
-    color: $secondary;
+    color: $primary;
 
     &:hover,
     &:active {
@@ -12,7 +12,7 @@
   }
 
   input {
-    background-color: darken($bg-secondary, 10%);
+    background-color: darken($bg-primary, 10%);
   }
 }
 
@@ -25,14 +25,14 @@
   }
 
   a {
-    color: $secondary;
+    color: $primary;
 
     &:hover {
-      color: transparentize($secondary, 0.6);
+      color: transparentize($primary, 0.6);
     }
   }
 
   input {
-    background-color: darken($bg-primary, 15%);
+    background-color: darken($bg-secondary, 15%);
   }
 }

@@ -14,9 +14,13 @@
     margin: 0;
 
     a {
-      color: $white;
       font-size: $font-size-large;
       font-weight: $font-weight-bold;
+      color: $white;
+
+      &:hover {
+        color: $primary;
+      }
     }
   }
 
