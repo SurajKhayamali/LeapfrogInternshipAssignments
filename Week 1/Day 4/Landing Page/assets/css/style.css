@@ -344,7 +344,7 @@ figure {
 @media screen and (min-width: 1024px) {
   .container {
     padding: 0;
-    max-width: 1024px;
+    max-width: 1440px;
     margin: 0 auto;
   }
 }
@@ -444,6 +444,12 @@ figure {
 .header__nav {
   display: none;
 }
+.header__nav-activeIndicator {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  visibility: hidden;
+}
 @media screen and (min-width: 1024px) {
   .header__nav {
     display: flex;
@@ -455,6 +461,10 @@ figure {
     align-items: center;
     list-style: none;
     gap: 40px;
+  }
+  .header__nav a:hover + .header__nav-activeIndicator,
+  .header__nav a:active + .header__nav-activeIndicator {
+    visibility: visible;
   }
 }
 .header__cta {

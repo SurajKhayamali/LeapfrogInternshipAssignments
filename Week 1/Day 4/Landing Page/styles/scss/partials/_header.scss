@@ -15,6 +15,13 @@
   &__nav {
     display: none;
 
+    &-activeIndicator {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      visibility: hidden;
+    }
+
     @media screen and (min-width: $breakpoint-large) {
       display: flex;
       align-items: center;
@@ -25,6 +32,13 @@
         align-items: center;
         list-style: none;
         gap: $gap-large;
+      }
+
+      a:hover,
+      a:active {
+        & + .header__nav-activeIndicator {
+          visibility: visible;
+        }
       }
     }
   }
