@@ -21,7 +21,7 @@
 
   // secondary button
   &-secondary {
-    background-color: transparentize($bg-secondary, 0.9);
+    background-color: $bg-secondary-light;
     color: $primary;
     transition: background-color 0.2s ease-in-out;
 

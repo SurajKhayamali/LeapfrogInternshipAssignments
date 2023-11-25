@@ -1,0 +1,141 @@
+.schedule {
+    gap: $gap-large;
+    margin-top: $margin-large;
+
+    img {
+        width: 20px;
+        height: 20px;
+
+        @media screen and (min-width: $breakpoint-medium) {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: $gap-small;
+        padding-bottom: $padding-large;
+
+        @media screen and (min-width: $breakpoint-medium) {
+            gap: $gap-default;
+        }
+
+        h2 {
+            @include text-defaults;
+            font-weight: $font-weight-bold;
+            color: $secondary;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-default;
+        background-color: $bg-secondary-light;
+        border-radius: $border-radius $border-radius 0 0;
+        padding: $padding-small $padding-small 0 $padding-small;
+
+        @media screen and (min-width: $breakpoint-medium) {
+            display: grid;
+            grid-auto-flow: row;
+            grid-template-columns: repeat(2, 1fr);
+            padding: $padding-medium;
+        }
+
+        @media screen and (min-width: $breakpoint-large) {
+            display: flex;
+            flex-direction: row;
+            // flex-wrap: wrap;
+            // gap: $gap-xlarge;
+            justify-content: space-between;
+            padding: $padding-large;
+        }
+
+        &-group {
+            display: flex;
+            align-items: center;
+            gap: $gap-small;
+
+            &-input {
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    @include text-defaults;
+                    font-weight: $font-weight-medium;
+                    color: $secondary;
+                }
+                input,
+                select {
+                    background-color: transparent;
+                    border: none;
+
+                    &:focus {
+                        background-color: $bg-primary;
+                    }
+                }
+                input,
+                input::placeholder,
+                select {
+                    @include text-defaults;
+                    font-weight: $font-weight-bold;
+                    color: $white;
+                }
+
+                // corrects the color of the calendar icon
+                input[type="date"]::-webkit-calendar-picker-indicator {
+                    filter: invert(1);
+                }
+
+                // for select options overlay, transparent doesn't work
+                // select {
+                //     // background-color: $bg-primary;
+
+                //     &:focus {
+                //         background-color: $bg-primary;
+                //     }
+                // }
+
+                &:focus {
+                    outline: none;
+                    border-color: $primary;
+                }
+
+                // @media screen and (min-width: $breakpoint-medium) {
+                //     flex-direction: row;
+                //     gap: $gap-default;
+                // }
+            }
+        }
+
+        &-submit {
+            width: max-content;
+        }
+    }
+
+    &__image {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $gap-small;
+        padding-top: $padding-xsmall;
+        padding-bottom: $padding-xsmall;
+
+        @media screen and (min-width: $breakpoint-medium) {
+            gap: $gap-default;
+            padding-top: $padding-small;
+            padding-bottom: $padding-small;
+        }
+        @media screen and (min-width: $breakpoint-large) {
+            gap: $gap-large;
+            padding-top: $padding-default;
+            padding-bottom: $padding-default;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}

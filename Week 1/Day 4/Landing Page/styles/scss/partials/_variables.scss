@@ -28,7 +28,14 @@ $bg-primary: #0b153c;
 $bg-secondary: #c4c4c4;
 $bg-white: $secondary;
 
+// background secondary colors variants
+$bg-secondary-light: transparentize(
+    $color: $bg-secondary,
+    $amount: 0.9
+);
+
 // spacing
+$gap-small: 10px;
 $gap-default: 20px;
 $gap-medium: 30px;
 $gap-large: 40px;
@@ -40,9 +47,12 @@ $border-radius-large: 50px;
 $border-radius-xlarge: 150px;
 
 // padding
+$padding-xsmall: 5px;
+$padding-small: 10px;
 $padding-default: 20px;
 $padding-medium: 25px;
 $padding-large: 40px;
+$padding-xlarge: 50px;
 
 // margins
 $margin-default: 50px;
