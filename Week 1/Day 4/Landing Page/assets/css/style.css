@@ -338,13 +338,13 @@ figure {
   color: #ffffff;
 }
 .bg-primary a {
-  color: #17c2ec;
+  color: rgba(255, 255, 255, 0.5);
 }
 .bg-primary a:hover, .bg-primary a:active {
   color: #ffffff;
 }
 .bg-primary input {
-  background-color: #030611;
+  background-color: #ababab;
 }
 
 .bg-secondary {
@@ -357,13 +357,13 @@ figure {
   }
 }
 .bg-secondary a {
-  color: #17c2ec;
+  color: rgba(255, 255, 255, 0.5);
 }
 .bg-secondary a:hover {
-  color: rgba(23, 194, 236, 0.4);
+  color: rgba(255, 255, 255, 0);
 }
 .bg-secondary input {
-  background-color: #9e9e9e;
+  background-color: black;
 }
 
 .container {
@@ -387,26 +387,26 @@ figure {
   font-weight: 500;
   margin: 0;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .text {
     font-size: 1.25rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .text {
     font-size: 1.5rem;
   }
 }
-.text-primary {
+.text--primary {
   color: #17c2ec;
 }
-.text-black {
+.text--black {
   color: #000000;
 }
-.text-white {
+.text--white {
   color: #ffffff;
 }
-.text-secondary {
+.text--secondary {
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -420,12 +420,12 @@ figure {
   cursor: pointer;
   padding: 20px 25px;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .btn {
     font-size: 1.25rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .btn {
     font-size: 1.5rem;
   }
@@ -476,7 +476,7 @@ figure {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .header {
     margin-bottom: 70px;
   }
@@ -496,44 +496,44 @@ figure {
   display: none;
   transform: translate(0, 10px);
 }
-.header__nav-activeIndicator {
+@media (min-width: 1024px) {
+  .header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    gap: 40px;
+    margin: 0;
+  }
+  .header__nav a:hover + .header__nav--activeIndicator,
+  .header__nav a:active + .header__nav--activeIndicator,
+  .header__nav .active + .header__nav--activeIndicator {
+    visibility: visible;
+  }
+  .header__nav .active {
+    color: #ffffff;
+  }
+}
+.header__nav--activeIndicator {
   display: flex;
   justify-content: center;
   gap: 5px;
   visibility: hidden;
 }
-@media screen and (min-width: 1024px) {
-  .header__nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .header__nav ul {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 40px;
-    margin: 0;
-  }
-  .header__nav a:hover + .header__nav-activeIndicator,
-  .header__nav a:active + .header__nav-activeIndicator {
-    visibility: visible;
-  }
-}
 .header__cta {
   display: none;
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .header__cta {
     display: block;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .header__menu {
     display: none;
   }
 }
-.header__menu-icon {
+.header__menu--icon {
   width: 2rem;
   height: 2rem;
   fill: #ffffff;
@@ -572,12 +572,12 @@ figure {
   margin: 0;
   font-weight: 700;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .banner__catchyPhrase {
     font-size: 1.25rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .banner__catchyPhrase {
     font-size: 1.5rem;
   }
@@ -590,13 +590,13 @@ figure {
   font-size: 1.5rem;
   font-weight: 800;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .banner__title,
   .banner a {
     font-size: 1.25rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .banner__title,
   .banner a {
     font-size: 1.5rem;
@@ -620,12 +620,12 @@ figure {
   margin: 0;
   color: rgba(255, 255, 255, 0.5);
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .banner__description {
     font-size: 1.25rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .banner__description {
     font-size: 1.5rem;
   }
@@ -674,12 +674,12 @@ figure {
   font-weight: 700;
   color: rgba(255, 255, 255, 0.5);
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .schedule__title h2 {
     font-size: 1.25rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .schedule__title h2 {
     font-size: 1.5rem;
   }
@@ -724,12 +724,12 @@ figure {
   font-weight: 600;
   color: rgba(255, 255, 255, 0.5);
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .schedule__form-group-input label {
     font-size: 1.25rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .schedule__form-group-input label {
     font-size: 1.5rem;
   }
@@ -753,14 +753,14 @@ figure {
   font-weight: 700;
   color: #ffffff;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .schedule__form-group-input input,
   .schedule__form-group-input input::placeholder,
   .schedule__form-group-input select {
     font-size: 1.25rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .schedule__form-group-input input,
   .schedule__form-group-input input::placeholder,
   .schedule__form-group-input select {

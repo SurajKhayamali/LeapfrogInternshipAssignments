@@ -10,43 +10,41 @@
 
 <body class="bg-primary">
   <!-- Header -->
-  <header class="container header">
+  <nav class="container header">
     <!-- logo -->
-    <h1 class="header__logo text-white">
+    <h1 class="header__logo">
       <a href="#" title="Vaccination.ng logo">
         Vaccination.ng
       </a>
     </h1>
 
     <!-- navigation links -->
-    <nav class="header__nav">
-      <ul>
-        <li>
-          <a href="#" class="header__nav-link" title="Home">Home</a>
-          <figure class="header__nav-activeIndicator">
-            <img src="./assets/img/icons/Ellipse.svg" alt="active indicator icon" />
-          </figure>
-        </li>
-        <li>
-          <a href="#services" class="header__nav-link" title="Services">Services</a>
-          <figure class="header__nav-activeIndicator">
-            <img src="./assets/img/icons/Ellipse.svg" alt="active indicator icon" />
-          </figure>
-        </li>
-        <li>
-          <a href="#schedule" class="header__nav-link" title="Schedule">Schedule</a>
-          <figure class="header__nav-activeIndicator">
-            <img src="./assets/img/icons/Ellipse.svg" alt="active indicator icon" />
-          </figure>
-        </li>
-        <li>
-          <a href="#contact" class="header__nav-link" title="Contact Us">Contact Us</a>
-          <figure class="header__nav-activeIndicator">
-            <img src="./assets/img/icons/Ellipse.svg" alt="active indicator icon" />
-          </figure>
-        </li>
-      </ul>
-    </nav>
+    <ul class="header__nav">
+      <li>
+        <a href="#" class="header__nav--link active" title="Home">Home</a>
+        <figure class="header__nav--activeIndicator">
+          <img src="./assets/img/icons/Ellipse.svg" alt="active indicator icon" />
+        </figure>
+      </li>
+      <li>
+        <a href="#services" class="header__nav--link" title="Services">Services</a>
+        <figure class="header__nav--activeIndicator">
+          <img src="./assets/img/icons/Ellipse.svg" alt="active indicator icon" />
+        </figure>
+      </li>
+      <li>
+        <a href="#schedule" class="header__nav--link" title="Schedule">Schedule</a>
+        <figure class="header__nav--activeIndicator">
+          <img src="./assets/img/icons/Ellipse.svg" alt="active indicator icon" />
+        </figure>
+      </li>
+      <li>
+        <a href="#contact" class="header__nav--link" title="Contact Us">Contact Us</a>
+        <figure class="header__nav--activeIndicator">
+          <img src="./assets/img/icons/Ellipse.svg" alt="active indicator icon" />
+        </figure>
+      </li>
+    </ul>
 
     <button class="btn btn-secondary header__cta">Check Status</button>
 
@@ -56,7 +54,7 @@
         <img class="header__menu-icon" src="./assets/img/icons/align-right.svg" alt="menu icon" />
       </figure>
     </div>
-  </header>
+  </nav>
 
   <!-- Banner -->
   <section class="container banner">
@@ -154,7 +152,7 @@
   <!-- Check form -->
   <section class="container">
     <div class="check">
-      <h3 class="text text-white check__header">Check your COVID-19 result on our Database</h3>
+      <h3 class="text check__header">Check your COVID-19 result on our Database</h3>
       <form action="#" class="check__form">
         <input type="text" name="id" id="id" placeholder="Enter your ID" value="Okeowo" />
         <input type="text" name="nikNumber" id="nikNumber" placeholder="NIK Number" />

@@ -2,15 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding: $padding-large inherit;
   padding-top: $padding-large;
   padding-bottom: $padding-large;
 
-  @media screen and (min-width: $breakpoint-large) {
+  @include respond-to("large") {
     margin-bottom: $margin-medium;
   }
 
-  &__logo {
+  @include e("logo") {
     margin: 0;
 
     a {
@@ -24,53 +23,54 @@
     }
   }
 
-  &__nav {
+  @include e("nav") {
     display: none;
     transform: translate(0, 10px);
 
-    &-activeIndicator {
+    @include respond-to("large") {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+
+      gap: $gap-large;
+      margin: 0;
+
+      a:hover,
+      a:active,
+      .active {
+        & + .header__nav--activeIndicator {
+          visibility: visible;
+        }
+      }
+
+      .active {
+        color: $white;
+      }
+    }
+
+    @include m("activeIndicator") {
       display: flex;
       justify-content: center;
       gap: 5px;
       visibility: hidden;
     }
-
-    @media screen and (min-width: $breakpoint-large) {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      ul {
-        display: flex;
-        align-items: center;
-        list-style: none;
-        gap: $gap-large;
-        margin: 0;
-      }
-
-      a:hover,
-      a:active {
-        & + .header__nav-activeIndicator {
-          visibility: visible;
-        }
-      }
-    }
   }
 
-  &__cta {
+  @include e("cta") {
     display: none;
 
-    @media screen and (min-width: $breakpoint-large) {
+    @include respond-to("large") {
       display: block;
     }
   }
 
-  &__menu {
-    @media screen and (min-width: $breakpoint-large) {
+  @include e("menu") {
+    @include respond-to("large") {
       display: none;
     }
 
-    &-icon {
+    @include m("icon") {
       width: 2rem;
       height: 2rem;
       fill: $white;
