@@ -440,9 +440,12 @@ figure {
 }
 .header__logo a {
   color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
 }
 .header__nav {
   display: none;
+  transform: translate(0, 10px);
 }
 .header__nav-activeIndicator {
   display: flex;
@@ -461,6 +464,7 @@ figure {
     align-items: center;
     list-style: none;
     gap: 40px;
+    margin: 0;
   }
   .header__nav a:hover + .header__nav-activeIndicator,
   .header__nav a:active + .header__nav-activeIndicator {
