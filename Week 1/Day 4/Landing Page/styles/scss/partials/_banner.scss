@@ -3,55 +3,61 @@
     gap: $gap-xlarge;
     flex-direction: column;
 
-    @media screen and (min-width: $breakpoint-large) {
+    @include respond-to("large") {
         flex-direction: row;
     }
 
-    &__info {
+    @include e("info") {
         display: flex;
         flex-direction: column;
         gap: $gap-default;
 
-        @media screen and (min-width: $breakpoint-medium) {
+        @include respond-to("medium") {
             gap: $gap-large;
         }
-        @media screen and (min-width: $breakpoint-large) {
+        @include respond-to("large") {
             gap: $gap-xlarge;
         }
     }
 
-    &__catchyPhrase {
+    @include e("catchyPhrase") {
         @include text-defaults;
         font-weight: $font-weight-bold;
     }
 
+    // Doesn't seem to work
+    // @include e("title"),
+    // a {
     &__title,
     a {
         @include text-defaults;
         font-size: $font-size-medium;
         font-weight: $font-weight-extra-bold;
 
-        @media screen and (min-width: $breakpoint-medium) {
+        @include respond-to("medium") {
             font-size: $font-size-large;
         }
 
-        @media screen and (min-width: $breakpoint-large) {
+        @include respond-to("large") {
             font-size: $font-size-xlarge;
         }
     }
+    a {
+        color: $primary;
+    }
 
-    &__description {
+    @include e("description") {
         @include text-defaults;
         color: $secondary;
     }
 
-    &__cta {
+    @include e("cta") {
         display: flex;
         flex-direction: row;
         gap: $gap-default;
     }
 
-    &__image {
+    @include e("image") {
         padding: 0 $padding-large;
         img {
             width: 100%;

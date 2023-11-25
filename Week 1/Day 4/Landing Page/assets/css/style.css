@@ -443,29 +443,29 @@ figure {
     min-width: 350px;
   }
 }
-.btn-primary {
+.btn--primary {
   background-color: #17c2ec;
   color: #ffffff;
   transition: background-color 0.2s ease-in-out;
 }
-.btn-primary:hover {
+.btn--primary:hover {
   background-color: #109dc0;
 }
-.btn-secondary {
+.btn--secondary {
   background-color: rgba(196, 196, 196, 0.1);
   color: #17c2ec;
   transition: background-color 0.2s ease-in-out;
 }
-.btn-secondary:hover {
+.btn--secondary:hover {
   background-color: #c4c4c4;
 }
-.btn-outlined {
+.btn--outlined {
   background-color: transparent;
   color: #ffffff;
   border: 1px solid #17c2ec;
   transition: background-color 0.2s ease-in-out;
 }
-.btn-outlined:hover {
+.btn--outlined:hover {
   background-color: #17c2ec;
 }
 
@@ -546,7 +546,7 @@ figure {
   gap: 50px;
   flex-direction: column;
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .banner {
     flex-direction: row;
   }
@@ -556,12 +556,12 @@ figure {
   flex-direction: column;
   gap: 20px;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .banner__info {
     gap: 40px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .banner__info {
     gap: 50px;
   }
@@ -602,17 +602,20 @@ figure {
     font-size: 1.5rem;
   }
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .banner__title,
   .banner a {
     font-size: 2rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .banner__title,
   .banner a {
     font-size: 3rem;
   }
+}
+.banner a {
+  color: #17c2ec;
 }
 .banner__description {
   font-size: 0.875rem;

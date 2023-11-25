@@ -21,7 +21,7 @@
   }
 
   // primary button
-  &-primary {
+  @include m("primary") {
     background-color: $primary;
     color: $white;
     transition: background-color 0.2s ease-in-out;
@@ -32,7 +32,7 @@
   }
 
   // secondary button
-  &-secondary {
+  @include m("secondary") {
     background-color: $bg-secondary-lighter;
     color: $primary;
     transition: background-color 0.2s ease-in-out;
@@ -43,7 +43,7 @@
   }
 
   // outlined button
-  &-outlined {
+  @include m("outlined") {
     background-color: transparent;
     color: $white;
     border: 1px solid $primary;
