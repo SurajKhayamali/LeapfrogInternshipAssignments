@@ -1,0 +1,68 @@
+@mixin text-defaults {
+    font-size: $font-size-small;
+    font-weight: $font-weight-regular;
+    margin: 0;
+
+    @media screen and (min-width: $breakpoint-medium) {
+        font-size: $font-size-normal;
+    }
+
+    @media screen and (min-width: $breakpoint-large) {
+        font-size: $font-size-medium;
+    }
+}
+
+.text {
+    @include text-defaults;
+
+    // font weights
+    // &-light {
+    //     font-weight: $font-weight-light;
+    // }
+    // &-medium {
+    //     font-weight: $font-weight-medium;
+    // }
+    // &-bold {
+    //     font-weight: $font-weight-bold;
+    // }
+    // &-extra-bold {
+    //     font-weight: $font-weight-extra-bold;
+    // }
+
+    // font sizes
+    // &-xsmall {
+    //     font-size: $font-size-xsmall;
+    // }
+    // &-small {
+    //     font-size: $font-size-small;
+    // }
+    // &-base {
+    //     font-size: $font-size-base;
+    // }
+    // &-normal {
+    //     font-size: $font-size-normal;
+    // }
+    // &-large {
+    //     font-size: $font-size-large;
+    // }
+    // &-xlarge {
+    //     font-size: $font-size-xlarge;
+    // }
+    // &-heading {
+    //     font-size: $font-size-heading;
+    // }
+
+    // colors
+    &-primary {
+        color: $primary;
+    }
+    &-black {
+        color: $black;
+    }
+    &-white {
+        color: $white;
+    }
+    &-secondary {
+        color: $secondary;
+    }
+}

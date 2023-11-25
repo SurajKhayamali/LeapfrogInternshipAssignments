@@ -1,5 +1,5 @@
 .btn {
-  font-size: $font-size-medium;
+  @include text-defaults;
   font-weight: $font-weight-bold;
   border-radius: $border-radius;
   border: none;

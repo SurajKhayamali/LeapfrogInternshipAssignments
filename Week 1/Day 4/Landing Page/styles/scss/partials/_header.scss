@@ -2,7 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $padding-large 0;
+  // padding: $padding-large inherit;
+  padding-top: $padding-large;
+  padding-bottom: $padding-large;
+
+  @media screen and (min-width: $breakpoint-large) {
+    margin-bottom: $margin-medium;
+  }
 
   &__logo {
     margin: 0;
