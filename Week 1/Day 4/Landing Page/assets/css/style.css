@@ -376,8 +376,7 @@ figure {
 }
 @media (min-width: 1024px) {
   .container {
-    padding: 0;
-    max-width: 1440px;
+    padding: 0 70px;
     margin: 0 auto;
   }
 }
@@ -564,6 +563,7 @@ figure {
 @media (min-width: 1024px) {
   .banner__info {
     gap: 50px;
+    flex: 1;
   }
 }
 .banner__catchyPhrase {
@@ -637,9 +637,6 @@ figure {
   display: flex;
   flex-direction: row;
   gap: 20px;
-}
-.banner__image {
-  padding: 0 40px;
 }
 .banner__image img {
   width: 100%;

@@ -17,6 +17,7 @@
         }
         @include respond-to("large") {
             gap: $gap-xlarge;
+            flex: 1;
         }
     }
 
@@ -58,7 +59,6 @@
     }
 
     @include e("image") {
-        padding: 0 $padding-large;
         img {
             width: 100%;
         }
