@@ -1,5 +1,16 @@
 .reason {
     @include text-defaults;
+    margin: $margin-default 0;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-large;
+
+    @include respond-to("medium") {
+        gap: $gap-xlarge;
+    }
+    @include respond-to("large") {
+        gap: $gap-large;
+    }
 
     @include e("header") {
         display: flex;
@@ -18,6 +29,7 @@
         @include m("title") {
             font-size: $font-size-medium;
             font-weight: $font-weight-bold;
+            margin: 0;
 
             @include respond-to("medium") {
                 font-size: $font-size-large;
@@ -30,6 +42,7 @@
         }
         @include m("description") {
             color: $secondary;
+            margin: 0;
 
             @include respond-to("large") {
                 flex: 1 1 50%;

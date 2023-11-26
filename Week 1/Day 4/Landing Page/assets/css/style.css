@@ -482,13 +482,11 @@ figure {
 }
 .header__logo {
   margin: 0;
-}
-.header__logo a {
   font-size: 2rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #ffffff !important;
 }
-.header__logo a:hover {
+.header__logo:hover {
   color: #17c2ec;
 }
 .header__nav {
@@ -667,7 +665,7 @@ figure {
     gap: 20px;
   }
 }
-.schedule__title h1 {
+.schedule__title h2 {
   font-size: 0.875rem;
   font-weight: 500;
   margin: 0;
@@ -675,12 +673,12 @@ figure {
   color: rgba(255, 255, 255, 0.5);
 }
 @media (min-width: 768px) {
-  .schedule__title h1 {
+  .schedule__title h2 {
     font-size: 1.25rem;
   }
 }
 @media (min-width: 1024px) {
-  .schedule__title h1 {
+  .schedule__title h2 {
     font-size: 1.5rem;
   }
 }
@@ -894,6 +892,10 @@ figure {
   font-size: 0.875rem;
   font-weight: 500;
   margin: 0;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 @media (min-width: 768px) {
   .reason {
@@ -903,6 +905,16 @@ figure {
 @media (min-width: 1024px) {
   .reason {
     font-size: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .reason {
+    gap: 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .reason {
+    gap: 40px;
   }
 }
 .reason__header {
@@ -925,6 +937,7 @@ figure {
 .reason__header--title {
   font-size: 1.5rem;
   font-weight: 700;
+  margin: 0;
 }
 @media (min-width: 768px) {
   .reason__header--title {
@@ -939,6 +952,7 @@ figure {
 }
 .reason__header--description {
   color: rgba(255, 255, 255, 0.5);
+  margin: 0;
 }
 @media (min-width: 1024px) {
   .reason__header--description {

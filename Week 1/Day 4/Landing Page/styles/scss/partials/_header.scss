@@ -12,14 +12,12 @@
   @include e("logo") {
     margin: 0;
 
-    a {
-      font-size: $font-size-large;
-      font-weight: $font-weight-bold;
-      color: $white;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $white !important;
 
-      &:hover {
-        color: $primary;
-      }
+    &:hover {
+      color: $primary;
     }
   }
 

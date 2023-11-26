@@ -22,7 +22,7 @@
             gap: $gap-default;
         }
 
-        h1 {
+        h2 {
             @include text-defaults;
             font-weight: $font-weight-bold;
             color: $secondary;
