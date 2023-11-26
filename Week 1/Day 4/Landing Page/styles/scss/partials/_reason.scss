@@ -1,0 +1,136 @@
+.reason {
+    @include text-defaults;
+
+    @include e("header") {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-default;
+
+        @include respond-to("medium") {
+            gap: $gap-large;
+        }
+        @include respond-to("large") {
+            flex-direction: row;
+            gap: 255px; // static exact value as provided in design
+            justify-content: space-between;
+        }
+
+        @include m("title") {
+            font-size: $font-size-medium;
+            font-weight: $font-weight-bold;
+
+            @include respond-to("medium") {
+                font-size: $font-size-large;
+            }
+
+            @include respond-to("large") {
+                font-size: $font-size-xlarge;
+                flex: 1 1 50%;
+            }
+        }
+        @include m("description") {
+            color: $secondary;
+
+            @include respond-to("large") {
+                flex: 1 1 50%;
+            }
+        }
+    }
+
+    @include e("cards") {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-default;
+
+        @include respond-to("medium") {
+            flex-direction: row;
+            flex-wrap: wrap;
+            // align-items: flex-end;
+            gap: $gap-large;
+
+            & > * {
+                flex: 1;
+            }
+        }
+        @include respond-to("large") {
+            gap: $gap-xlarge;
+        }
+    }
+
+    @include e("card") {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-default;
+        border-radius: $border-radius;
+        border: 3px solid $secondary;
+        padding: $padding-default;
+
+        &:first-child {
+            border-top-right-radius: $border-radius-xlarge;
+            border: none;
+            background-color: $bg-secondary-light;
+
+            @include respond-to("medium") {
+                border-top-right-radius: $border-radius-xxlarge;
+                flex-basis: 100%;
+            }
+            @include respond-to("large") {
+                flex-basis: 0;
+            }
+
+            .reason__card--title {
+                color: $primary;
+            }
+            .reason__card--link {
+                color: $primary !important;
+            }
+        }
+
+        @include respond-to("medium") {
+            gap: $gap-large;
+            padding: $padding-large;
+        }
+
+        @include m("icon") {
+            width: 50px;
+            height: 50px;
+            border-radius: $border-radius-small;
+            background-color: $bg-secondary-lighter;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: $padding-small;
+
+            @include respond-to("medium") {
+                width: 70px;
+                height: 70px;
+            }
+            @include respond-to("large") {
+                width: 100px;
+                height: 100px;
+                padding: 15px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        @include m("title") {
+            @include respond-to("medium") {
+                font-size: $font-size-medium;
+            }
+        }
+        @include m("description") {
+            color: $secondary;
+
+            @include respond-to("medium") {
+                font-size: $font-size-medium;
+            }
+        }
+        @include m("link") {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
