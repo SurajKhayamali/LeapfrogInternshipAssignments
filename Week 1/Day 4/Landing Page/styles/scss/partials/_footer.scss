@@ -7,27 +7,33 @@
     gap: $gap-medium;
     padding-top: $padding-medium;
     padding-bottom: $padding-medium;
-    background-image: url("../img/footer-bg-image-small.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
 
-    // Adjustments for Get a quote section
-    padding-top: 114px + $padding-medium;
-    margin-top: -(114px + $padding-medium);
-    @include respond-to("medium") {
-        padding-top: calc(104px + $padding-medium);
-        margin-top: -(104px + $padding-medium);
-    }
-    @include respond-to("large") {
-        padding-top: calc(215px + $padding-medium);
-        margin-top: -(215px + $padding-medium);
+    @include e("backgroundImage") {
+        background-image: url("../img/footer-bg-image-small.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+
+        // Adjustments for Get a quote section
+        margin-top: -114px;
+        background-position-y: 114px;
+        @include respond-to("medium") {
+            margin-top: -104px;
+            background-position-y: 104px;
+            padding-bottom: $padding-large;
+            background-image: url("../img/footer-bg-image-medium.png");
+        }
+        @include respond-to("large") {
+            margin-top: -215px;
+            background-position-y: 215px;
+            padding-bottom: $padding-xlarge;
+            background-image: url("../img/footer-bg-image-large.png");
+        }
     }
 
     @include respond-to("medium") {
         padding-top: $padding-large;
         padding-bottom: $padding-large;
-        background-image: url("../img/footer-bg-image-medium.png");
     }
     @include respond-to("large") {
         flex-direction: row;
@@ -35,7 +41,6 @@
         justify-content: space-between;
         padding-top: $padding-xlarge;
         padding-bottom: $padding-xlarge;
-        background-image: url("../img/footer-bg-image-large.png");
     }
 
     @include e("logo") {
