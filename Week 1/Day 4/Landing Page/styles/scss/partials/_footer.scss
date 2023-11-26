@@ -1,0 +1,76 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-medium;
+    padding-top: $padding-medium;
+    padding-bottom: $padding-medium;
+
+    @include respond-to("medium") {
+        padding-top: $padding-large;
+        padding-bottom: $padding-large;
+    }
+    @include respond-to("large") {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: $padding-xlarge;
+        padding-bottom: $padding-xlarge;
+    }
+
+    @include e("logo") {
+        @include text-defaults;
+        font-size: $font-size-normal;
+        font-weight: $font-weight-bold;
+        position: relative;
+
+        a {
+            color: $white;
+        }
+
+        .horizontal-line {
+            position: absolute;
+            bottom: -10px;
+            width: 100px;
+            border: 3px #17c2ec solid;
+            border-radius: $border-radius;
+
+            @include respond-to("large") {
+                bottom: -5px;
+            }
+        }
+    }
+    @include e("nav") {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-small;
+        @include resetListStyles;
+        @include text-defaults;
+
+        @include respond-to("medium") {
+            flex-direction: row;
+            align-items: center;
+            gap: $gap-medium;
+        }
+    }
+    @include e("social") {
+        display: flex;
+        align-items: center;
+        gap: $gap-xsmall;
+        @include resetListStyles;
+
+        @include respond-to("medium") {
+            gap: $gap-small;
+        }
+
+        @include m("icon") {
+            max-height: 18px;
+
+            @include respond-to("medium") {
+                max-height: 32px;
+            }
+            @include respond-to("large") {
+                max-height: 50px;
+            }
+        }
+    }
+}

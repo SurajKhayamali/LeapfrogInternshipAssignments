@@ -80,3 +80,10 @@ $breakpoints: (
           + "Available breakpoints are: #{map-keys($breakpoints)}.";
     }
 }
+
+// reset list styles
+@mixin resetListStyles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
