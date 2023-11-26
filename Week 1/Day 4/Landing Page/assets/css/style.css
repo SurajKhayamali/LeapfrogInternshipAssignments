@@ -1265,11 +1265,16 @@ figure {
   gap: 30px;
   padding-top: 25px;
   padding-bottom: 25px;
+  background-image: url("../img/footer-bg-image-small.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 @media (min-width: 768px) {
   .footer {
     padding-top: 40px;
     padding-bottom: 40px;
+    background-image: url("../img/footer-bg-image-medium.png");
   }
 }
 @media (min-width: 1024px) {
@@ -1279,6 +1284,7 @@ figure {
     justify-content: space-between;
     padding-top: 70px;
     padding-bottom: 70px;
+    background-image: url("../img/footer-bg-image-large.png");
   }
 }
 .footer__logo {

@@ -4,10 +4,15 @@
     gap: $gap-medium;
     padding-top: $padding-medium;
     padding-bottom: $padding-medium;
+    background-image: url("../img/footer-bg-image-small.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 
     @include respond-to("medium") {
         padding-top: $padding-large;
         padding-bottom: $padding-large;
+        background-image: url("../img/footer-bg-image-medium.png");
     }
     @include respond-to("large") {
         flex-direction: row;
@@ -15,6 +20,7 @@
         justify-content: space-between;
         padding-top: $padding-xlarge;
         padding-bottom: $padding-xlarge;
+        background-image: url("../img/footer-bg-image-large.png");
     }
 
     @include e("logo") {
