@@ -704,7 +704,9 @@ figure {
   .schedule__form {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: flex-start;
     padding: 40px;
   }
 }
@@ -742,6 +744,8 @@ figure {
 .schedule__form--group--input input:focus,
 .schedule__form--group--input select:focus {
   outline: none;
+}
+.schedule__form--group--input select:focus {
   background-color: #0b153c;
 }
 .schedule__form--group--input input,
@@ -769,10 +773,6 @@ figure {
 }
 .schedule__form--group--input input[type=date]::-webkit-calendar-picker-indicator {
   filter: invert(1);
-}
-.schedule__form--group--input:focus {
-  outline: none;
-  border-color: #17c2ec;
 }
 .schedule__form--submit {
   width: max-content;
@@ -881,7 +881,7 @@ figure {
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-  color: #17c2ec;
+  color: #17c2ec !important;
   margin: 0 10px;
 }
 @media (min-width: 768px) {

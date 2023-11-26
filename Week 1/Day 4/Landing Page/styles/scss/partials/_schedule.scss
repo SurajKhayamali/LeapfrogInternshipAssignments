@@ -46,9 +46,9 @@
         @include respond-to("large") {
             display: flex;
             flex-direction: row;
-            // flex-wrap: wrap;
-            // gap: $gap-xlarge;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: $gap-xlarge;
+            justify-content: flex-start;
             padding: $padding-large;
         }
 
@@ -73,6 +73,10 @@
 
                     &:focus {
                         outline: none;
+                    }
+                }
+                select {
+                    &:focus {
                         background-color: $bg-primary;
                     }
                 }
@@ -88,25 +92,6 @@
                 input[type="date"]::-webkit-calendar-picker-indicator {
                     filter: invert(1);
                 }
-
-                // for select options overlay, transparent doesn't work
-                // select {
-                //     // background-color: $bg-primary;
-
-                //     &:focus {
-                //         background-color: $bg-primary;
-                //     }
-                // }
-
-                &:focus {
-                    outline: none;
-                    border-color: $primary;
-                }
-
-                // @media screen and (min-width: $breakpoint-medium) {
-                //     flex-direction: row;
-                //     gap: $gap-default;
-                // }
             }
         }
 

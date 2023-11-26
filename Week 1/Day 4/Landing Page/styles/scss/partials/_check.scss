@@ -82,7 +82,7 @@
         border-radius: $border-radius-small;
         padding: $padding-default;
         text-align: center;
-        color: $primary;
+        color: $primary !important; // note: using !important intentionally to override the link color set at bg-primary > a which has a higher specificity than this selector
         margin: 0 $padding-small;
 
         @include respond-to("medium") {
