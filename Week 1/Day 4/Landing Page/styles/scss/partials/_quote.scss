@@ -1,0 +1,90 @@
+.quote {
+    @include e("border") {
+        background-color: transparentize($color: $bg-secondary, $amount: 0.85);
+        border-radius: $border-radius-large;
+
+        padding: 31px 12px 28px 13px;
+        @include respond-to("medium") {
+            padding: 29px 25px 28px 25px;
+        }
+        @include respond-to("large") {
+            padding: 17px 17px 18px 19px;
+        }
+    }
+
+    @include e("container") {
+        background-color: $primary;
+        border-radius: $border-radius-large;
+        padding-top: 16px;
+        padding-bottom: 28px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include respond-to("medium") {
+            padding-bottom: 56px;
+        }
+        @include respond-to("large") {
+            padding-top: $padding-xlarge;
+            padding-bottom: 107px;
+        }
+    }
+
+    @include e("header") {
+    }
+
+    @include e("form") {
+        display: flex;
+        align-items: center;
+        height: 40px;
+
+        @include respond-to("medium") {
+            height: 75px;
+        }
+
+        @include m("input") {
+            height: 100%;
+            padding: 0;
+            padding-left: 40px; // Constant as in provided design
+            font-size: 10px;
+            background-color: $white !important;
+            color: $secondary;
+            outline: none;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            min-width: 174.75px;
+
+            @include respond-to("medium") {
+                font-size: 20px;
+                min-width: 450px;
+            }
+        }
+
+        @include m("submit") {
+            height: 100%;
+            background-color: $bg-primary;
+            border-radius: 0 30px 30px 0;
+
+            figure {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 10px 23.3px 10px 11.65px;
+
+                @include respond-to("medium") {
+                    margin: 18px 30px;
+                }
+            }
+            img {
+                height: 20px;
+                width: 23.3px;
+
+                @include respond-to("medium") {
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+        }
+    }
+}
