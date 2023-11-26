@@ -1,0 +1,112 @@
+.verify {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $gap-default;
+    padding-top: $padding-large;
+    padding-bottom: $padding-large;
+    @include respond-to("medium") {
+        align-items: flex-start;
+    }
+
+    @include e("body") {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $gap-default;
+
+        @include respond-to("medium") {
+            align-items: flex-start;
+        }
+        @include respond-to("large") {
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+    @include e("right") {
+        position: relative;
+
+        @include respond-to("large") {
+            order: 1;
+        }
+    }
+    @include e("image") {
+        @include m("overlayText") {
+            @include text-defaults;
+            position: absolute;
+            color: $white;
+            z-index: 1;
+            top: 60px;
+            left: 40%;
+        }
+        @include m("overlayButton") {
+            position: absolute;
+            color: $white;
+            z-index: 1;
+            bottom: 50px;
+            left: 20%;
+            width: 60%;
+        }
+    }
+
+    @include e("heading") {
+        font-size: $font-size-medium;
+        font-weight: $font-weight-bold;
+        margin: 0;
+
+        @include respond-to("medium") {
+            font-size: $font-size-large;
+        }
+        @include respond-to("large") {
+            font-size: $font-size-xlarge;
+        }
+    }
+
+    // @include e("right") {
+    //     width: 100%;
+    // }
+
+    @include e("left") {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-default;
+    }
+
+    @include e("form") {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-default;
+
+        @include m("group") {
+            display: flex;
+            flex-direction: column;
+            gap: $gap-default;
+
+            input {
+                height: 70px;
+                border-radius: $border-radius;
+                padding-left: $padding-default;
+            }
+        }
+
+        @include m("verify") {
+            width: max-content;
+            padding: $padding-default $padding-xlarge;
+        }
+    }
+
+    @include e("footer") {
+        display: flex;
+        gap: $gap-default;
+
+        @include respond-to("medium") {
+            gap: $gap-xlarge;
+        }
+
+        .primary {
+            color: $primary;
+        }
+    }
+}

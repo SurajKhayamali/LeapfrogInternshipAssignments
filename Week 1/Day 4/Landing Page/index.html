@@ -230,12 +230,37 @@
   </section>
 
   <!-- Verify Vaccine Status -->
-  <!-- <section class="container verify">
+  <section class="bg-secondary container verify">
     <h2 class="verify__heading">Get your vaccine registration today</h2>
-    <figure class="verify__image">
-      <img src="./assets/img/vaccine-image.svg" alt="vaccine image" />
-    </figure>
-  </section> -->
+    <div class="verify__body">
+      <div class="verify__right">
+        <figure class="verify__image">
+          <img src="./assets/img/vaccine-image.svg" alt="vaccine image" />
+        </figure>
+        <p class="verify__image--overlayText">COVID-19<br /> Vaccine</p>
+        <button class="btn btn--secondary verify__image--overlayButton">Verify Status</button>
+      </div>
+      <div class="verify__left">
+        <form action="#" class="verify__form">
+          <div class="verify__form--group">
+            <label for="fullName" class="text text--black text--bold">Patient's Full Name</label>
+            <input type="text" name="fullName" id="fullName" placeholder="Full name" />
+          </div>
+          <div class="verify__form--group">
+            <label for="mobileNumber" class="text text--black text--bold">Mobile Number</label>
+            <p>Notifications for appointment and reminders will be sent to this provided number</p>
+            <input type="text" name="mobileNumber" id="mobileNumber" placeholder="Phone number" />
+            <button class="btn btn--primary verify__form--verify">Verify</button>
+          </div>
+          <button class="btn btn--primary verify__form--submit">Submit</button>
+        </form>
+        <div class="verify__footer">
+          <a href="#" class="verify__footer--link" title="Already registered ?">Already registered ?</a>
+          <a href="#" class="verify__footer--link primary" title="Check your status">Check your status</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Feedback -->
   <section class="bg-secondary">

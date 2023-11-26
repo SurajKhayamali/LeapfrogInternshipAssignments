@@ -12,7 +12,7 @@
   }
 
   input {
-    background-color: darken($bg-secondary, 10%);
+    background-color: transparentize($bg-secondary, 0.9);
   }
 }
 
@@ -25,14 +25,23 @@
   }
 
   a {
-    color: $secondary;
+    // On white background transparentized white is not visible
+    // color: $secondary;
 
-    &:hover {
-      color: transparentize($secondary, 0.6);
+    // &:hover,
+    // &:active {
+    //   color: transparentize($secondary, 0.6);
+    // }
+    color: #00000080;
+
+    &:hover,
+    &:active {
+      color: transparentize($black, 0.6);
     }
   }
 
   input {
-    background-color: darken($bg-primary, 15%);
+    border: none;
+    background-color: transparentize($bg-primary, 0.85);
   }
 }
