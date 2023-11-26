@@ -1089,6 +1089,17 @@ figure {
   padding: 25px;
   gap: 20px;
   text-align: center;
+  padding-bottom: 139px;
+}
+@media (min-width: 768px) {
+  .feedback {
+    padding-bottom: 129px;
+  }
+}
+@media (min-width: 1024px) {
+  .feedback {
+    padding-bottom: 240px;
+  }
 }
 .feedback__header {
   display: flex;
@@ -1259,6 +1270,19 @@ figure {
   color: #ffffff;
 }
 
+.quote {
+  transform: translateY(-114px);
+}
+@media (min-width: 768px) {
+  .quote {
+    transform: translateY(-104px);
+  }
+}
+@media (min-width: 1024px) {
+  .quote {
+    transform: translateY(-215px);
+  }
+}
 .quote__border {
   background-color: rgba(196, 196, 196, 0.15);
   border-radius: 50px;
@@ -1350,6 +1374,7 @@ figure {
 }
 
 .footer {
+  padding: 0 25px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -1359,6 +1384,31 @@ figure {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  padding-top: 139px;
+  margin-top: -139px;
+}
+@media (min-width: 768px) {
+  .footer {
+    padding: 0 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .footer {
+    padding: 0 70px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 768px) {
+  .footer {
+    padding-top: 129px;
+    margin-top: -129px;
+  }
+}
+@media (min-width: 1024px) {
+  .footer {
+    padding-top: 240px;
+    margin-top: -240px;
+  }
 }
 @media (min-width: 768px) {
   .footer {

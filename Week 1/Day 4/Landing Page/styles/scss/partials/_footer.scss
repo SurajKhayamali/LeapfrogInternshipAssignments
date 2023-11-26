@@ -1,4 +1,7 @@
+@use "sass:math";
+
 .footer {
+    @include container-defaults;
     display: flex;
     flex-direction: column;
     gap: $gap-medium;
@@ -8,6 +11,18 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+
+    // Adjustments for Get a quote section
+    padding-top: 114px + $padding-medium;
+    margin-top: -(114px + $padding-medium);
+    @include respond-to("medium") {
+        padding-top: calc(104px + $padding-medium);
+        margin-top: -(104px + $padding-medium);
+    }
+    @include respond-to("large") {
+        padding-top: calc(215px + $padding-medium);
+        margin-top: -(215px + $padding-medium);
+    }
 
     @include respond-to("medium") {
         padding-top: $padding-large;

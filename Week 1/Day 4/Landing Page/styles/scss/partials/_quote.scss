@@ -1,4 +1,12 @@
 .quote {
+    transform: translateY(-114px);
+    @include respond-to("medium") {
+        transform: translateY(-104px);
+    }
+    @include respond-to("large") {
+        transform: translateY(-215px);
+    }
+
     @include e("border") {
         background-color: transparentize($color: $bg-secondary, $amount: 0.85);
         border-radius: $border-radius-large;

@@ -5,6 +5,15 @@
     gap: $gap-default;
     text-align: center;
 
+    // Adjustments for Get a quote section
+    padding-bottom: calc(114px + $padding-medium);
+    @include respond-to("medium") {
+        padding-bottom: calc(104px + $padding-medium);
+    }
+    @include respond-to("large") {
+        padding-bottom: calc(215px + $padding-medium);
+    }
+
     @include e("header") {
         display: flex;
         flex-direction: column;
