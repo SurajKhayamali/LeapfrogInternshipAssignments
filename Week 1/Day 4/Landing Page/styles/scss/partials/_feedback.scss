@@ -51,13 +51,16 @@
         background-color: transparentize($bg-secondary, 0.5);
         border-radius: $border-radius;
         padding: $padding-default;
+        max-width: 305.6px;
+        margin: 0 auto;
 
         @include respond-to("medium") {
             padding: $padding-medium;
+            max-width: 400px;
         }
-
         @include respond-to("large") {
             gap: $gap-large;
+            max-width: unset;
         }
 
         @include m("header") {
