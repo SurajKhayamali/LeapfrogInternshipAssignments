@@ -1293,22 +1293,63 @@ figure {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
 }
 @media (min-width: 768px) {
   .quote__container {
     padding-bottom: 56px;
+    gap: 30px;
   }
 }
 @media (min-width: 1024px) {
   .quote__container {
     padding-top: 70px;
     padding-bottom: 107px;
+    gap: 40px;
   }
+}
+.quote__header {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+@media (min-width: 768px) {
+  .quote__header {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .quote__header {
+    font-size: 1.5rem;
+  }
+}
+.quote__header--title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 auto;
+  margin-top: 16px;
+}
+@media (min-width: 768px) {
+  .quote__header--title {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .quote__header--title {
+    font-size: 3rem;
+  }
+}
+.quote__header--description {
+  margin: 0 auto;
 }
 .quote__form {
   display: flex;
   align-items: center;
   height: 40px;
+  margin: 0;
 }
 @media (min-width: 768px) {
   .quote__form {
