@@ -85,6 +85,10 @@
                 min-width: 450px;
             }
         }
+        input:focus {
+            border: 2px solid transparentize($color: $bg-primary, $amount: 0.2);
+            transition: border 0.2s ease-in-out;
+        }
 
         @include m("submit") {
             height: 100%;
@@ -110,6 +114,10 @@
                     width: 40px;
                 }
             }
+        }
+        button:hover {
+            background-color: transparentize($color: $bg-primary, $amount: 0.2);
+            transition: background-color 0.2s ease-in-out;
         }
     }
 }

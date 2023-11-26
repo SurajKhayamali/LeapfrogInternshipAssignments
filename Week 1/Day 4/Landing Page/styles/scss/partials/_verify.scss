@@ -89,6 +89,11 @@
                 height: 70px;
                 border-radius: $border-radius;
                 padding-left: $padding-default;
+                outline: none;
+
+                &:focus {
+                    border: 1px solid $primary;
+                }
             }
         }
 

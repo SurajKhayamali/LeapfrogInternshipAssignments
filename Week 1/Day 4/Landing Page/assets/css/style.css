@@ -1188,6 +1188,10 @@ figure {
   height: 70px;
   border-radius: 20px;
   padding-left: 20px;
+  outline: none;
+}
+.verify__form--group input:focus {
+  border: 1px solid #17c2ec;
 }
 .verify__form .mobileNumberGroup {
   width: 100%;
@@ -1704,6 +1708,10 @@ figure {
     min-width: 450px;
   }
 }
+.quote__form input:focus {
+  border: 2px solid rgba(11, 21, 60, 0.8);
+  transition: border 0.2s ease-in-out;
+}
 .quote__form--submit {
   height: 100%;
   background-color: #0b153c;
@@ -1729,6 +1737,10 @@ figure {
     height: 40px;
     width: 40px;
   }
+}
+.quote__form button:hover {
+  background-color: rgba(11, 21, 60, 0.8);
+  transition: background-color 0.2s ease-in-out;
 }
 
 .footer {
