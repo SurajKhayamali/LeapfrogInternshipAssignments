@@ -4,7 +4,6 @@
     gap: $gap-default;
     border-radius: $border-radius;
     background-color: $bg-secondary-lightest;
-    // padding: $padding-small;
     margin-top: $margin-large;
 
     @include respond-to("medium") {

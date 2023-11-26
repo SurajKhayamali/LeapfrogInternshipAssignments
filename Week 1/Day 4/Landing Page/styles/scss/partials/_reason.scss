@@ -58,7 +58,6 @@
         @include respond-to("medium") {
             flex-direction: row;
             flex-wrap: wrap;
-            // align-items: flex-end;
             gap: $gap-large;
 
             & > * {
