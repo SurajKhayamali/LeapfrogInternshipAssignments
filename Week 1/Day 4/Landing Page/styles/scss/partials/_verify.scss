@@ -5,6 +5,11 @@
     gap: $gap-default;
     padding-top: $padding-large;
     padding-bottom: $padding-large;
+
+    background-image: url("../img/verify-bg-image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
     @include respond-to("medium") {
         align-items: flex-start;
     }
@@ -63,10 +68,6 @@
             font-size: $font-size-xlarge;
         }
     }
-
-    // @include e("right") {
-    //     width: 100%;
-    // }
 
     @include e("left") {
         display: flex;

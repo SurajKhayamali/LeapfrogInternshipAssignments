@@ -1091,6 +1091,9 @@ figure {
   gap: 20px;
   padding-top: 40px;
   padding-bottom: 40px;
+  background-image: url("../img/verify-bg-image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 @media (min-width: 768px) {
   .verify {
