@@ -1,0 +1,100 @@
+.feedback {
+    display: flex;
+    flex-direction: column;
+    padding: $padding-medium;
+    gap: $gap-default;
+    text-align: center;
+
+    @include e("header") {
+        display: flex;
+        flex-direction: column;
+        padding: $padding-medium;
+        gap: $gap-small;
+
+        * {
+            margin: 0;
+        }
+
+        @include m("title") {
+            @include text-defaults;
+            font-weight: $font-weight-extra-bold;
+            font-size: $font-size-medium;
+            color: $black;
+
+            @include respond-to("medium") {
+                font-size: $font-size-large;
+            }
+            @include respond-to("large") {
+                font-size: $font-size-xlarge;
+            }
+        }
+    }
+    @include e("description") {
+        @include text-defaults;
+        color: transparentize($black, 0.5);
+    }
+
+    @include e("cards") {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-medium;
+
+        @include respond-to("large") {
+            flex-direction: row;
+        }
+    }
+
+    @include e("card") {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-medium;
+        background-color: transparentize($bg-secondary, 0.5);
+        border-radius: $border-radius;
+        padding: $padding-default;
+
+        @include respond-to("medium") {
+            padding: $padding-medium;
+        }
+
+        @include respond-to("large") {
+            gap: $gap-large;
+        }
+
+        @include m("header") {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: $gap-small;
+            text-align: start;
+        }
+        @include m("name") {
+            @include text-defaults;
+            font-weight: $font-weight-bold;
+            color: $black;
+            margin: 0;
+        }
+        @include m("location") {
+            @include text-defaults;
+            font-size: 10px;
+            color: transparentize($black, 0.6);
+            margin: 0;
+
+            @include respond-to("medium") {
+                font-size: 14px;
+            }
+        }
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: $primary;
+            color: $white;
+
+            .feedback__card--name,
+            .feedback__card--location,
+            .text--primary {
+                color: $white;
+            }
+        }
+    }
+}

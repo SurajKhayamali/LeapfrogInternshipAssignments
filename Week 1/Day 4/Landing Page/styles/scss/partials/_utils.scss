@@ -21,7 +21,7 @@
   color: $black;
 
   @include respond-to("large") {
-    background-color: $bg-secondary;
+    background-color: transparentize($color: $bg-secondary, $amount: 0.5);
   }
 
   a {

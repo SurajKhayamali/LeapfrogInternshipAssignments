@@ -28,4 +28,21 @@
     @include m("secondary") {
         color: $secondary;
     }
+
+    // font weights
+    @include m("light") {
+        font-weight: $font-weight-light;
+    }
+    @include m("regular") {
+        font-weight: $font-weight-regular;
+    }
+    @include m("medium") {
+        font-weight: $font-weight-medium;
+    }
+    @include m("bold") {
+        font-weight: $font-weight-bold;
+    }
+    @include m("extra-bold") {
+        font-weight: $font-weight-extra-bold;
+    }
 }
