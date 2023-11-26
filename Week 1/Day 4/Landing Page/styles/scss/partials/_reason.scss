@@ -107,6 +107,9 @@
             .reason__card--link {
                 color: $primary !important;
             }
+            .reason__card--link--icon {
+                @include backgroundSVGandColor("../img/icons/arrow-right-primary.svg", $primary);
+            }
         }
 
         @include respond-to("medium") {

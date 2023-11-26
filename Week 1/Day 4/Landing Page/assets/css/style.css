@@ -1032,6 +1032,15 @@ figure {
 .reason__card:first-child .reason__card--link, .reason__card:active .reason__card--link, .reason__card:focus .reason__card--link, .reason__card:hover .reason__card--link {
   color: #17c2ec !important;
 }
+.reason__card:first-child .reason__card--link--icon, .reason__card:active .reason__card--link--icon, .reason__card:focus .reason__card--link--icon, .reason__card:hover .reason__card--link--icon {
+  background-color: #17c2ec;
+  -webkit-mask-image: url("../img/icons/arrow-right-primary.svg");
+  mask: url("../img/icons/arrow-right-primary.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
 @media (min-width: 768px) {
   .reason__card {
     gap: 40px;
