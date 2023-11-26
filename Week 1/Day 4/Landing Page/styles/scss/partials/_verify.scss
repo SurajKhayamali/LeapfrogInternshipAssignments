@@ -91,9 +91,49 @@
             }
         }
 
-        @include m("verify") {
-            width: max-content;
-            padding: $padding-default $padding-xlarge;
+        .mobileNumberGroup {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: $gap-default;
+
+            @include respond-to("medium") {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            @include e("input") {
+                display: flex;
+                align-items: center;
+                gap: $gap-xsmall;
+
+                background-color: transparentize($bg-primary, 0.85);
+                border-radius: $border-radius;
+                padding-left: $padding-default;
+
+                @include respond-to("medium") {
+                    gap: $gap-small;
+                }
+
+                @include m("flag") {
+                    height: 40px;
+                    width: 40px;
+                }
+                @include m("verticalSeperator") {
+                    width: 3px;
+                    height: 40px;
+                    background-color: $bg-secondary;
+                }
+
+                input {
+                    background-color: unset;
+                }
+            }
+
+            @include e("verify") {
+                width: max-content;
+                padding: $padding-default $padding-xlarge;
+            }
         }
     }
 

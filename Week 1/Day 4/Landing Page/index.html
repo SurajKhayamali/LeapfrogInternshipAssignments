@@ -249,8 +249,19 @@
           <div class="verify__form--group">
             <label for="mobileNumber" class="text text--black text--bold">Mobile Number</label>
             <p>Notifications for appointment and reminders will be sent to this provided number</p>
-            <input type="text" name="mobileNumber" id="mobileNumber" placeholder="Phone number" />
-            <button class="btn btn--primary verify__form--verify">Verify</button>
+            <div class="mobileNumberGroup">
+              <div class="mobileNumberGroup__input">
+                <figure class="mobileNumberGroup__input--flag">
+                  <img src="./assets/img/icons/twemoji_flag-nigeria.svg" alt="nigeria flag" />
+                </figure>
+                <figure class="mobileNumberGroup__input--downIcon">
+                  <img src="./assets/img/icons/chevron-down.svg" alt="chevron down icon" />
+                </figure>
+                <div class="mobileNumberGroup__input--verticalSeperator"></div>
+                <input type="text" name="mobileNumber" id="mobileNumber" placeholder="Phone number" />
+              </div>
+              <button class="btn btn--primary mobileNumberGroup__verify">Verify</button>
+            </div>
           </div>
           <button class="btn btn--primary verify__form--submit">Submit</button>
         </form>

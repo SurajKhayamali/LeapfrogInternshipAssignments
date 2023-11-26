@@ -1186,7 +1186,44 @@ figure {
   border-radius: 20px;
   padding-left: 20px;
 }
-.verify__form--verify {
+.verify__form .mobileNumberGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .verify__form .mobileNumberGroup {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.verify__form .mobileNumberGroup__input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: rgba(11, 21, 60, 0.15);
+  border-radius: 20px;
+  padding-left: 20px;
+}
+@media (min-width: 768px) {
+  .verify__form .mobileNumberGroup__input {
+    gap: 10px;
+  }
+}
+.verify__form .mobileNumberGroup__input--flag {
+  height: 40px;
+  width: 40px;
+}
+.verify__form .mobileNumberGroup__input--verticalSeperator {
+  width: 3px;
+  height: 40px;
+  background-color: #c4c4c4;
+}
+.verify__form .mobileNumberGroup__input input {
+  background-color: unset;
+}
+.verify__form .mobileNumberGroup__verify {
   width: max-content;
   padding: 20px 70px;
 }
