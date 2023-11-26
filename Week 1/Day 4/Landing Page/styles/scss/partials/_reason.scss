@@ -54,6 +54,7 @@
         }
         @include respond-to("large") {
             gap: $gap-xlarge;
+            align-items: flex-end;
         }
     }
 
@@ -64,11 +65,16 @@
         border-radius: $border-radius;
         border: 3px solid $secondary;
         padding: $padding-default;
+        width: 70%;
 
-        &:first-child {
+        &:first-child,
+        &:active,
+        &:focus,
+        &:hover {
             border-top-right-radius: $border-radius-xlarge;
             border: none;
             background-color: $bg-secondary-light;
+            width: unset;
 
             @include respond-to("medium") {
                 border-top-right-radius: $border-radius-xxlarge;
@@ -76,10 +82,14 @@
             }
             @include respond-to("large") {
                 flex-basis: 0;
+                height: max-content;
             }
 
             .reason__card--title {
                 color: $primary;
+            }
+            .reason__card--description {
+                display: block;
             }
             .reason__card--link {
                 color: $primary !important;
@@ -122,6 +132,7 @@
             }
         }
         @include m("description") {
+            display: none;
             color: $secondary;
 
             @include respond-to("medium") {

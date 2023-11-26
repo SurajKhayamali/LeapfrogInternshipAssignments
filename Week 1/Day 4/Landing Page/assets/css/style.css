@@ -963,6 +963,7 @@ figure {
 @media (min-width: 1024px) {
   .reason__cards {
     gap: 50px;
+    align-items: flex-end;
   }
 }
 .reason__card {
@@ -972,27 +973,33 @@ figure {
   border-radius: 20px;
   border: 3px solid rgba(255, 255, 255, 0.5);
   padding: 20px;
+  width: 70%;
 }
-.reason__card:first-child {
+.reason__card:first-child, .reason__card:active, .reason__card:focus, .reason__card:hover {
   border-top-right-radius: 80px;
   border: none;
   background-color: rgba(196, 196, 196, 0.2);
+  width: unset;
 }
 @media (min-width: 768px) {
-  .reason__card:first-child {
+  .reason__card:first-child, .reason__card:active, .reason__card:focus, .reason__card:hover {
     border-top-right-radius: 150px;
     flex-basis: 100%;
   }
 }
 @media (min-width: 1024px) {
-  .reason__card:first-child {
+  .reason__card:first-child, .reason__card:active, .reason__card:focus, .reason__card:hover {
     flex-basis: 0;
+    height: max-content;
   }
 }
-.reason__card:first-child .reason__card--title {
+.reason__card:first-child .reason__card--title, .reason__card:active .reason__card--title, .reason__card:focus .reason__card--title, .reason__card:hover .reason__card--title {
   color: #17c2ec;
 }
-.reason__card:first-child .reason__card--link {
+.reason__card:first-child .reason__card--description, .reason__card:active .reason__card--description, .reason__card:focus .reason__card--description, .reason__card:hover .reason__card--description {
+  display: block;
+}
+.reason__card:first-child .reason__card--link, .reason__card:active .reason__card--link, .reason__card:focus .reason__card--link, .reason__card:hover .reason__card--link {
   color: #17c2ec !important;
 }
 @media (min-width: 768px) {
@@ -1034,6 +1041,7 @@ figure {
   }
 }
 .reason__card--description {
+  display: none;
   color: rgba(255, 255, 255, 0.5);
 }
 @media (min-width: 768px) {
