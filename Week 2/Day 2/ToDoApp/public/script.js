@@ -100,6 +100,7 @@ const generateHTMLElement = (todo) => {
   if (completed) {
     const doneBtn = document.createElement("button");
     doneBtn.classList.add("todoList__actionBtn", "todoList__actionBtn--done");
+    doneBtn.title = "Mark as undone";
     doneBtn.addEventListener("click", () => handleTodoUndone(title)); // INFO: reversal, on done marked button click, undone action is performed and vice versa
 
     const doneImg = document.createElement("img");
@@ -114,6 +115,7 @@ const generateHTMLElement = (todo) => {
       "todoList__actionBtn",
       "todoList__actionBtn--undone"
     );
+    undoneBtn.title = "Mark as done";
     undoneBtn.addEventListener("click", () => handleTodoDone(title));
 
     const undoneImg = document.createElement("img");
@@ -126,6 +128,7 @@ const generateHTMLElement = (todo) => {
 
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("todoList__actionBtn", "todoList__actionBtn--delete");
+  deleteBtn.title = "Delete";
   deleteBtn.addEventListener("click", () => handleTodoDelete(title));
 
   const deleteImg = document.createElement("img");
