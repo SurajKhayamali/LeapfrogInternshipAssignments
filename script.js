@@ -7,6 +7,11 @@
 //   name: "",
 //   relativeFolderPath: "",
 // };
+// interface Assignment {
+//   name: string;
+//   relativeFolderPath: string;
+//   codeFolderPath?: string;
+// }
 
 const ROOT_URL_FOR_DEMO =
   "https://github.surajkhayamali.com.np/LeapfrogInternshipAssignments";
@@ -32,6 +37,11 @@ const assignments = [
     name: "Landing Page Design to Code",
     relativeFolderPath: "Week 1/Day 4/Landing Page",
   },
+  {
+    name: "ToDo App",
+    relativeFolderPath: "Week 2/Day 2/ToDoApp/public",
+    codeFolderPath: "Week 2/Day 2/ToDoApp",
+  },
 ];
 
 const assignmentListTable = document.getElementById("assignment-list-table");
@@ -44,11 +54,13 @@ function addRowToTable(index, assignment) {
   const demoLinkCell = newRow.insertCell(2);
   const codeLinkCell = newRow.insertCell(3);
 
-  const { name, relativeFolderPath } = assignment;
+  const { name, relativeFolderPath, codeFolderPath } = assignment;
   indexCell.innerHTML = `<p>${index + 1}.</p>`;
   nameCell.innerHTML = `<p>${name}</p>`;
   demoLinkCell.innerHTML = `<a href="${ROOT_URL_FOR_DEMO}/${relativeFolderPath}" target="_blank">Demo</a>`;
-  codeLinkCell.innerHTML = `<a href="${ROOT_URL_FOR_CODE}/tree/${BRANCH_NAME}/${relativeFolderPath}" target="_blank">Code</a>`;
+  codeLinkCell.innerHTML = `<a href="${ROOT_URL_FOR_CODE}/tree/${BRANCH_NAME}/${
+    codeFolderPath ? codeFolderPath : relativeFolderPath
+  }" target="_blank">Code</a>`;
 }
 
 const assignmentsCount = assignments.length;
