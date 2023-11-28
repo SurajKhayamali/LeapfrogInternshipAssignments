@@ -3,20 +3,7 @@
  * @property {string} title
  * @property {boolean} completed
  */
-const todos = [
-  // {
-  //   title: "Todo 1",
-  //   completed: false,
-  // },
-  // {
-  //   title: "Todo 2",
-  //   completed: true,
-  // },
-  // {
-  //   title: "Todo 3",
-  //   completed: true,
-  // },
-];
+const todos = [];
 let filteredTodos = [];
 let filterQueryText = "";
 
@@ -93,6 +80,7 @@ const handleTodoDelete = (title) => {
  *
  */
 const generateHTMLElement = (todo) => {
+  // Example HTML structure
   //   <li class="todoList__item">
   //   <div class="todoList__text">Todo 1</div>
   //   <div class="todoList__actions">
@@ -199,21 +187,14 @@ const renderTodos = () => {
 
   for (const todo of filteredTodos) {
     const li = generateHTMLElement(todo);
-    // console.log("generated li", li);
-    // console.log("todoList before", todoList.innerHTML);
     todoList.appendChild(li);
-    // console.log("todoList after", todoList.innerHTML);
 
     const clonedElement = li.cloneNode(true);
     bindEventListeners(clonedElement, todo.title);
 
     if (todo.completed) {
-      // completedOnlyTodoList.appendChild(li.cloneNode(true));
-      // completedOnlyTodoList.insertAdjacentHTML("beforeend", li.outerHTML);
       completedOnlyTodoList.appendChild(clonedElement);
     } else {
-      // pendingOnlyTodoList.appendChild(li.cloneNode(true));
-      // pendingOnlyTodoList.insertAdjacentHTML("beforeend", li.outerHTML);
       pendingOnlyTodoList.appendChild(clonedElement);
     }
   }
@@ -249,7 +230,6 @@ const validateFormInput = (value) => {
  *
  */
 const handleFormSubmit = (e) => {
-  // console.log("form submitted");
   e.preventDefault();
 
   const form = e.target;
@@ -274,11 +254,6 @@ const handleFilter = (title) => {
   return todos.filter((todo) => todo.title.includes(title));
 };
 const handleFilterChange = (e) => {
-  // const value = e.target.value;
-  // filteredTodos = handleFilter(value);
-  // // console.log("filteredTodos", filteredTodos);
-  // renderTodos();
-
   filterQueryText = e.target.value;
   if (!filterQueryText) {
     filteredTodos = [...todos];
