@@ -1,0 +1,99 @@
+.search {
+    position: relative;
+
+    @include e("input") {
+        width: 100%;
+        padding: $padding-small;
+        box-sizing: border-box;
+        border: 1px solid $bg-secondary;
+        border-radius: $border-radius-small;
+    }
+
+    @include e("icon") {
+        position: absolute;
+        right: $padding-small;
+        top: 30%;
+    }
+
+    figure {
+        margin: 0;
+    }
+}
+
+.addTodoFormContainer {
+    margin: $margin-medium 0;
+}
+
+.addTodoForm {
+    position: relative;
+
+    @include e("input") {
+        width: 100%;
+        padding: $padding-small;
+        box-sizing: border-box;
+        border: 1px solid $bg-secondary;
+        border-radius: $border-radius-small;
+    }
+
+    @include e("submit") {
+        position: absolute;
+        right: $padding-small;
+        top: 30%;
+        z-index: 2;
+    }
+
+    button {
+        border: none;
+    }
+    figure {
+        margin: 0;
+    }
+}
+
+.todoList {
+    @include resetListStyles;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-default;
+
+    @include e("item") {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $padding-small;
+        border: 1px solid $bg-secondary;
+        border-radius: $border-radius-small;
+
+        @include m("completed") {
+            background-color: $bg-secondary-lightest;
+        }
+
+        @include e("text") {
+            margin: 0;
+        }
+
+        @include e("actions") {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    @include e("actions") {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: $gap-default;
+    }
+
+    @include e("actionBtn") {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

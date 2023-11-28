@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="container">
+  <header>
+    <h1 class="text--primary">ToDo App</h1>
+  </header>
+  <section class="search">
+    <input type="text" placeholder="Search" class="search__input" />
+    <figure class="search__icon">
+      <img src="./icons/magnifying-glass-solid.svg" alt="search" />
+    </figure>
+  </section>
+
+  <section class="addTodoFormContainer">
+    <form id="addTodoForm" class="addTodoForm" actiom="#">
+      <input type="text" name="todo" id="todo" placeholder="Enter your todo" class="addTodoForm__input" />
+      <button type="submit" id="add" class="addTodoForm__submit">
+        + Add
+      </button>
+    </form>
+  </section>
+
+  <section>
+    <h2 class="text--primary">Todo List</h2>
+    <ul id="todoList" class="todoList">
+      <li class="todoList__item">
+        <div class="todoList__text">Todo 1</div>
+        <div class="todoList__actions">
+          <button class="todoList__actionBtn todoList__actionBtn--done">
+            <img src="./icons/circle-check.svg" alt="done" />
+          </button>
+          <button class="todoList__actionBtn todoList__actionBtn--undone">
+            <img src="./icons/circle.svg" alt="undone" />
+          </button>
+          <button class="todoList__actionBtn todoList__actionBtn--delete">
+            <img src="./icons/circle-xmark.svg" alt="delete" />
+          </button>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="text--primary">Pending</h2>
+    <ul id="pendingOnlyTodoList" class="todoList">
+      <li class="todoList__item">
+        <div class="todoList__text">Todo 1</div>
+        <div class="todoList__actions">
+          <button class="todoList__actionBtn todoList__actionBtn--done">
+            <img src="./icons/circle-check.svg" alt="done" />
+          </button>
+          <button class="todoList__actionBtn todoList__actionBtn--undone">
+            <img src="./icons/circle.svg" alt="undone" />
+          </button>
+          <button class="todoList__actionBtn todoList__actionBtn--delete">
+            <img src="./icons/circle-xmark.svg" alt="delete" />
+          </button>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="text--primary">Completed</h2>
+    <ul id="completedOnlyTodoList" class="todoList">
+      <li class="todoList__item">
+        <div class="todoList__text">Todo 1</div>
+        <div class="todoList__actions">
+          <button class="todoList__actionBtn todoList__actionBtn--done">
+            <img src="./icons/circle-check.svg" alt="done" />
+          </button>
+          <button class="todoList__actionBtn todoList__actionBtn--undone">
+            <img src="./icons/circle.svg" alt="undone" />
+          </button>
+          <button class="todoList__actionBtn todoList__actionBtn--delete">
+            <img src="./icons/circle-xmark.svg" alt="delete" />
+          </button>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+@mixin text-defaults {
+    font-size: $font-size-small;
+    font-weight: $font-weight-regular;
+    margin: 0;
+
+    @include respond-to("medium") {
+        font-size: $font-size-normal;
+    }
+
+    @include respond-to("large") {
+        font-size: $font-size-medium;
+    }
+}
+
+.text {
+    @include text-defaults;
+
+    // colors
+    @include m("primary") {
+        color: $primary;
+    }
+    @include m("black") {
+        color: $black;
+    }
+    @include m("white") {
+        color: $white;
+    }
+    @include m("secondary") {
+        color: $secondary;
+    }
+
+    // font weights
+    @include m("light") {
+        font-weight: $font-weight-light;
+    }
+    @include m("regular") {
+        font-weight: $font-weight-regular;
+    }
+    @include m("medium") {
+        font-weight: $font-weight-medium;
+    }
+    @include m("bold") {
+        font-weight: $font-weight-bold;
+    }
+    @include m("extra-bold") {
+        font-weight: $font-weight-extra-bold;
+    }
+}

@@ -86,3 +86,19 @@ $breakpoints: (
     padding: 0;
     margin: 0;
 }
+
+// display flex
+@mixin d-flex($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// background image
+@mixin bg-image($image, $size: cover, $position: center, $repeat: no-repeat) {
+    background-image: url($image);
+    background-size: $size;
+    background-position: $position;
+    background-repeat: $repeat;
+}

@@ -2,7 +2,13 @@
 @import "abstracts/mixins";
 
 @import "base/reset";
+@import "base/typography";
 
+@import "layout/container";
 @import "layout/header";
+@import "layout/forms";
 
 @import "components/buttons";
+@import "components/text";
+
+@import "pages/home";

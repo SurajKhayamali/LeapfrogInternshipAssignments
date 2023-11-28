@@ -1,0 +1,5 @@
+{
+    "liveServer.settings.root": "/public",
+    // "liveServer.settings.NoBrowser": true,
+    "liveServer.settings.CustomBrowser": "chrome:PrivateMode"
+}
