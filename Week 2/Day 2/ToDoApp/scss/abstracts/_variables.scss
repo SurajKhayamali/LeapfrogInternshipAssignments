@@ -1,0 +1,77 @@
+$font-family-base: "Montserrat", sans-serif;
+
+// font sizes
+$font-size-xsmall: 0.625rem; // 10px
+$font-size-small: 0.875rem; // 14px
+$font-size-base: 1rem; // 16px
+$font-size-normal: 1.25rem; // 20px
+$font-size-medium: 1.5rem; // 24px
+$font-size-large: 2rem; // 32px
+$font-size-xlarge: 3rem; // 48px
+$font-size-heading: 2.5rem; // 40px
+
+// font weights
+$font-weight-light: 400;
+$font-weight-regular: 500;
+$font-weight-medium: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+
+// colors
+$primary: #17c2ec;
+$black: #000000;
+$white: #ffffff;
+$secondary: transparentize($white, 0.5);
+
+// background colors
+$bg-primary: #0b153c;
+$bg-secondary: #c4c4c4;
+$bg-white: $secondary;
+
+// background secondary colors variants
+$bg-secondary-light: transparentize(
+    $color: $bg-secondary,
+    $amount: 0.8
+);
+$bg-secondary-lighter: transparentize(
+    $color: $bg-secondary,
+    $amount: 0.9
+);
+$bg-secondary-lightest: transparentize(
+    $color: $bg-secondary,
+    $amount: 0.95
+);
+
+// spacing
+$gap-xsmall: 5px;
+$gap-small: 10px;
+$gap-default: 20px;
+$gap-medium: 30px;
+$gap-large: 40px;
+$gap-xlarge: 50px;
+
+// border radius
+$border-radius-xsmall: 5px;
+$border-radius-small: 10px;
+$border-radius: 20px;
+$border-radius-large: 50px;
+$border-radius-xlarge: 80px;
+$border-radius-xxlarge: 150px;
+
+// padding
+$padding-xsmall: 5px;
+$padding-small: 10px;
+$padding-default: 20px;
+$padding-medium: 25px;
+$padding-large: 40px;
+$padding-xlarge: 70px;
+
+// margins
+$margin-default: 50px;
+$margin-medium: 70px;
+$margin-large: 100px;
+
+// breakpoints
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;

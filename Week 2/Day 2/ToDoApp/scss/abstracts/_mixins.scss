@@ -1,0 +1,88 @@
+// Referenced from:
+// https://stackoverflow.com/questions/13367868/how-to-modify-the-fill-color-of-an-svg-image-when-being-served-as-background-ima
+// https://stackoverflow.com/a/46904983
+@mixin backgroundSVGandColor($filepath, $color: $white) {
+    background-color: $color;
+    -webkit-mask-image: url($filepath);
+    mask: url($filepath);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
+
+// Referenced from:
+// https://css-tricks.com/snippets/sass/bem-mixins/
+/// Block Element
+/// @access public
+/// @param {String} $element - Element's name
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+/// Block Modifier
+/// @access public
+/// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
+/// @alias element
+@mixin e($element) {
+    @include element($element) {
+        @content;
+    }
+}
+
+/// @alias modifier
+@mixin m($modifier) {
+    @include modifier($modifier) {
+        @content;
+    }
+}
+
+// Referenced from:
+// https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
+$breakpoints: (
+    "small": (
+        min-width: $breakpoint-small
+    ),
+    "medium": (
+        min-width: $breakpoint-medium
+    ),
+    "large": (
+        min-width: $breakpoint-large
+    )
+) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @author Kitty Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Prints a media query based on the value
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+
+    // If the key doesn't exist in the map
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+// reset list styles
+@mixin resetListStyles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
