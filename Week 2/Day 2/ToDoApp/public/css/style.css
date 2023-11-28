@@ -383,6 +383,7 @@ body {
   box-sizing: border-box;
   border: 1px solid #c4c4c4;
   border-radius: 10px;
+  outline-color: #17c2ec;
 }
 .search__icon {
   position: absolute;
@@ -406,6 +407,7 @@ body {
   box-sizing: border-box;
   border: 1px solid #c4c4c4;
   border-radius: 10px;
+  outline-color: #17c2ec;
 }
 .addTodoForm__submit {
   position: absolute;
@@ -415,6 +417,11 @@ body {
 }
 .addTodoForm button {
   border: none;
+  cursor: pointer;
+}
+.addTodoForm button:hover {
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
 }
 .addTodoForm figure {
   margin: 0;

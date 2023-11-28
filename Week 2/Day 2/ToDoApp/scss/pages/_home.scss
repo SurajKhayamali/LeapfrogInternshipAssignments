@@ -7,6 +7,7 @@
         box-sizing: border-box;
         border: 1px solid $bg-secondary;
         border-radius: $border-radius-small;
+        outline-color: $primary;
     }
 
     @include e("icon") {
@@ -33,6 +34,7 @@
         box-sizing: border-box;
         border: 1px solid $bg-secondary;
         border-radius: $border-radius-small;
+        outline-color: $primary;
     }
 
     @include e("submit") {
@@ -44,6 +46,12 @@
 
     button {
         border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: transparent;
+            transition: background-color 0.2s ease-in-out;
+        }
     }
     figure {
         margin: 0;
