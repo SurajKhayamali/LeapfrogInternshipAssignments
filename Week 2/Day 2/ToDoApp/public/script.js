@@ -198,6 +198,35 @@ const renderTodos = () => {
   }
 };
 
+/**
+ * Validates the form input value,
+ * Checks:
+ * 1. If the value is empty
+ * 2. If the value is a duplicate, already present in the todos array
+ * @param {string} value
+ * @returns {boolean} isValid
+ */
+const validateFormInput = (value) => {
+  if (!value) {
+    alert("Please enter a todo");
+    return false;
+  }
+
+  const isDuplicate = todos.some((todo) => todo.title === value);
+  if (isDuplicate) {
+    alert("Todo with that title already exists");
+    return false;
+  }
+
+  return true;
+};
+
+/**
+ * Handles the form submit event
+ * @param {Event} e
+ * @returns {undefined}
+ *
+ */
 const handleFormSubmit = (e) => {
   // console.log("form submitted");
   e.preventDefault();
@@ -205,6 +234,9 @@ const handleFormSubmit = (e) => {
   const form = e.target;
   const input = form.querySelector("input");
   const value = input.value;
+
+  const isValid = validateFormInput(value);
+  if (!isValid) return;
 
   handleNewTodo({
     title: value,
