@@ -17,6 +17,8 @@ const todos = [
   //   completed: true,
   // },
 ];
+let filteredTodos = [];
+let filterQueryText = "";
 
 /**
  *
@@ -26,6 +28,25 @@ const todos = [
  */
 const handleNewTodo = (todo) => {
   todos.push(todo);
+  if (!filterQueryText || todo.title.includes(filterQueryText))
+    filteredTodos.push(todo);
+  renderTodos();
+};
+
+/**
+ * Mark a todo as completed or pending
+ * @param {string} title
+ * @param {boolean} completed
+ * @returns {undefined}
+ *
+ */
+const handleTodoCompletedStatusChange = (title, completed) => {
+  const todo = todos.find((todo) => todo.title === title);
+  if (!todo) return;
+  todo.completed = completed;
+  const filteredTodo = filteredTodos.find((todo) => todo.title === title);
+  if (!filteredTodo) return;
+  filteredTodo.completed = completed;
   renderTodos();
 };
 
@@ -36,9 +57,7 @@ const handleNewTodo = (todo) => {
  *
  */
 const handleTodoDone = (title) => {
-  const todo = todos.find((todo) => todo.title === title);
-  todo.completed = true;
-  renderTodos();
+  return handleTodoCompletedStatusChange(title, true);
 };
 
 /**
@@ -48,9 +67,7 @@ const handleTodoDone = (title) => {
  *
  */
 const handleTodoUndone = (title) => {
-  const todo = todos.find((todo) => todo.title === title);
-  todo.completed = false;
-  renderTodos();
+  return handleTodoCompletedStatusChange(title, false);
 };
 
 /**
@@ -61,7 +78,11 @@ const handleTodoUndone = (title) => {
  */
 const handleTodoDelete = (title) => {
   const index = todos.findIndex((todo) => todo.title === title);
+  if (index === -1) return;
   todos.splice(index, 1);
+  const filteredIndex = filteredTodos.findIndex((todo) => todo.title === title);
+  if (filteredIndex === -1) return;
+  filteredTodos.splice(filteredIndex, 1);
   renderTodos();
 };
 
@@ -176,7 +197,7 @@ const renderTodos = () => {
   pendingOnlyTodoList.innerHTML = "";
   completedOnlyTodoList.innerHTML = "";
 
-  for (const todo of todos) {
+  for (const todo of filteredTodos) {
     const li = generateHTMLElement(todo);
     // console.log("generated li", li);
     // console.log("todoList before", todoList.innerHTML);
@@ -248,6 +269,29 @@ const handleFormSubmit = (e) => {
 
 const addTodoForm = document.getElementById("addTodoForm");
 addTodoForm.addEventListener("submit", handleFormSubmit);
+
+const handleFilter = (title) => {
+  return todos.filter((todo) => todo.title.includes(title));
+};
+const handleFilterChange = (e) => {
+  // const value = e.target.value;
+  // filteredTodos = handleFilter(value);
+  // // console.log("filteredTodos", filteredTodos);
+  // renderTodos();
+
+  filterQueryText = e.target.value;
+  if (!filterQueryText) {
+    filteredTodos = [...todos];
+    renderTodos();
+    return;
+  }
+
+  filteredTodos = todos.filter((todo) => todo.title.includes(filterQueryText));
+  renderTodos();
+};
+
+const filterInput = document.getElementById("filterInput");
+filterInput.addEventListener("input", handleFilterChange);
 
 window.addEventListener("DOMContentLoaded", () => {
   renderTodos();
