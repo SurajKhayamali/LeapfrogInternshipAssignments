@@ -102,3 +102,5 @@ leftIcon.addEventListener("click", () => {
 rightIcon.addEventListener("click", () => {
   slideToNextImage();
 });
+
+setInterval(() => slideToNextImage(), 2000);
