@@ -42,6 +42,18 @@ const assignments = [
     relativeFolderPath: "Week 2/Day 2/ToDoApp/public",
     codeFolderPath: "Week 2/Day 2/ToDoApp",
   },
+  {
+    name: "Scatter Plot",
+    relativeFolderPath: "Week 2/Day 3/ScatterPlot",
+  },
+  {
+    name: "Bouncing Ball",
+    relativeFolderPath: "Week 2/Day 3/BouncingBall",
+  },
+  {
+    name: "Image Carousel",
+    relativeFolderPath: "Week 2/Day 3/ImageCarousel",
+  },
 ];
 
 const assignmentListTable = document.getElementById("assignment-list-table");
