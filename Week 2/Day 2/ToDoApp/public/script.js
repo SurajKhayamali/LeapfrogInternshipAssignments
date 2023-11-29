@@ -4,7 +4,6 @@
  * @property {boolean} completed
  */
 const todos = [];
-let filteredTodos = [];
 let filterQueryText = "";
 
 /**
@@ -15,8 +14,6 @@ let filterQueryText = "";
  */
 const handleNewTodo = (todo) => {
   todos.push(todo);
-  if (!filterQueryText || todo.title.includes(filterQueryText))
-    filteredTodos.push(todo);
   renderTodos();
 };
 
@@ -31,9 +28,6 @@ const handleTodoCompletedStatusChange = (title, completed) => {
   const todo = todos.find((todo) => todo.title === title);
   if (!todo) return;
   todo.completed = completed;
-  const filteredTodo = filteredTodos.find((todo) => todo.title === title);
-  if (!filteredTodo) return;
-  filteredTodo.completed = completed;
   renderTodos();
 };
 
@@ -67,9 +61,6 @@ const handleTodoDelete = (title) => {
   const index = todos.findIndex((todo) => todo.title === title);
   if (index === -1) return;
   todos.splice(index, 1);
-  const filteredIndex = filteredTodos.findIndex((todo) => todo.title === title);
-  if (filteredIndex === -1) return;
-  filteredTodos.splice(filteredIndex, 1);
   renderTodos();
 };
 
@@ -187,6 +178,7 @@ const renderTodos = () => {
   pendingOnlyTodoList.innerHTML = "";
   completedOnlyTodoList.innerHTML = "";
 
+  const filteredTodos = handleFilter(filterQueryText);
   for (const todo of filteredTodos) {
     const li = generateHTMLElement(todo);
     todoList.appendChild(li);
@@ -257,13 +249,6 @@ const handleFilter = (title) => {
 };
 const handleFilterChange = (e) => {
   filterQueryText = e.target.value;
-  if (!filterQueryText) {
-    filteredTodos = [...todos];
-    renderTodos();
-    return;
-  }
-
-  filteredTodos = todos.filter((todo) => todo.title.includes(filterQueryText));
   renderTodos();
 };
 
