@@ -1,12 +1,12 @@
 // Synchronize these values with the ones used in css
 // all these units are in pixels
-const CHAR_WIDTH = 800;
-const CHAR_HEIGHT = 400;
+const CHART_WIDTH = 800;
+const CHART_HEIGHT = 400;
 const POINT_DIAMETER = 20;
 
 // Calculated values
-const UPPER_LIMIT_X = CHAR_WIDTH - POINT_DIAMETER;
-const UPPER_LIMIT_Y = CHAR_HEIGHT - POINT_DIAMETER;
+const UPPER_LIMIT_X = CHART_WIDTH - POINT_DIAMETER;
+const UPPER_LIMIT_Y = CHART_HEIGHT - POINT_DIAMETER;
 
 const chart = document.getElementById("chart");
 
