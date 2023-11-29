@@ -107,6 +107,8 @@ const generateHTMLElement = (todo) => {
   actions.classList.add("todoList__actions");
 
   if (completed) {
+    li.classList.add("todoList__item--done");
+
     const doneBtn = document.createElement("button");
     doneBtn.classList.add("todoList__actionBtn", "todoList__actionBtn--done");
     doneBtn.title = "Mark as undone";

@@ -72,12 +72,9 @@
         border: 1px solid $bg-secondary;
         border-radius: $border-radius-small;
 
-        @include m("completed") {
-            background-color: $bg-secondary-lightest;
-        }
-
-        @include e("text") {
-            margin: 0;
+        @include m("done") {
+            text-decoration: line-through;
+            color: transparentize($color: $black, $amount: 0.8);
         }
 
         @include e("actions") {

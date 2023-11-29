@@ -443,11 +443,9 @@ body {
   border: 1px solid #c4c4c4;
   border-radius: 10px;
 }
-.todoList__item--completed {
-  background-color: rgba(196, 196, 196, 0.05);
-}
-.todoList__item__text {
-  margin: 0;
+.todoList__item--done {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.2);
 }
 .todoList__item__actions {
   display: flex;
