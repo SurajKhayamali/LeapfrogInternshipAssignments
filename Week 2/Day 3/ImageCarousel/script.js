@@ -42,7 +42,7 @@ const createSlideIndicator = (index) => {
     slideIndicator.classList.add("slide-indicator--active");
   }
 
-  slideIndicator.addEventListener("click", () => {});
+  slideIndicator.addEventListener("click", () => slideToImage(index));
   slideIndicators.appendChild(slideIndicator);
 };
 
@@ -55,6 +55,14 @@ function toNegativePX(value) {
   return `-${value}px`;
 }
 
+function toggleActiveSlideIndicator() {
+  const currentImage = document.querySelector(".slide-indicator--active");
+  currentImage.classList.remove("slide-indicator--active");
+  slideIndicators.children[currentImageIndex].classList.add(
+    "slide-indicator--active"
+  );
+}
+
 function slideTOPreviousImage() {
   if (currentImageIndex > 0) {
     currentImageIndex--;
@@ -63,6 +71,8 @@ function slideTOPreviousImage() {
   }
   const leftValue = currentImageIndex * imageSlideWidth;
   imageSlide.style.left = toNegativePX(leftValue);
+
+  toggleActiveSlideIndicator();
 }
 
 function slideToNextImage() {
@@ -73,38 +83,22 @@ function slideToNextImage() {
   }
   const leftValue = currentImageIndex * imageSlideWidth;
   imageSlide.style.left = toNegativePX(leftValue);
+
+  toggleActiveSlideIndicator();
+}
+
+function slideToImage(index) {
+  currentImageIndex = index;
+  const leftValue = currentImageIndex * imageSlideWidth;
+  imageSlide.style.left = toNegativePX(leftValue);
+
+  toggleActiveSlideIndicator();
 }
 
 leftIcon.addEventListener("click", () => {
-  const currentImage = document.querySelector(".slide-indicator--active");
-  const prevImage = currentImage.previousElementSibling;
-
-  if (prevImage) {
-    currentImage.classList.remove("slide-indicator--active");
-    prevImage.classList.add("slide-indicator--active");
-  } else {
-    currentImage.classList.remove("slide-indicator--active");
-    currentImage.parentNode.lastElementChild.classList.add(
-      "slide-indicator--active"
-    );
-  }
-
   slideTOPreviousImage();
 });
 
 rightIcon.addEventListener("click", () => {
-  const currentImage = document.querySelector(".slide-indicator--active");
-  const nextImage = currentImage.nextElementSibling;
-
-  if (nextImage) {
-    currentImage.classList.remove("slide-indicator--active");
-    nextImage.classList.add("slide-indicator--active");
-  } else {
-    currentImage.classList.remove("slide-indicator--active");
-    currentImage.parentNode.firstElementChild.classList.add(
-      "slide-indicator--active"
-    );
-  }
-
   slideToNextImage();
 });
