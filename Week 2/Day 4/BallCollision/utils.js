@@ -6,7 +6,23 @@
  * @returns number
  */
 function getRandomNumber(min, max) {
-  return min + Math.random() * (max - min);
+  return min + Math.floor(Math.random() * (max - min));
+}
+
+/**
+ * Return a random number between a range other than a specified number, by default 0
+ *
+ * @param {number} min
+ * @param {number} max
+ * @param {number} number
+ * @returns {number} randomNumber
+ */
+function getRandomNumberOtherThan(min, max, number = 0) {
+  let randomNumber = getRandomNumber(min, max);
+  while (randomNumber === number) {
+    randomNumber = getRandomNumber(min, max);
+  }
+  return randomNumber;
 }
 
 /**

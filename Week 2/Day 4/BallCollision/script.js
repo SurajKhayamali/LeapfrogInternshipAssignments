@@ -23,7 +23,9 @@ for (let i = 0; i < BALL_COUNT; i++) {
   const x = getRandomNumber(0, VIEWPORT_WIDTH - BALL_WIDTH);
   const y = getRandomNumber(0, VIEWPORT_HEIGHT - BALL_WIDTH);
   const r = getRandomNumber(Math.min(5, BALL_RADIUS), BALL_RADIUS);
-  const ball = new Ball(x, y, r);
+  const xSpeed = getRandomNumberOtherThan(-2, 2);
+  const ySpeed = getRandomNumberOtherThan(-2, 2);
+  const ball = new Ball(x, y, r, xSpeed, ySpeed);
   ballsArray.push(ball);
   viewport.appendChild(ball.getElement());
 }

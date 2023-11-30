@@ -1,11 +1,11 @@
 class Ball {
-  constructor(x, y, r) {
+  constructor(x, y, r, xSpeed, ySpeed) {
     this.x = x;
     this.y = y;
     this.r = r;
     this.diameter = r * 2;
-    this.xSpeed = getRandomNumber(-2, 2);
-    this.ySpeed = getRandomNumber(-2, 2);
+    this.xSpeed = xSpeed;
+    this.ySpeed = ySpeed;
 
     this.element = document.createElement("div");
     this.element.classList.add("ball");
@@ -112,15 +112,17 @@ class Ball {
    * @param {this} ball
    */
   checkBallCollision = (ball) => {
-    const dist = calculateDistance(this.x, this.y, ball.x, ball.y);
-
-    const sumOfRadii = this.r + ball.r;
-
-    if (dist <= sumOfRadii) {
-      this.xSpeed *= -1;
-      this.ySpeed *= -1;
-      ball.xSpeed *= -1;
-      ball.ySpeed *= -1;
+    if (
+      ball.x <= this.x + this.diameter &&
+      ball.x + ball.diameter >= this.x &&
+      ball.y <= this.y + this.diameter &&
+      ball.y + ball.diameter >= this.y
+    ) {
+      if (Math.abs(this.x - ball.x) > Math.abs(this.y - ball.y)) {
+        ball.xSpeed *= -1;
+      } else {
+        ball.ySpeed *= -1;
+      }
     }
   };
 }
