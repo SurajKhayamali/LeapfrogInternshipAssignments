@@ -10,6 +10,27 @@ function getRandomNumber(min, max) {
 }
 
 /**
+ * Return a random color
+ *
+ * @returns {string}
+ */
+function getRandomColor() {
+  const colors = [
+    "red",
+    "green",
+    "blue",
+    "yellow",
+    "pink",
+    "purple",
+    "orange",
+    "brown",
+    "gray",
+    "black",
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+/**
  * Returns distance between two points
  *
  * @param {number} x1 x position of first element
@@ -23,4 +44,14 @@ function calculateDistance(x1, y1, x2, y2) {
   const yDistance = y2 - y1;
 
   return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+}
+
+/**
+ * Set styles to an element
+ *
+ * @param {HTMLElement} element
+ * @param {} styles
+ */
+function setStyles(element, styles = {}) {
+  Object.assign(element.style, styles);
 }

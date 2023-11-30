@@ -13,33 +13,35 @@ try {
   document.body.appendChild(viewport);
 }
 
+const VIEWPORT_WIDTH = viewport.clientWidth;
+const VIEWPORT_HEIGHT = viewport.clientHeight;
+
 const ballsArray = [];
 
-// Create balls and store in an array
+// Create balls, store in an array and render in viewport
 for (let i = 0; i < BALL_COUNT; i++) {
   const x = getRandomNumber(0, VIEWPORT_WIDTH - BALL_WIDTH);
   const y = getRandomNumber(0, VIEWPORT_HEIGHT - BALL_WIDTH);
-  const ball = new Ball(x, y, BALL_RADIUS);
+  const r = getRandomNumber(Math.min(5, BALL_RADIUS), BALL_RADIUS);
+  const ball = new Ball(x, y, r);
   ballsArray.push(ball);
-  // viewport.appendChild(ball.getElement());
+  viewport.appendChild(ball.getElement());
 }
 
 // Render balls in viewport
-ballsArray.forEach((ball) => viewport.appendChild(ball.getElement()));
-
 function render() {
-  ballsArray.forEach((ball) => {
-    ball.draw();
+  for (const ball of ballsArray) {
     ball.move();
+    ball.draw();
 
     ball.checkWallCollision(0, 0, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 
-    ballsArray.forEach((otherBall) => {
-      if (ball === otherBall) return;
+    for (const otherBall of ballsArray) {
+      if (ball === otherBall) continue;
       ball.checkBallCollision(otherBall);
-    });
-  });
+    }
+  }
   requestAnimationFrame(render);
 }
 
-render();
+requestAnimationFrame(render);

@@ -3,11 +3,18 @@ class Ball {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.xSpeed = getRandomNumber(-5, 5);
-    this.ySpeed = getRandomNumber(-5, 5);
+    this.diameter = r * 2;
+    this.xSpeed = getRandomNumber(-2, 2);
+    this.ySpeed = getRandomNumber(-2, 2);
 
     this.element = document.createElement("div");
     this.element.classList.add("ball");
+
+    setStyles(this.element, {
+      width: `${this.diameter}px`,
+      height: `${this.diameter}px`,
+      backgroundColor: getRandomColor(),
+    });
   }
 
   /**
@@ -90,11 +97,11 @@ class Ball {
     boundaryWidth,
     boundaryHeight
   ) => {
-    if (this.x < boundaryLeft || this.x + BALL_WIDTH > boundaryWidth) {
+    if (this.x < boundaryLeft || this.x > boundaryWidth - this.diameter) {
       this.xSpeed *= -1;
     }
 
-    if (this.y < boundaryTop || this.y + BALL_WIDTH > boundaryHeight) {
+    if (this.y < boundaryTop || this.y > boundaryHeight - this.diameter) {
       this.ySpeed *= -1;
     }
   };
@@ -109,8 +116,7 @@ class Ball {
 
     const sumOfRadii = this.r + ball.r;
 
-    if (dist < sumOfRadii) {
-      // console.log("collision");
+    if (dist <= sumOfRadii) {
       this.xSpeed *= -1;
       this.ySpeed *= -1;
       ball.xSpeed *= -1;

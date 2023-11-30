@@ -54,6 +54,10 @@ const assignments = [
     name: "Image Carousel",
     relativeFolderPath: "Week 2/Day 3/ImageCarousel",
   },
+  {
+    name: "Ball Collision",
+    relativeFolderPath: "Week 2/Day 4/BallCollision",
+  },
 ];
 
 const assignmentListTable = document.getElementById("assignment-list-table");

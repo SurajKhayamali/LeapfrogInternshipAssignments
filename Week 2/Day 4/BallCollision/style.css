@@ -1,15 +1,22 @@
+:root {
+    --margin: 10px;
+}
+
+
 .viewport {
-    width: 500px;
-    height: 500px;
+    /* margin: var(--margin);
+    height: calc(100vh - 2 * var(--margin));
+    width: calc(100vw - 2 * var(--margin)); */
+
+    height: 100vh;
+    width: 100vw;
     border: 1px solid black;
     border-radius: 5px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .ball {
     position: absolute;
-    width: 40px;
-    aspect-ratio: 1/1;
     border-radius: 50%;
-    background-color: #49c;
 }
