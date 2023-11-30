@@ -3,8 +3,10 @@ const leftIcon = document.getElementById("arrow-left");
 const rightIcon = document.getElementById("arrow-right");
 const slideIndicators = document.getElementById("slide-indicators");
 
+// Get Image Slide Width
 const imageSlideWidth = imageSlide.offsetWidth;
 
+// Images Array, new images can be added or removed here as per requirement
 const images = [
   {
     src: "./images/kseniia-lobko--8gzM1wxPYI-unsplash-min.jpg",
@@ -19,18 +21,22 @@ const images = [
     alt: "Image 3",
   },
 ];
-const imagesLength = images.length;
-let currentImageIndex = 0;
+const imagesLength = images.length; // Total number of images, used to create slide indicators
+let currentImageIndex = 0; // Used to track the current image index
 let transitionInProgress; // Used to track if the slide is in transitions
 
 /**
  * Create Image Slide
+ *
  * @param {src, alt} image
  */
 const createImageSlide = (image) => {
   const figureElement = document.createElement("figure");
+
   figureElement.classList.add("image-slide__item");
+
   const imageElement = document.createElement("img");
+
   imageElement.src = image.src;
   imageElement.alt = image.alt;
   figureElement.appendChild(imageElement);
@@ -39,13 +45,15 @@ const createImageSlide = (image) => {
 
 /**
  * Create Slide Indicator
+ *
  * @param {number} index
  *
  */
 const createSlideIndicator = (index) => {
-  // Create Slide Indicator
   const slideIndicator = document.createElement("div");
+
   slideIndicator.classList.add("slide-indicator");
+
   if (index === 0) {
     slideIndicator.classList.add("slide-indicator--active");
   }
@@ -54,13 +62,9 @@ const createSlideIndicator = (index) => {
   slideIndicators.appendChild(slideIndicator);
 };
 
-for (let i = 0; i < imagesLength; i++) {
-  createImageSlide(images[i]);
-  createSlideIndicator(i);
-}
-
 /**
  * Convert value to negative px
+ *
  * @param {number} value
  * @returns {string}
  *
@@ -74,6 +78,7 @@ function toNegativePX(value) {
  */
 function toggleActiveSlideIndicator() {
   const currentImage = document.querySelector(".slide-indicator--active");
+
   currentImage.classList.remove("slide-indicator--active");
   slideIndicators.children[currentImageIndex].classList.add(
     "slide-indicator--active"
@@ -82,10 +87,10 @@ function toggleActiveSlideIndicator() {
 
 /**
  * Handles Transition from one image to another
+ *
  * @param {number} start
  * @param {number} end
  * @param {number} duration
- *
  */
 function handleTransition(start, end, duration = 2000) {
   const fps = 60;
@@ -97,11 +102,13 @@ function handleTransition(start, end, duration = 2000) {
 
   const interval = setInterval(() => {
     transitionInProgress = true;
+
     if (shouldIncrement) {
       start += distancePerFrame;
     } else {
       start -= distancePerFrame;
     }
+
     if ((shouldIncrement && start < end) || (!shouldIncrement && start > end)) {
       imageSlide.style.left = toNegativePX(start);
     } else {
@@ -121,12 +128,15 @@ function slideTOPreviousImage() {
   }
 
   const startValue = currentImageIndex * imageSlideWidth;
+
   if (currentImageIndex > 0) {
     currentImageIndex--;
   } else {
     currentImageIndex = imagesLength - 1;
   }
+
   const leftValue = currentImageIndex * imageSlideWidth;
+
   handleTransition(startValue, leftValue);
 
   toggleActiveSlideIndicator();
@@ -141,12 +151,15 @@ function slideToNextImage() {
   }
 
   const startValue = currentImageIndex * imageSlideWidth;
+
   if (currentImageIndex < imagesLength - 1) {
     currentImageIndex++;
   } else {
     currentImageIndex = 0;
   }
+
   const leftValue = currentImageIndex * imageSlideWidth;
+
   handleTransition(startValue, leftValue);
 
   toggleActiveSlideIndicator();
@@ -154,6 +167,7 @@ function slideToNextImage() {
 
 /**
  * Slide to Image
+ *
  * @param {number} index
  */
 function slideToImage(index) {
@@ -164,17 +178,25 @@ function slideToImage(index) {
   const startValue = currentImageIndex * imageSlideWidth;
   currentImageIndex = index;
   const leftValue = currentImageIndex * imageSlideWidth;
+
   handleTransition(startValue, leftValue);
 
   toggleActiveSlideIndicator();
 }
 
+// Creating Image Slide and Slide Indicators
+for (let i = 0; i < imagesLength; i++) {
+  createImageSlide(images[i]);
+  createSlideIndicator(i);
+}
+
+// Event Listeners for Left and Right Icon
 leftIcon.addEventListener("click", () => {
   slideTOPreviousImage();
 });
-
 rightIcon.addEventListener("click", () => {
   slideToNextImage();
 });
 
+// Auto Slide
 setInterval(() => slideToNextImage(), 2000);
