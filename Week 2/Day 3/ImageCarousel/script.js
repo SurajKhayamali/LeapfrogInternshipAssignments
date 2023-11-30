@@ -4,7 +4,6 @@ const rightIcon = document.getElementById("arrow-right");
 const slideIndicators = document.getElementById("slide-indicators");
 
 const imageSlideWidth = imageSlide.offsetWidth;
-// console.log("imageSlideWidth:", imageSlideWidth);
 
 const images = [
   {
@@ -22,6 +21,7 @@ const images = [
 ];
 const imagesLength = images.length;
 let currentImageIndex = 0;
+let transitionInProgress; // Used to track if the slide is in transitions
 
 const createImageSlide = (image) => {
   // Create Image Slide
@@ -63,31 +63,80 @@ function toggleActiveSlideIndicator() {
   );
 }
 
+function handleTransition(start, end, duration = 2000) {
+  const fps = 60;
+  const frameDuration = duration / fps;
+  const distance = Math.abs(start - end);
+  const distancePerFrame = distance / frameDuration;
+
+  let direction = "right";
+  if (start > end) {
+    direction = "left";
+  }
+
+  const interval = setInterval(() => {
+    transitionInProgress = true;
+    if (direction === "right") {
+      start += distancePerFrame;
+      if (start <= end) {
+        imageSlide.style.left = toNegativePX(start);
+      } else {
+        imageSlide.style.left = toNegativePX(end);
+        clearInterval(interval);
+        transitionInProgress = false;
+      }
+    } else {
+      start -= distancePerFrame;
+      if (start >= end) {
+        imageSlide.style.left = toNegativePX(start);
+      } else {
+        imageSlide.style.left = toNegativePX(end);
+        clearInterval(interval);
+        transitionInProgress = false;
+      }
+    }
+  }, frameDuration);
+}
+
 function slideTOPreviousImage() {
+  if (transitionInProgress) {
+    return;
+  }
+
+  const startValue = currentImageIndex * imageSlideWidth;
   if (currentImageIndex > 0) {
     currentImageIndex--;
   } else {
     currentImageIndex = imagesLength - 1;
   }
   const leftValue = currentImageIndex * imageSlideWidth;
-  imageSlide.style.left = toNegativePX(leftValue);
+  handleTransition(startValue, leftValue);
 
   toggleActiveSlideIndicator();
 }
 
 function slideToNextImage() {
+  if (transitionInProgress) {
+    return;
+  }
+
+  const startValue = currentImageIndex * imageSlideWidth;
   if (currentImageIndex < imagesLength - 1) {
     currentImageIndex++;
   } else {
     currentImageIndex = 0;
   }
   const leftValue = currentImageIndex * imageSlideWidth;
-  imageSlide.style.left = toNegativePX(leftValue);
+  handleTransition(startValue, leftValue);
 
   toggleActiveSlideIndicator();
 }
 
 function slideToImage(index) {
+  if (transitionInProgress) {
+    return;
+  }
+
   currentImageIndex = index;
   const leftValue = currentImageIndex * imageSlideWidth;
   imageSlide.style.left = toNegativePX(leftValue);
