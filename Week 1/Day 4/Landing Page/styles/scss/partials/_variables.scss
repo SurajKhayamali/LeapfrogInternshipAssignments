@@ -22,6 +22,7 @@ $primary: #17c2ec;
 $black: #000000;
 $white: #ffffff;
 $secondary: transparentize($white, 0.5);
+$secondary-dark: transparentize($black, 0.5);
 
 // background colors
 $bg-primary: #0b153c;

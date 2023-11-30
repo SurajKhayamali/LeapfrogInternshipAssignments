@@ -23,20 +23,6 @@
         * {
             margin: 0;
         }
-
-        @include m("title") {
-            @include text-defaults;
-            font-weight: $font-weight-extra-bold;
-            font-size: $font-size-medium;
-            color: $black;
-
-            @include respond-to("medium") {
-                font-size: $font-size-large;
-            }
-            @include respond-to("large") {
-                font-size: $font-size-xlarge;
-            }
-        }
     }
     @include e("description") {
         @include text-defaults;

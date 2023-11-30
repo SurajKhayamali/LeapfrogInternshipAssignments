@@ -83,9 +83,11 @@
         text-align: center;
         color: $primary !important; // note: using !important intentionally to override the link color set at bg-primary > a which has a higher specificity than this selector
         margin: 0 $padding-small;
+        margin-bottom: $padding-small;
 
         @include respond-to("medium") {
             margin: 0 $padding-large;
+            margin-bottom: $padding-large;
         }
     }
 }

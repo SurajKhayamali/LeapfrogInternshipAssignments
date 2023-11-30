@@ -39,6 +39,9 @@
             margin-bottom: 30px;
         }
     }
+    @include e("heading") {
+        @include text-heading;
+    }
 
     @include e("body") {
         position: absolute;

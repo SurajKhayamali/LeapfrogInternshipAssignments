@@ -425,6 +425,35 @@ figure {
   font-weight: 800;
 }
 
+.text-heading {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .text-heading {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .text-heading {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .text-heading {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .text-heading {
+    font-size: 3rem;
+  }
+}
+
 .btn {
   font-size: 0.875rem;
   font-weight: 500;
@@ -897,10 +926,12 @@ figure {
   text-align: center;
   color: #17c2ec !important;
   margin: 0 10px;
+  margin-bottom: 10px;
 }
 @media (min-width: 768px) {
   .check__footer {
     margin: 0 40px;
+    margin-bottom: 40px;
   }
 }
 
@@ -1164,9 +1195,22 @@ figure {
   width: 60%;
 }
 .verify__heading {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0;
+}
+@media (min-width: 768px) {
+  .verify__heading {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .verify__heading {
+    font-size: 1.5rem;
+  }
 }
 @media (min-width: 768px) {
   .verify__heading {
@@ -1194,10 +1238,23 @@ figure {
   gap: 20px;
 }
 .verify__form--group input {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
   height: 70px;
   border-radius: 20px;
   padding-left: 20px;
   outline: none;
+}
+@media (min-width: 768px) {
+  .verify__form--group input {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .verify__form--group input {
+    font-size: 1.5rem;
+  }
 }
 .verify__form--group input:focus {
   border: 1px solid #17c2ec;
@@ -1234,7 +1291,7 @@ figure {
 .verify__form .mobileNumberGroup__input--verticalSeperator {
   width: 3px;
   height: 40px;
-  background-color: #c4c4c4;
+  background-color: rgba(0, 0, 0, 0.1019607843);
 }
 .verify__form .mobileNumberGroup__input input {
   background-color: unset;
@@ -1250,10 +1307,43 @@ figure {
 @media (min-width: 768px) {
   .verify__footer {
     gap: 50px;
+    justify-content: center;
   }
 }
 .verify__footer .primary {
   color: #17c2ec;
+}
+.verify__footer-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
+}
+@media (min-width: 768px) {
+  .verify__footer-text {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .verify__footer-text {
+    font-size: 1.5rem;
+  }
+}
+.verify__footer-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .verify__footer-link {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .verify__footer-link {
+    font-size: 1.5rem;
+  }
 }
 
 .prevention {
@@ -1300,6 +1390,34 @@ figure {
 .prevention__header h2 {
   margin: 0;
   margin-bottom: 30px;
+}
+.prevention__heading {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .prevention__heading {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .prevention__heading {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .prevention__heading {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .prevention__heading {
+    font-size: 3rem;
+  }
 }
 .prevention__body {
   position: absolute;
@@ -1452,34 +1570,6 @@ figure {
 }
 .feedback__header * {
   margin: 0;
-}
-.feedback__header--title {
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin: 0;
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: #000000;
-}
-@media (min-width: 768px) {
-  .feedback__header--title {
-    font-size: 1.25rem;
-  }
-}
-@media (min-width: 1024px) {
-  .feedback__header--title {
-    font-size: 1.5rem;
-  }
-}
-@media (min-width: 768px) {
-  .feedback__header--title {
-    font-size: 2rem;
-  }
-}
-@media (min-width: 1024px) {
-  .feedback__header--title {
-    font-size: 3rem;
-  }
 }
 .feedback__description {
   font-size: 0.875rem;
@@ -1705,7 +1795,7 @@ figure {
   padding-left: 40px;
   font-size: 10px;
   background-color: #ffffff !important;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   outline: none;
   border: none;
   border-radius: 30px 0 0 30px;
@@ -1870,6 +1960,9 @@ figure {
     align-items: center;
     gap: 30px;
   }
+}
+.footer__nav .active {
+  color: #ffffff;
 }
 .footer__social {
   display: flex;

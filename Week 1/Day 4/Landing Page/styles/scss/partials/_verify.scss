@@ -57,16 +57,7 @@
     }
 
     @include e("heading") {
-        font-size: $font-size-medium;
-        font-weight: $font-weight-bold;
-        margin: 0;
-
-        @include respond-to("medium") {
-            font-size: $font-size-large;
-        }
-        @include respond-to("large") {
-            font-size: $font-size-xlarge;
-        }
+        @include text-heading;
     }
 
     @include e("left") {
@@ -86,6 +77,7 @@
             gap: $gap-default;
 
             input {
+                @include text-defaults;
                 height: 70px;
                 border-radius: $border-radius;
                 padding-left: $padding-default;
@@ -128,7 +120,7 @@
                 @include m("verticalSeperator") {
                     width: 3px;
                     height: 40px;
-                    background-color: $bg-secondary;
+                    background-color: #0000001a;
                 }
 
                 input {
@@ -149,10 +141,21 @@
 
         @include respond-to("medium") {
             gap: $gap-xlarge;
+            justify-content: center;
         }
 
         .primary {
             color: $primary;
         }
+    }
+
+    @include e("footer-text") {
+        @include text-defaults;
+        margin: 0;
+        color: $secondary-dark;
+    }
+
+    @include e("footer-link") {
+        @include text-defaults;
     }
 }

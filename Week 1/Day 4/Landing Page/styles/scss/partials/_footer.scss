@@ -77,6 +77,10 @@
             align-items: center;
             gap: $gap-medium;
         }
+
+        .active {
+            color: $white;
+        }
     }
     @include e("social") {
         display: flex;
