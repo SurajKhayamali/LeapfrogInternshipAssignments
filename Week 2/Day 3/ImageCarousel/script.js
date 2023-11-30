@@ -23,8 +23,11 @@ const imagesLength = images.length;
 let currentImageIndex = 0;
 let transitionInProgress; // Used to track if the slide is in transitions
 
+/**
+ * Create Image Slide
+ * @param {src, alt} image
+ */
 const createImageSlide = (image) => {
-  // Create Image Slide
   const figureElement = document.createElement("figure");
   figureElement.classList.add("image-slide__item");
   const imageElement = document.createElement("img");
@@ -34,6 +37,11 @@ const createImageSlide = (image) => {
   imageSlide.appendChild(figureElement);
 };
 
+/**
+ * Create Slide Indicator
+ * @param {number} index
+ *
+ */
 const createSlideIndicator = (index) => {
   // Create Slide Indicator
   const slideIndicator = document.createElement("div");
@@ -51,10 +59,19 @@ for (let i = 0; i < imagesLength; i++) {
   createSlideIndicator(i);
 }
 
+/**
+ * Convert value to negative px
+ * @param {number} value
+ * @returns {string}
+ *
+ */
 function toNegativePX(value) {
   return `-${value}px`;
 }
 
+/**
+ * Toggle Active Slide Indicator
+ */
 function toggleActiveSlideIndicator() {
   const currentImage = document.querySelector(".slide-indicator--active");
   currentImage.classList.remove("slide-indicator--active");
@@ -63,6 +80,13 @@ function toggleActiveSlideIndicator() {
   );
 }
 
+/**
+ * Handles Transition from one image to another
+ * @param {number} start
+ * @param {number} end
+ * @param {number} duration
+ *
+ */
 function handleTransition(start, end, duration = 2000) {
   const fps = 60;
   const frameDuration = duration / fps;
@@ -98,6 +122,9 @@ function handleTransition(start, end, duration = 2000) {
   }, frameDuration);
 }
 
+/**
+ * Slide to Previous Image
+ */
 function slideTOPreviousImage() {
   if (transitionInProgress) {
     return;
@@ -115,6 +142,9 @@ function slideTOPreviousImage() {
   toggleActiveSlideIndicator();
 }
 
+/**
+ * Slide to Next Image
+ */
 function slideToNextImage() {
   if (transitionInProgress) {
     return;
@@ -132,6 +162,10 @@ function slideToNextImage() {
   toggleActiveSlideIndicator();
 }
 
+/**
+ * Slide to Image
+ * @param {number} index
+ */
 function slideToImage(index) {
   if (transitionInProgress) {
     return;
