@@ -93,31 +93,21 @@ function handleTransition(start, end, duration = 2000) {
   const distance = Math.abs(start - end);
   const distancePerFrame = distance / frameDuration;
 
-  let direction = "right";
-  if (start > end) {
-    direction = "left";
-  }
+  const shouldIncrement = start < end ? true : false;
 
   const interval = setInterval(() => {
     transitionInProgress = true;
-    if (direction === "right") {
+    if (shouldIncrement) {
       start += distancePerFrame;
-      if (start <= end) {
-        imageSlide.style.left = toNegativePX(start);
-      } else {
-        imageSlide.style.left = toNegativePX(end);
-        clearInterval(interval);
-        transitionInProgress = false;
-      }
     } else {
       start -= distancePerFrame;
-      if (start >= end) {
-        imageSlide.style.left = toNegativePX(start);
-      } else {
-        imageSlide.style.left = toNegativePX(end);
-        clearInterval(interval);
-        transitionInProgress = false;
-      }
+    }
+    if ((shouldIncrement && start < end) || (!shouldIncrement && start > end)) {
+      imageSlide.style.left = toNegativePX(start);
+    } else {
+      imageSlide.style.left = toNegativePX(end);
+      clearInterval(interval);
+      transitionInProgress = false;
     }
   }, frameDuration);
 }
@@ -171,9 +161,10 @@ function slideToImage(index) {
     return;
   }
 
+  const startValue = currentImageIndex * imageSlideWidth;
   currentImageIndex = index;
   const leftValue = currentImageIndex * imageSlideWidth;
-  imageSlide.style.left = toNegativePX(leftValue);
+  handleTransition(startValue, leftValue);
 
   toggleActiveSlideIndicator();
 }
