@@ -1,4 +1,5 @@
 const BALL_COUNT = 200;
-
-const BALL_WIDTH = 20;
-const BALL_RADIUS = BALL_WIDTH / 2;
+const BALL_SPEED = 2;
+const MAX_BALL_WIDTH = 20;
+const MAX_BALL_RADIUS = MAX_BALL_WIDTH / 2;
+const MIN_BALL_RADIUS = 5;

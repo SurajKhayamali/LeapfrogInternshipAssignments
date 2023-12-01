@@ -15,17 +15,25 @@ try {
 
 const VIEWPORT_WIDTH = viewport.clientWidth;
 const VIEWPORT_HEIGHT = viewport.clientHeight;
+const VIEWPORT_START_X = viewport.offsetLeft;
+const VIEWPORT_START_Y = viewport.offsetTop;
+const VIEWPORT_USABLE_WIDTH = VIEWPORT_WIDTH - MAX_BALL_WIDTH;
+const VIEWPORT_USABLE_HEIGHT = VIEWPORT_HEIGHT - MAX_BALL_WIDTH;
 
 const ballsArray = [];
 
 // Create balls, store in an array and render in viewport
 for (let i = 0; i < BALL_COUNT; i++) {
-  const x = getRandomNumber(0, VIEWPORT_WIDTH - BALL_WIDTH);
-  const y = getRandomNumber(0, VIEWPORT_HEIGHT - BALL_WIDTH);
-  const r = getRandomNumber(Math.min(5, BALL_RADIUS), BALL_RADIUS);
-  const xSpeed = getRandomNumberOtherThan(-2, 2);
-  const ySpeed = getRandomNumberOtherThan(-2, 2);
+  const x = getRandomNumber(VIEWPORT_START_X, VIEWPORT_USABLE_WIDTH);
+  const y = getRandomNumber(VIEWPORT_START_Y, VIEWPORT_USABLE_HEIGHT);
+  const r = getRandomNumber(
+    Math.min(MIN_BALL_RADIUS, MAX_BALL_RADIUS),
+    MAX_BALL_RADIUS
+  );
+  const xSpeed = getRandomNumberOtherThan(-BALL_SPEED, BALL_SPEED);
+  const ySpeed = getRandomNumberOtherThan(-BALL_SPEED, BALL_SPEED);
   const ball = new Ball(x, y, r, xSpeed, ySpeed);
+
   ballsArray.push(ball);
   viewport.appendChild(ball.getElement());
 }
@@ -35,14 +43,20 @@ function render() {
   for (const ball of ballsArray) {
     ball.move();
     ball.draw();
-
-    ball.checkWallCollision(0, 0, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
+    ball.checkWallCollision(
+      VIEWPORT_START_X,
+      VIEWPORT_START_X,
+      VIEWPORT_WIDTH,
+      VIEWPORT_HEIGHT
+    );
 
     for (const otherBall of ballsArray) {
       if (ball === otherBall) continue;
+
       ball.checkBallCollision(otherBall);
     }
   }
+
   requestAnimationFrame(render);
 }
 

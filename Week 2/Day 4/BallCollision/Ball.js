@@ -97,19 +97,23 @@ class Ball {
     boundaryWidth,
     boundaryHeight
   ) => {
-    if (this.x < boundaryLeft || this.x > boundaryWidth - this.diameter) {
-      this.xSpeed *= -1;
+    if (this.x < boundaryLeft) {
+      this.xSpeed = Math.abs(this.xSpeed);
+    } else if (this.x > boundaryWidth - this.diameter) {
+      this.xSpeed = -Math.abs(this.xSpeed);
     }
 
-    if (this.y < boundaryTop || this.y > boundaryHeight - this.diameter) {
-      this.ySpeed *= -1;
+    if (this.y < boundaryTop) {
+      this.ySpeed = Math.abs(this.ySpeed);
+    } else if (this.y > boundaryHeight - this.diameter) {
+      this.ySpeed = -Math.abs(this.ySpeed);
     }
   };
 
   /**
    * Check if the ball collides with another ball
    *
-   * @param {this} ball
+   * @param {Ball} ball
    */
   checkBallCollision = (ball) => {
     if (

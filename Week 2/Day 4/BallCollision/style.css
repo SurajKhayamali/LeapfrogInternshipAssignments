@@ -2,14 +2,25 @@
     --margin: 10px;
 }
 
-
-.viewport {
-    /* margin: var(--margin);
-    height: calc(100vh - 2 * var(--margin));
-    width: calc(100vw - 2 * var(--margin)); */
-
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100vw;
+
+}
+
+
+.viewport {
+    margin: var(--margin);
+    height: calc(100% - 2 * var(--margin));
+    width: calc(100% - 2 * var(--margin));
+
     border: 1px solid black;
     border-radius: 5px;
     position: relative;
