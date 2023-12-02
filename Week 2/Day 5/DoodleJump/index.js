@@ -2,28 +2,35 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 const platforms = [];
+let timer = 0;
 
+// creating a ground platform
 const ground = new Platform(
   0,
   canvas.height - GROUND_HEIGHT,
   canvas.width,
   GROUND_HEIGHT
 );
-const platform1 = new Platform(400, 300, PLATFORM_WIDTH, PLATFORM_HEIGHT);
-const platform2 = new Platform(100, 200, PLATFORM_WIDTH, PLATFORM_HEIGHT);
 
-platforms.push(ground, platform1, platform2);
+platforms.push(ground);
 
 const player = new Character(200, 0, CHARACTER_WIDTH, CHARACTER_HEIGHT);
 
-let timer = 0;
+// Generate new platform
+function generatePlatform(removeOld = true) {
+  // remove first platform
+  if (removeOld) platforms.shift();
 
-function generatePlatform() {
-  const x = getRandomNumber(CHARACTER_WIDTH, canvas.width);
+  const x = getRandomNumber(CHARACTER_WIDTH, canvas.width - PLATFORM_WIDTH);
   const y = getRandomNumber(CHARACTER_WIDTH, canvas.height);
 
   const platform = new Platform(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT);
   platforms.push(platform);
+}
+
+// Generate the initial platforms
+for (let i = 0; i < PLATFORM_COUNT; i++) {
+  generatePlatform(false);
 }
 
 function animate() {
@@ -61,12 +68,13 @@ function animate() {
     player.isGrounded = true;
   }
 
-  platforms.forEach((platform) => {
-    if (collisionDetection(player, platform)) {
-      player.y = platform.y - player.height;
-      player.isGrounded = true;
-    }
-  });
+  const platform = getCollidedPlatform(player, platforms);
+  if (platform) {
+    player.y = platform.y - player.height;
+    player.isGrounded = true;
+  } else {
+    player.isGrounded = false;
+  }
 
   requestAnimationFrame(animate);
 }

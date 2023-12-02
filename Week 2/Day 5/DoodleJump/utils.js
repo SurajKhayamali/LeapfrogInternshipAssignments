@@ -25,22 +25,35 @@ function getRandomNumberOtherThan(min, max, number = 0) {
   return randomNumber;
 }
 
-function collisionDetection(player, platform) {
-  if (
-    player.x < platform.x + platform.w &&
-    player.x + player.w > platform.x &&
-    player.y < platform.y + platform.h &&
-    player.y + player.h > platform.y
-  ) {
-    // Collision detected!
-    // this.color("green");
+/**
+ * Detect collision between a character and a platform
+ *
+ * @param {Character} character
+ * @param {Platform} platform
+ * @returns {boolean} isCollided
+ */
+function detectCollision(character, platform) {
+  return (
+    character.x < platform.x + platform.width &&
+    character.x + character.width > platform.x &&
+    character.y < platform.y + platform.height &&
+    character.y + character.height >= platform.y
+  );
+}
 
-    console.log("Collision detected!");
-    return true;
-  } else {
-    // No collision
-    // this.color("blue");
-
-    return false;
+/**
+ * Return the platform that the character is collided with
+ *
+ * @param {Character} character
+ * @param {Platform[]} platforms
+ * @returns {Platform} collidedPlatform
+ */
+function getCollidedPlatform(character, platforms) {
+  for (const platform of platforms) {
+    if (detectCollision(character, platform)) {
+      return platform;
+    }
   }
+
+  return null;
 }

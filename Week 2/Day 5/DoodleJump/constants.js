@@ -1,4 +1,4 @@
-const SPEED = 1;
+const SPEED = 0.2;
 const GRAVITY = 0.5;
 const JUMP_HEIGHT = 20;
 const FRICTION = 0.7;
@@ -10,3 +10,5 @@ const CHARACTER_HEIGHT = 50;
 
 const PLATFORM_WIDTH = 150;
 const PLATFORM_HEIGHT = 20;
+
+const PLATFORM_COUNT = 5;
