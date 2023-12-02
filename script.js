@@ -58,6 +58,10 @@ const assignments = [
     name: "Ball Collision",
     relativeFolderPath: "Week 2/Day 4/BallCollision",
   },
+  {
+    name: "Doodle Jump",
+    relativeFolderPath: "Week 2/Day 5/DoodleJump",
+  },
 ];
 
 const assignmentListTable = document.getElementById("assignment-list-table");
