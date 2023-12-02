@@ -1,43 +1,71 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const platforms = [];
-let timer = 0;
+const CANVAS_HEIGHT = canvas.height;
+const CANVAS_WIDTH = canvas.width;
 
+let timer = 0;
+let isGameOver = false;
+
+const platformGap = CANVAS_HEIGHT / PLATFORM_COUNT;
+const groundY = CANVAS_HEIGHT - GROUND_HEIGHT - CHARACTER_HEIGHT;
+
+const platforms = [];
 // creating a ground platform
-const ground = new Platform(
-  0,
-  canvas.height - GROUND_HEIGHT,
-  canvas.width,
-  GROUND_HEIGHT
-);
+const ground = new Platform(0, groundY, CANVAS_WIDTH, GROUND_HEIGHT);
 
 platforms.push(ground);
 
-const player = new Character(200, 0, CHARACTER_WIDTH, CHARACTER_HEIGHT);
+// creating a player
+const player = new Character(200, groundY, CHARACTER_WIDTH, CHARACTER_HEIGHT);
 
-// Generate new platform
-function generatePlatform(removeOld = true) {
-  // remove first platform
-  if (removeOld) platforms.shift();
+// Generate random gap between platforms
+function getPlatformGap() {
+  return (
+    platformGap +
+    getRandomNumber(-PLATFORM_GAP_VARIATION, PLATFORM_GAP_VARIATION)
+  );
+}
 
-  const x = getRandomNumber(CHARACTER_WIDTH, canvas.width - PLATFORM_WIDTH);
-  const y = getRandomNumber(CHARACTER_WIDTH, canvas.height);
+// Generate initial platform
+function generateInitialPlatform(count) {
+  const x = getRandomNumber(CHARACTER_WIDTH, CANVAS_WIDTH - PLATFORM_WIDTH);
+  const y = groundY - count * (getPlatformGap() + PLATFORM_HEIGHT);
 
   const platform = new Platform(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT);
   platforms.push(platform);
 }
 
-// Generate the initial platforms
-for (let i = 0; i < PLATFORM_COUNT; i++) {
-  generatePlatform(false);
+// Generate new platform
+function generatePlatform() {
+  // remove first platform
+  platforms.shift();
+
+  const x = getRandomNumber(CHARACTER_WIDTH, CANVAS_WIDTH - PLATFORM_WIDTH);
+  const y = -(getPlatformGap() + PLATFORM_HEIGHT);
+
+  const platform = new Platform(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT);
+  platforms.push(platform);
+}
+
+for (let count = 1; count <= PLATFORM_COUNT; count++) {
+  generateInitialPlatform(count);
 }
 
 function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  if (isGameOver) {
+    ctx.font = "30px Arial";
+    ctx.fillText("Game Over", 100, 100);
+    return;
+  }
 
   player.draw(ctx);
-  platforms.forEach((platform) => platform.draw(ctx));
+  platforms.forEach((platform) => {
+    platform.draw(ctx);
+    platform.moveDown();
+  });
 
   if (activeActions[ACTIONS.LEFT] || activeActions[ACTIONS.RIGHT]) {
     player.vx += activeActions[ACTIONS.LEFT] ? -SPEED : SPEED;
@@ -53,8 +81,8 @@ function animate() {
   }
 
   if (player.x + player.width < 0) {
-    player.x = canvas.width - player.width;
-  } else if (player.x > canvas.width) {
+    player.x = CANVAS_WIDTH - player.width;
+  } else if (player.x > CANVAS_WIDTH) {
     player.x = 0;
   }
 
@@ -63,9 +91,8 @@ function animate() {
     player.vy += GRAVITY;
   }
 
-  if (player.y + player.height > canvas.height) {
-    player.y = canvas.height - player.height;
-    player.isGrounded = true;
+  if (player.y + player.height > CANVAS_HEIGHT) {
+    isGameOver = true;
   }
 
   const platform = getCollidedPlatform(player, platforms);
@@ -74,6 +101,13 @@ function animate() {
     player.isGrounded = true;
   } else {
     player.isGrounded = false;
+  }
+
+  timer++;
+
+  if (timer % PLATFORM_DISAPPEARING_SPEED === 0) {
+    generatePlatform();
+    timer = 0;
   }
 
   requestAnimationFrame(animate);
