@@ -6,6 +6,7 @@ class Ball {
     this.diameter = r * 2;
     this.xSpeed = xSpeed;
     this.ySpeed = ySpeed;
+    this.mass = r * r * Math.PI; // Mass is proportional to the area of the circle
 
     this.element = document.createElement("div");
     this.element.classList.add("ball");
@@ -134,16 +135,20 @@ class Ball {
       ball.x += overlap * normalX * 0.5;
       ball.y += overlap * normalY * 0.5;
 
-      // Adjust velocities (assuming equal masses)
-      const relativeVelocityX = this.xSpeed - ball.xSpeed;
-      const relativeVelocityY = this.ySpeed - ball.ySpeed;
+      // Calculate relative velocities
+      const relativeVelocityX = ball.xSpeed - this.xSpeed;
+      const relativeVelocityY = ball.ySpeed - this.ySpeed;
       const dotProduct =
         relativeVelocityX * normalX + relativeVelocityY * normalY;
 
-      this.xSpeed -= dotProduct * normalX;
-      this.ySpeed -= dotProduct * normalY;
-      ball.xSpeed += dotProduct * normalX;
-      ball.ySpeed += dotProduct * normalY;
+      // Calculate impulse (change in momentum)
+      const impulse = (2 * dotProduct) / (1 / this.mass + 1 / ball.mass);
+
+      // Update velocities based on masses
+      this.xSpeed += (impulse / this.mass) * normalX;
+      this.ySpeed += (impulse / this.mass) * normalY;
+      ball.xSpeed -= (impulse / ball.mass) * normalX;
+      ball.ySpeed -= (impulse / ball.mass) * normalY;
     }
   };
 }
