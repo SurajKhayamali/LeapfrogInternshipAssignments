@@ -49,7 +49,8 @@ for (let i = 0; i < BALL_COUNT; i++) {
 
 // Render balls in viewport
 function render() {
-  for (const ball of ballsArray) {
+  for (let i = 0; i < ballsArray.length; i++) {
+    const ball = ballsArray[i];
     ball.move();
     ball.draw();
     ball.checkWallCollision(
@@ -59,9 +60,8 @@ function render() {
       VIEWPORT_HEIGHT
     );
 
-    for (const otherBall of ballsArray) {
-      if (ball === otherBall) continue;
-
+    for (let j = i + 1; j < ballsArray.length; j++) {
+      const otherBall = ballsArray[j];
       ball.checkBallCollision(otherBall);
     }
   }
