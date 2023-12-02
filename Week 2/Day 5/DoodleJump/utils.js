@@ -37,7 +37,8 @@ function detectCollision(character, platform) {
     character.x < platform.x + platform.width &&
     character.x + character.width > platform.x &&
     character.y < platform.y + platform.height &&
-    character.y + character.height >= platform.y
+    character.y + character.height > platform.y &&
+    character.vy > 0
   );
 }
 

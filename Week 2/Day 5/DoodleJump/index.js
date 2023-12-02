@@ -18,7 +18,12 @@ const ground = new Platform(0, groundY, CANVAS_WIDTH, GROUND_HEIGHT);
 platforms.push(ground);
 
 // creating a player
-const player = new Character(200, groundY, CHARACTER_WIDTH, CHARACTER_HEIGHT);
+const player = new Character(
+  CANVAS_WIDTH / 2,
+  groundY,
+  CHARACTER_WIDTH,
+  CHARACTER_HEIGHT
+);
 
 // Generate random gap between platforms
 function getPlatformGap() {
