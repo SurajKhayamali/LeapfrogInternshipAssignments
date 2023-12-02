@@ -6,9 +6,10 @@ const CANVAS_WIDTH = canvas.width;
 
 let timer = 0;
 let isGameOver = false;
+let score = 0;
 
-const platformGap = CANVAS_HEIGHT / PLATFORM_COUNT;
 const groundY = CANVAS_HEIGHT - GROUND_HEIGHT - CHARACTER_HEIGHT;
+const platformGap = groundY / PLATFORM_COUNT;
 
 const platforms = [];
 // creating a ground platform
@@ -21,16 +22,13 @@ const player = new Character(200, groundY, CHARACTER_WIDTH, CHARACTER_HEIGHT);
 
 // Generate random gap between platforms
 function getPlatformGap() {
-  return (
-    platformGap +
-    getRandomNumber(-PLATFORM_GAP_VARIATION, PLATFORM_GAP_VARIATION)
-  );
+  return platformGap + getRandomNumber(0, PLATFORM_GAP_VARIATION);
 }
 
 // Generate initial platform
 function generateInitialPlatform(count) {
   const x = getRandomNumber(CHARACTER_WIDTH, CANVAS_WIDTH - PLATFORM_WIDTH);
-  const y = groundY - count * (getPlatformGap() + PLATFORM_HEIGHT);
+  const y = groundY - count * getPlatformGap();
 
   const platform = new Platform(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT);
   platforms.push(platform);
@@ -40,6 +38,7 @@ function generateInitialPlatform(count) {
 function generatePlatform() {
   // remove first platform
   platforms.shift();
+  score++;
 
   const x = getRandomNumber(CHARACTER_WIDTH, CANVAS_WIDTH - PLATFORM_WIDTH);
   const y = -(getPlatformGap() + PLATFORM_HEIGHT);
@@ -58,6 +57,22 @@ function animate() {
   if (isGameOver) {
     ctx.font = "30px Arial";
     ctx.fillText("Game Over", 100, 100);
+    ctx.fillText(`Score: ${score}`, 100, 150);
+
+    // Display clickable restart button
+    ctx.fillStyle = "red";
+    ctx.fillRect(100, 200, 100, 50);
+    ctx.fillStyle = "white";
+    ctx.font = "20px Arial";
+    ctx.fillText("Restart", 120, 230);
+
+    canvas.addEventListener("click", (event) => {
+      const x = event.offsetX;
+      const y = event.offsetY;
+      if (x > 100 && x < 200 && y > 200 && y < 250) {
+        window.location.reload();
+      }
+    });
     return;
   }
 
