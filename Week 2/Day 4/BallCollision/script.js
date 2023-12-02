@@ -15,21 +15,30 @@ try {
 
 const VIEWPORT_WIDTH = viewport.clientWidth;
 const VIEWPORT_HEIGHT = viewport.clientHeight;
-const VIEWPORT_START_X = viewport.offsetLeft;
-const VIEWPORT_START_Y = viewport.offsetTop;
-const VIEWPORT_USABLE_WIDTH = VIEWPORT_WIDTH - MAX_BALL_WIDTH;
-const VIEWPORT_USABLE_HEIGHT = VIEWPORT_HEIGHT - MAX_BALL_WIDTH;
+
+function getViewPortStartX(radius) {
+  return radius;
+}
+function getViewPortStartY(radius) {
+  return radius;
+}
+function getViewPortUsableWidth(radius) {
+  return VIEWPORT_WIDTH - radius;
+}
+function getViewPortUsableHeight(radius) {
+  return VIEWPORT_HEIGHT - radius;
+}
 
 const ballsArray = [];
 
 // Create balls, store in an array and render in viewport
 for (let i = 0; i < BALL_COUNT; i++) {
-  const x = getRandomNumber(VIEWPORT_START_X, VIEWPORT_USABLE_WIDTH);
-  const y = getRandomNumber(VIEWPORT_START_Y, VIEWPORT_USABLE_HEIGHT);
   const r = getRandomNumber(
     Math.min(MIN_BALL_RADIUS, MAX_BALL_RADIUS),
     MAX_BALL_RADIUS
   );
+  const x = getRandomNumber(getViewPortStartX(r), getViewPortUsableWidth(r));
+  const y = getRandomNumber(getViewPortStartY(r), getViewPortUsableHeight(r));
   const xSpeed = getRandomNumberOtherThan(-BALL_SPEED, BALL_SPEED);
   const ySpeed = getRandomNumberOtherThan(-BALL_SPEED, BALL_SPEED);
   const ball = new Ball(x, y, r, xSpeed, ySpeed);
@@ -44,8 +53,8 @@ function render() {
     ball.move();
     ball.draw();
     ball.checkWallCollision(
-      VIEWPORT_START_X,
-      VIEWPORT_START_X,
+      getViewPortStartX(ball.r),
+      getViewPortStartY(ball.r),
       VIEWPORT_WIDTH,
       VIEWPORT_HEIGHT
     );

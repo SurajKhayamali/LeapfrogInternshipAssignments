@@ -99,34 +99,51 @@ class Ball {
   ) => {
     if (this.x < boundaryLeft) {
       this.xSpeed = Math.abs(this.xSpeed);
-    } else if (this.x > boundaryWidth - this.diameter) {
+    } else if (this.x > boundaryWidth - this.r) {
       this.xSpeed = -Math.abs(this.xSpeed);
     }
 
     if (this.y < boundaryTop) {
       this.ySpeed = Math.abs(this.ySpeed);
-    } else if (this.y > boundaryHeight - this.diameter) {
+    } else if (this.y > boundaryHeight - this.r) {
       this.ySpeed = -Math.abs(this.ySpeed);
     }
   };
 
   /**
-   * Check if the ball collides with another ball
+   * Check if the ball collides with another ball and adjust their positions and velocities
    *
    * @param {Ball} ball
    */
   checkBallCollision = (ball) => {
-    if (
-      ball.x <= this.x + this.diameter &&
-      ball.x + ball.diameter >= this.x &&
-      ball.y <= this.y + this.diameter &&
-      ball.y + ball.diameter >= this.y
-    ) {
-      if (Math.abs(this.x - ball.x) > Math.abs(this.y - ball.y)) {
-        ball.xSpeed *= -1;
-      } else {
-        ball.ySpeed *= -1;
-      }
+    const dx = ball.x - this.x;
+    const dy = ball.y - this.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance < this.r + ball.r) {
+      // Calculate the overlap distance
+      const overlap = this.r + ball.r - distance;
+
+      // Calculate the unit vector
+      const normalX = dx / distance;
+      const normalY = dy / distance;
+
+      // Separate the balls by adjusting their positions
+      this.x -= overlap * normalX * 0.5;
+      this.y -= overlap * normalY * 0.5;
+      ball.x += overlap * normalX * 0.5;
+      ball.y += overlap * normalY * 0.5;
+
+      // Adjust velocities (assuming equal masses)
+      const relativeVelocityX = this.xSpeed - ball.xSpeed;
+      const relativeVelocityY = this.ySpeed - ball.ySpeed;
+      const dotProduct =
+        relativeVelocityX * normalX + relativeVelocityY * normalY;
+
+      this.xSpeed -= dotProduct * normalX;
+      this.ySpeed -= dotProduct * normalY;
+      ball.xSpeed += dotProduct * normalX;
+      ball.ySpeed += dotProduct * normalY;
     }
   };
 }
