@@ -15,8 +15,8 @@ try {
 
 const VIEWPORT_WIDTH = viewport.clientWidth;
 const VIEWPORT_HEIGHT = viewport.clientHeight;
-const VIEWPORT_START_X = viewport.offsetLeft;
-const VIEWPORT_START_Y = viewport.offsetTop;
+const VIEWPORT_START_X = viewport.offsetLeft + MAX_BALL_RADIUS;
+const VIEWPORT_START_Y = viewport.offsetTop + MAX_BALL_RADIUS;
 const VIEWPORT_USABLE_WIDTH = VIEWPORT_WIDTH - MAX_BALL_WIDTH;
 const VIEWPORT_USABLE_HEIGHT = VIEWPORT_HEIGHT - MAX_BALL_WIDTH;
 
@@ -37,6 +37,11 @@ for (let i = 0; i < BALL_COUNT; i++) {
   ballsArray.push(ball);
   viewport.appendChild(ball.getElement());
 }
+
+// const ball = new Ball(0, 0, 20, 0, 0);
+
+// ballsArray.push(ball);
+// viewport.appendChild(ball.getElement());
 
 // Render balls in viewport
 function render() {
