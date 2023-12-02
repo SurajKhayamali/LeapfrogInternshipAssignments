@@ -29,6 +29,14 @@ function getViewPortUsableHeight(radius) {
   return VIEWPORT_HEIGHT - radius;
 }
 
+// Initialization
+const quadtree = new Quadtree({
+  x: 0,
+  y: 0,
+  width: VIEWPORT_WIDTH,
+  height: VIEWPORT_HEIGHT,
+});
+
 const ballsArray = [];
 
 // Create balls, store in an array and render in viewport
@@ -45,24 +53,40 @@ for (let i = 0; i < BALL_COUNT; i++) {
 
   ballsArray.push(ball);
   viewport.appendChild(ball.getElement());
+
+  // Insert objects into Quadtree when created
+  quadtree.insert(ball);
 }
 
 // Render balls in viewport
 function render() {
-  for (let i = 0; i < ballsArray.length; i++) {
-    const ball = ballsArray[i];
-    ball.move();
-    ball.draw();
+  // Clear the Quadtree to prepare for reinsertion of updated objects
+  quadtree.clear();
+
+  // Reinsert the updated objects into the Quadtree
+  for (const ball of ballsArray) {
+    ball.move(); // Update ball positions
+    ball.draw(); // Render ball in viewport
     ball.checkWallCollision(
       getViewPortStartX(ball.r),
       getViewPortStartY(ball.r),
       VIEWPORT_WIDTH,
       VIEWPORT_HEIGHT
-    );
+    ); // Check for wall collision
 
-    for (let j = i + 1; j < ballsArray.length; j++) {
-      const otherBall = ballsArray[j];
-      ball.checkBallCollision(otherBall);
+    quadtree.insert(ball); // Reinsert the updated ball into the Quadtree
+  }
+
+  // Perform Collision Detection using the updated Quadtree
+  for (const ball of ballsArray) {
+    // Retrieve potential collisions based on spatial partitioning technique
+    const nearbyBalls = quadtree.retrieve(ball);
+
+    // Perform collision checks only between nearbyBalls
+    for (const otherBall of nearbyBalls) {
+      if (ball !== otherBall) {
+        ball.checkBallCollision(otherBall);
+      }
     }
   }
 
