@@ -72,8 +72,14 @@ class Character {
     }
   }
 
+  /**
+   * Handle collision with the canvas walls
+   * In case of collision, move the character to the other side of the canvas
+   * (e.g. if the character collides with the left wall, move it to the right)
+   *
+   * @param {number} canvasWidth
+   */
   handleCollisionWithWall(canvasWidth) {
-    // In case the character is outside the canvas, move it to the other side
     if (this.x + this.width < 0) {
       this.x = canvasWidth - this.width;
     } else if (this.x > canvasWidth) {

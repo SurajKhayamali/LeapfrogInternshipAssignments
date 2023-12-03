@@ -9,8 +9,6 @@ const scaleY = canvas.height / rect.height;
 const game = new Game(canvas.width, canvas.height);
 
 function animate() {
-  game.draw(ctx);
-  game.handleUserInput();
   game.run();
 
   requestAnimationFrame(animate);

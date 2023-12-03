@@ -10,31 +10,9 @@ class Control {
     this.touchStartX = 0;
 
     if (isMobileDevice()) {
-      // Add event listeners for touch events, mobile controls
-      window.addEventListener(
-        "touchstart",
-        this.touchStartHandler.bind(this),
-        false
-      );
-      window.addEventListener(
-        "touchmove",
-        this.handleTouchMoveHandler.bind(this),
-        false
-      );
-      window.addEventListener(
-        "touchend",
-        this.touchEndHandler.bind(this),
-        false
-      );
-      window.addEventListener(
-        "deviceorientation",
-        this.tiltHandler.bind(this),
-        false
-      );
+      this.initMobileControls();
     } else {
-      // Add event listeners for keyboard events, desktop controls
-      window.addEventListener("keydown", this.keyDownHandler.bind(this), false);
-      window.addEventListener("keyup", this.keyUpHandler.bind(this), false);
+      this.initDesktopControls();
     }
   }
 
@@ -106,6 +84,14 @@ class Control {
     }
   }
 
+  /**
+   * Initialize the controls for desktop
+   */
+  initDesktopControls() {
+    window.addEventListener("keydown", this.keyDownHandler.bind(this), false);
+    window.addEventListener("keyup", this.keyUpHandler.bind(this), false);
+  }
+
   // Mobile controls
   /**
    * Handle the touch start event
@@ -150,6 +136,11 @@ class Control {
     this.jump = false;
   }
 
+  /**
+   * Handle the device tilt event
+   *
+   * @param {DeviceOrientationEvent} event
+   */
   tiltHandler(event) {
     const gamma = event.gamma; // Get the device's tilt in the left-to-right direction
 
@@ -162,5 +153,27 @@ class Control {
       this.left = false;
       this.right = true;
     }
+  }
+
+  /**
+   * Initialize the controls for mobile
+   */
+  initMobileControls() {
+    window.addEventListener(
+      "touchstart",
+      this.touchStartHandler.bind(this),
+      false
+    );
+    window.addEventListener(
+      "touchmove",
+      this.handleTouchMoveHandler.bind(this),
+      false
+    );
+    window.addEventListener("touchend", this.touchEndHandler.bind(this), false);
+    window.addEventListener(
+      "deviceorientation",
+      this.tiltHandler.bind(this),
+      false
+    );
   }
 }

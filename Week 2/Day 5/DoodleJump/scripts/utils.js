@@ -60,6 +60,10 @@ function getCollidedPlatform(character, platforms) {
   return null;
 }
 
+/**
+ * Return if the device is a mobile device
+ * @returns {boolean} isMobileDevice
+ */
 function isMobileDevice() {
   return navigator.userAgentData.mobile;
 }
