@@ -66,16 +66,18 @@ class Character {
     this.x += this.vx;
 
     // Apply the vertical movement and gravity only if the character is not grounded
-    if (!player.isGrounded) {
-      player.y += player.vy;
-      player.vy += GRAVITY;
+    if (!this.isGrounded) {
+      this.y += this.vy;
+      this.vy += GRAVITY;
     }
+  }
 
+  handleCollisionWithWall(canvasWidth) {
     // In case the character is outside the canvas, move it to the other side
-    if (player.x + player.width < 0) {
-      player.x = CANVAS_WIDTH - player.width;
-    } else if (player.x > CANVAS_WIDTH) {
-      player.x = 0;
+    if (this.x + this.width < 0) {
+      this.x = canvasWidth - this.width;
+    } else if (this.x > canvasWidth) {
+      this.x = 0;
     }
   }
 

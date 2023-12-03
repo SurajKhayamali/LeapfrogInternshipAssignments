@@ -13,7 +13,7 @@ class Platform {
     ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
 
-  moveDown() {
+  fall() {
     this.y += PLATFORM_FALLING_SPEED;
   }
 }
