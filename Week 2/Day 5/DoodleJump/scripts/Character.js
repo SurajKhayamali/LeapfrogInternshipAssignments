@@ -28,6 +28,7 @@ class Character {
    */
   moveLeft() {
     this.vx -= SPEED;
+    this.image.src = "./images/doodler-left.png";
   }
 
   /**
@@ -35,6 +36,7 @@ class Character {
    */
   moveRight() {
     this.vx += SPEED;
+    this.image.src = "./images/doodler-right.png";
   }
 
   /**
