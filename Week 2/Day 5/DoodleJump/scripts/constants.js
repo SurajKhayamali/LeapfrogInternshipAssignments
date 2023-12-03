@@ -40,3 +40,6 @@ const RESTART_BUTTON_TEXT = "Restart";
 const RESTART_BUTTON_TEXT_X = 220;
 const RESTART_BUTTON_TEXT_Y = 330;
 const RESTART_BUTTON_TEXT_FONT = "20px Arial";
+
+// Mobile controls
+const TOUCH_MOVE_THRESHOLD = 10;

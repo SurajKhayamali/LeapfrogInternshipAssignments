@@ -6,31 +6,35 @@ class Control {
     this.down = false;
     this.jump = false;
 
-    // if mobile device, continously jump
-    if (isMobileDevice()) {
-      this.jump = true;
+    // Mobile only variables
+    this.touchStartX = 0;
 
+    if (isMobileDevice()) {
       // Add event listeners for touch events, mobile controls
-      document.addEventListener(
+      window.addEventListener(
         "touchstart",
         this.touchStartHandler.bind(this),
         false
       );
-      document.addEventListener(
+      window.addEventListener(
+        "touchmove",
+        this.handleTouchMoveHandler.bind(this),
+        false
+      );
+      window.addEventListener(
         "touchend",
         this.touchEndHandler.bind(this),
         false
       );
-    } else {
-      this.jump = false;
-
-      // Add event listeners for keyboard events, desktop controls
-      document.addEventListener(
-        "keydown",
-        this.keyDownHandler.bind(this),
+      window.addEventListener(
+        "deviceorientation",
+        this.tiltHandler.bind(this),
         false
       );
-      document.addEventListener("keyup", this.keyUpHandler.bind(this), false);
+    } else {
+      // Add event listeners for keyboard events, desktop controls
+      window.addEventListener("keydown", this.keyDownHandler.bind(this), false);
+      window.addEventListener("keyup", this.keyUpHandler.bind(this), false);
     }
   }
 
@@ -111,10 +115,27 @@ class Control {
   touchStartHandler(e) {
     // e.preventDefault();
     const touch = e.touches[0];
-    if (touch.clientX < window.innerWidth / 2) {
-      this.left = true;
-    } else {
+    this.touchStartX = touch.clientX;
+    this.jump = true;
+  }
+
+  /**
+   * Handle the touch move event
+   * @param {TouchEvent} event
+   */
+  handleTouchMoveHandler(event) {
+    const touchEndX = event.touches[0].clientX;
+    const touchDiff = touchEndX - this.touchStartX;
+
+    if (touchDiff > TOUCH_MOVE_THRESHOLD) {
       this.right = true;
+      this.left = false;
+    } else if (touchDiff < -TOUCH_MOVE_THRESHOLD) {
+      this.left = true;
+      this.right = false;
+    } else {
+      this.left = false;
+      this.right = false;
     }
   }
 
@@ -126,5 +147,20 @@ class Control {
   touchEndHandler(e) {
     this.left = false;
     this.right = false;
+    this.jump = false;
+  }
+
+  tiltHandler(event) {
+    const gamma = event.gamma; // Get the device's tilt in the left-to-right direction
+
+    if (gamma === null) return;
+
+    if (gamma < 0) {
+      this.left = true;
+      this.right = false;
+    } else {
+      this.left = false;
+      this.right = true;
+    }
   }
 }
