@@ -1,0 +1,22 @@
+version : "3"
+
+services :
+  nginx:
+    image: nginx:latest
+    container_name: nginx_reverse_proxy_container
+    ports:
+      - 80
+    volumes:
+      # - ./nginx.conf:/etc/nginx/nginx.conf
+      - ..:/usr/share/nginx/html
+    environment:
+      - VIRTUAL_HOST=${DOMAIN}
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=${DOMAIN}
+      - LETSENCRYPT_EMAIL=${EMAIL}
+    networks:
+      - proxy_nginx-proxy-tier
+
+networks:
+  proxy_nginx-proxy-tier:
+    external: true
