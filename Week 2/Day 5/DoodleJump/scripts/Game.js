@@ -93,16 +93,7 @@ class Game {
     this.player.draw(ctx);
 
     // Draw the score
-    // ctx.fillStyle = SCORE_COLOR;
-    // ctx.font = SCORE_FONT;
-    // ctx.fillText(`Score: ${this.score}`, SCORE_X, SCORE_Y);
-
-    // // Draw the game over screen
-    // if (this.isGameOver) {
-    //   ctx.fillStyle = GAME_OVER_COLOR;
-    //   ctx.font = GAME_OVER_FONT;
-    //   ctx.fillText(GAME_OVER_TEXT, GAME_OVER_X, GAME_OVER_Y);
-    // }
+    this.drawScore(ctx);
   }
 
   checkGameOver() {
@@ -123,6 +114,11 @@ class Game {
     ctx.fillText(`${SCORE_TEXT} ${this.score}`, SCORE_TEXT_X, SCORE_TEXT_Y);
   }
 
+  /**
+   * Draw the restart button
+   *
+   * @param {CanvasRenderingContext2D} ctx
+   */
   drawRestartButton(ctx) {
     ctx.fillStyle = RESTART_BUTTON_COLOR;
     ctx.fillRect(
@@ -139,18 +135,22 @@ class Game {
       RESTART_BUTTON_TEXT_Y
     );
 
-    canvas.addEventListener("click", (event) => {
-      const x = event.offsetX;
-      const y = event.offsetY;
-      if (
-        x > RESTART_BUTTON_X &&
-        x < RESTART_BUTTON_X + RESTART_BUTTON_WIDTH &&
-        y > RESTART_BUTTON_Y &&
-        y < RESTART_BUTTON_Y + RESTART_BUTTON_HEIGHT
-      ) {
-        window.location.reload();
-      }
-    });
+    // Add event listener to restart the game when the user clicks on the button
+    canvas.addEventListener("click", this.handleRestartButtonClicked, false);
+  }
+
+  handleRestartButtonClicked(event) {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = (event.clientX - rect.left) * scaleX;
+    const mouseY = (event.clientY - rect.top) * scaleY;
+    if (
+      mouseX > RESTART_BUTTON_X &&
+      mouseX < RESTART_BUTTON_X + RESTART_BUTTON_WIDTH &&
+      mouseY > RESTART_BUTTON_Y &&
+      mouseY < RESTART_BUTTON_Y + RESTART_BUTTON_HEIGHT
+    ) {
+      window.location.reload();
+    }
   }
 
   handleUserInput() {
@@ -168,10 +168,12 @@ class Game {
   }
 
   run() {
+    if (this.isGameOver) return;
+
     this.player.move();
     this.player.handleCollisionWithWall(this.width);
 
-    // move the platforms
+    // make the platforms fall
     for (const platform of this.platforms) {
       platform.fall();
     }
