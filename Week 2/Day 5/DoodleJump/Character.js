@@ -5,16 +5,16 @@ class Character {
     this.width = width;
     this.height = height;
 
-    this.color = "#49c";
-
     this.vx = 0;
     this.vy = 0;
 
     this.isGrounded = false;
+
+    this.image = new Image();
+    this.image.src = "./images/doodler-right.png";
   }
 
   draw(ctx) {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
 }

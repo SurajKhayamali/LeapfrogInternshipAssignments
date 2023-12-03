@@ -5,12 +5,12 @@ class Platform {
     this.width = width;
     this.height = height;
 
-    this.color = "#333";
+    this.image = new Image();
+    this.image.src = "./images/platform.png";
   }
 
   draw(ctx) {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
 
   moveDown() {
