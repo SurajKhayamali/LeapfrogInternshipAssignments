@@ -15,6 +15,7 @@ class Game {
     this.image.src = "./images/doodlejumpbg.png";
 
     this.init();
+    this.control = new Control();
   }
 
   init() {
@@ -154,15 +155,13 @@ class Game {
   }
 
   handleUserInput() {
-    if (activeActions[ACTIONS.LEFT] || activeActions[ACTIONS.RIGHT]) {
-      activeActions[ACTIONS.LEFT]
-        ? this.player.moveLeft()
-        : this.player.moveRight();
+    if (this.control.left || this.control.right) {
+      this.control.left ? this.player.moveLeft() : this.player.moveRight();
     } else {
       this.player.stop();
     }
 
-    if (activeActions[ACTIONS.JUMP]) {
+    if (this.control.jump) {
       this.player.jump();
     }
   }

@@ -59,3 +59,7 @@ function getCollidedPlatform(character, platforms) {
 
   return null;
 }
+
+function isMobileDevice() {
+  return navigator.userAgentData.mobile;
+}
