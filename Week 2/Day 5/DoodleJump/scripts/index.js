@@ -43,6 +43,8 @@ function generateInitialPlatform(count) {
 function generatePlatform() {
   // remove first platform
   platforms.shift();
+
+  // Update the score based on the platforms that the player has passed
   score++;
 
   const x = getRandomNumber(CHARACTER_WIDTH, CANVAS_WIDTH - PLATFORM_WIDTH);
@@ -129,6 +131,9 @@ function animate() {
     generatePlatform();
     timer = 0;
   }
+
+  // Update the score based on the player's vertical position
+  // score = Math.max(score, Math.floor(CANVAS_HEIGHT - player.y));
 
   requestAnimationFrame(animate);
 }

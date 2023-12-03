@@ -5,35 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doodle Jump</title>
-    <link rel="stylesheet" href="./reset.css">
-
-    <style>
-        .canvas {
-            width: 100%;
-            /* Occupy 100% of the parent container's width */
-            height: calc(100vw * 9 / 16);
-            /* Calculate height based on 16:9 aspect ratio */
-            max-height: 100vh;
-            /* Set maximum height to fit within the viewport */
-            /* background-color: #000; */
-            /* Set a background color for the canvas */
-            display: block;
-            /* Make sure the canvas is displayed as a block element */
-            margin: 0 auto;
-            /* Center the canvas horizontally */
-        }
-    </style>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
     <canvas id="canvas" class="canvas" width="1920" height="1080"></canvas>
 
-    <script src="./constants.js"></script>
-    <script src="./utils.js"></script>
-    <script src="./Character.js"></script>
-    <script src="./Platform.js"></script>
-    <script src="./input.js"></script>
-    <script src="./index.js"></script>
+    <script src="./scripts/constants.js"></script>
+    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/Character.js"></script>
+    <script src="./scripts/Platform.js"></script>
+    <script src="./scripts/input.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
