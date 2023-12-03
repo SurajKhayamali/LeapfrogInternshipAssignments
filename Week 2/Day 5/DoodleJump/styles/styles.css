@@ -1,10 +1,12 @@
 .canvas {
     width: 100%;
     /* Occupy 100% of the parent container's width */
-    height: calc(100vw * 9 / 16);
+    height: calc(100vw * 16 / 9);
     /* Calculate height based on 16:9 aspect ratio */
     max-height: 100vh;
     /* Set maximum height to fit within the viewport */
+    max-width: calc(100vh * 9 / 16);
+    /* Calculate width based on 16:9 aspect ratio */
     /* background-color: #000; */
     /* Set a background color for the canvas */
     display: block;
