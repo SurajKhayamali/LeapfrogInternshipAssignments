@@ -5,6 +5,7 @@ class Control {
     this.up = false;
     this.down = false;
     this.jump = false;
+    this.pause = false;
 
     // Mobile only variables
     this.touchStartX = 0;
@@ -47,6 +48,9 @@ class Control {
         break;
       case "KeyW":
         this.up = true;
+        break;
+      case "KeyP":
+        this.pause = !this.pause;
         break;
     }
   }

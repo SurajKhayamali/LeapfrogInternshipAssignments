@@ -29,8 +29,8 @@ class Game {
     this.platforms.push(ground);
 
     // Generate initial platforms
-    for (let count = 1; count <= PLATFORM_COUNT + 1; count++) {
-      this.generateInitialPlatform(count);
+    for (let count = 0; count < PLATFORM_COUNT; count++) {
+      this.generatePlatform(count * this.getPlatformGap());
     }
 
     // creating a player
@@ -50,36 +50,29 @@ class Game {
   }
 
   /**
-   * Generate initial platforms
-   * @param {number} index, starts from 1
+   * Generate a new platform and add it to the platforms array
+   * The platform is generated at a random x position
+   * and at the top of the screen unless an offset is provided
    */
-  generateInitialPlatform(index) {
+  generatePlatform(offset = 0) {
     const x = getRandomNumber(CHARACTER_WIDTH, this.width - PLATFORM_WIDTH);
-    const y = this.groundY - index * this.getPlatformGap();
+    const y = -(this.getPlatformGap() + PLATFORM_HEIGHT) + offset;
 
     const platform = new Platform(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT);
     this.platforms.push(platform);
   }
 
   /**
-   * Generate a new platform
+   * Remove a platform that is out of the screen
+   *
+   * @param {number} platformId
    */
-  generatePlatform() {
-    const x = getRandomNumber(CHARACTER_WIDTH, this.width - PLATFORM_WIDTH);
-    const y = -(this.getPlatformGap() + PLATFORM_HEIGHT);
+  removePlatform(platformId) {
+    this.platforms = this.platforms.filter(
+      (platform) => platform.id !== platformId
+    );
 
-    const platform = new Platform(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT);
-    this.platforms.push(platform);
-  }
-
-  /**
-   * Remove the first platform from the platforms array
-   * This method is called when a platform is no longer visible on the screen
-   */
-  removePlatform() {
-    this.platforms.shift();
-
-    // Update the score based on the platforms that the player has passed
+    // Update the score based on the platforms that are removed
     this.score++;
   }
 
@@ -224,7 +217,7 @@ class Game {
    * and drawing the game
    */
   run() {
-    if (this.isGameOver) return;
+    if (this.isGameOver || this.control.pause) return;
 
     // Check if the game is over
     this.checkGameOver();
@@ -237,7 +230,7 @@ class Game {
       platform.fall();
 
       if (platform.y > this.height) {
-        this.removePlatform();
+        this.removePlatform(platform.id);
       }
     }
 

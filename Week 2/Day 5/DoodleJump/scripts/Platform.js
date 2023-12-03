@@ -1,5 +1,6 @@
 class Platform {
   constructor(x, y, width, height) {
+    this.id = Platform.id++;
     this.x = x;
     this.y = y;
     this.width = width;
@@ -8,6 +9,8 @@ class Platform {
     this.image = new Image();
     this.image.src = "./images/platform.png";
   }
+
+  static id = 0;
 
   /**
    * Draw the platform
