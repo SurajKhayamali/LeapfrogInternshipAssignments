@@ -191,7 +191,9 @@ class Game {
     if (this.isGameOver) return;
 
     if (this.control.left || this.control.right) {
-      this.control.left ? this.player.moveLeft() : this.player.moveRight();
+      this.control.left
+        ? this.player.moveLeft(this.control.factor)
+        : this.player.moveRight(this.control.factor);
     } else {
       this.player.stop();
     }

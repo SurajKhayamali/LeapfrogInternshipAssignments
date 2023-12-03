@@ -8,6 +8,7 @@ class Control {
 
     // Mobile only variables
     this.touchStartX = 0;
+    this.factor = 0; // The factor to multiply the speed by
 
     if (isMobileDevice()) {
       this.initMobileControls();
@@ -145,13 +146,17 @@ class Control {
     const gamma = event.gamma; // Get the device's tilt in the left-to-right direction
 
     if (gamma === null) return;
+    this.factor = Math.abs(gamma / 90);
 
-    if (gamma < 0) {
+    if (gamma < -TILT_THRESHOLD) {
       this.left = true;
       this.right = false;
-    } else {
+    } else if (gamma > TILT_THRESHOLD) {
       this.left = false;
       this.right = true;
+    } else {
+      this.left = false;
+      this.right = false;
     }
   }
 

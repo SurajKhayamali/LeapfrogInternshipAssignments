@@ -62,8 +62,8 @@ class Character {
   /**
    * Move the character based on its velocity and gravity values
    */
-  move() {
-    this.x += this.vx;
+  move(factor = 1) {
+    this.x += this.vx * factor;
 
     // Apply the vertical movement and gravity only if the character is not grounded
     if (!this.isGrounded) {
