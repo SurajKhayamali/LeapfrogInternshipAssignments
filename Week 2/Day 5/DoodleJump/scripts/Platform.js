@@ -22,6 +22,6 @@ class Platform {
    * Make the platform fall
    */
   fall() {
-    this.y += PLATFORM_FALLING_SPEED;
+    this.y += PLATFORM_FALLING_SPEED * scaleY;
   }
 }

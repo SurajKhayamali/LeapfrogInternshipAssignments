@@ -27,7 +27,7 @@ class Character {
    * Move the character to the left
    */
   moveLeft() {
-    this.vx -= SPEED;
+    this.vx -= SPEED * scaleX;
     this.image.src = "./images/doodler-left.png";
   }
 
@@ -35,7 +35,7 @@ class Character {
    * Move the character to the right
    */
   moveRight() {
-    this.vx += SPEED;
+    this.vx += SPEED * scaleX;
     this.image.src = "./images/doodler-right.png";
   }
 
@@ -63,12 +63,12 @@ class Character {
    * Move the character based on its velocity and gravity values
    */
   move(factor = 1) {
-    this.x += this.vx * factor;
+    this.x += this.vx * factor * scaleX;
 
     // Apply the vertical movement and gravity only if the character is not grounded
     if (!this.isGrounded) {
-      this.y += this.vy;
-      this.vy += GRAVITY;
+      this.y += this.vy * scaleY;
+      this.vy += GRAVITY * scaleY;
     }
   }
 

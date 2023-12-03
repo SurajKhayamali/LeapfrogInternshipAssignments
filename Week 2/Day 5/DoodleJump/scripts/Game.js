@@ -29,7 +29,7 @@ class Game {
     this.platforms.push(ground);
 
     // Generate initial platforms
-    for (let count = 1; count <= PLATFORM_COUNT; count++) {
+    for (let count = 1; count <= PLATFORM_COUNT + 1; count++) {
       this.generateInitialPlatform(count);
     }
 
@@ -63,20 +63,24 @@ class Game {
 
   /**
    * Generate a new platform
-   * and remove the oldest platform
    */
   generatePlatform() {
-    // remove the oldest platform
-    this.platforms.shift();
-
-    // Update the score based on the platforms that the player has passed
-    this.score++;
-
     const x = getRandomNumber(CHARACTER_WIDTH, this.width - PLATFORM_WIDTH);
     const y = -(this.getPlatformGap() + PLATFORM_HEIGHT);
 
     const platform = new Platform(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT);
     this.platforms.push(platform);
+  }
+
+  /**
+   * Remove the first platform from the platforms array
+   * This method is called when a platform is no longer visible on the screen
+   */
+  removePlatform() {
+    this.platforms.shift();
+
+    // Update the score based on the platforms that the player has passed
+    this.score++;
   }
 
   /**
@@ -231,6 +235,10 @@ class Game {
     // make the platforms fall
     for (const platform of this.platforms) {
       platform.fall();
+
+      if (platform.y > this.height) {
+        this.removePlatform();
+      }
     }
 
     // Update the game state based on the user input
