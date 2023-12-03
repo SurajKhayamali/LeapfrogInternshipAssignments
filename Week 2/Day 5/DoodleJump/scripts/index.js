@@ -89,41 +89,25 @@ function animate() {
     platform.moveDown();
   });
 
-  if (activeActions[ACTIONS.LEFT] || activeActions[ACTIONS.RIGHT]) {
-    player.vx += activeActions[ACTIONS.LEFT] ? -SPEED : SPEED;
+  if (activeActions[ACTIONS.LEFT]) {
+    player.moveLeft();
+  } else if (activeActions[ACTIONS.RIGHT]) {
+    player.moveRight();
+  } else if (activeActions[ACTIONS.JUMP]) {
+    player.jump();
   } else {
-    player.vx = 0;
+    player.stop();
   }
 
-  player.x += player.vx;
-
-  if (activeActions[ACTIONS.JUMP] && player.isGrounded) {
-    player.isGrounded = false;
-    player.vy = -JUMP_HEIGHT;
-  }
-
-  if (player.x + player.width < 0) {
-    player.x = CANVAS_WIDTH - player.width;
-  } else if (player.x > CANVAS_WIDTH) {
-    player.x = 0;
-  }
-
-  if (!player.isGrounded) {
-    player.y += player.vy;
-    player.vy += GRAVITY;
-  }
+  player.move();
 
   if (player.y + player.height > CANVAS_HEIGHT) {
     isGameOver = true;
   }
 
   const platform = getCollidedPlatform(player, platforms);
-  if (platform) {
-    player.y = platform.y - player.height;
-    player.isGrounded = true;
-  } else {
-    player.isGrounded = false;
-  }
+
+  player.handleCollisionWithPlatform(platform);
 
   timer++;
 
