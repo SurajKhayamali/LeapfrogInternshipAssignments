@@ -121,7 +121,19 @@ class Game {
   drawScore(ctx) {
     ctx.fillStyle = SCORE_TEXT_COLOR;
     ctx.font = SCORE_TEXT_FONT;
-    ctx.fillText(`${SCORE_TEXT} ${this.score}`, SCORE_TEXT_X, SCORE_TEXT_Y);
+    ctx.fillText(`${SCORE_TEXT} ${this.score} `, SCORE_TEXT_X, SCORE_TEXT_Y);
+  }
+
+  /**
+   * Draw the stats for easibility in debugging
+   *
+   * @param {CanvasRenderingContext2D} ctx
+   * @param {string} stats
+   */
+  drawStatsForDebug(ctx, stats) {
+    ctx.fillStyle = SCORE_TEXT_COLOR;
+    ctx.font = SCORE_TEXT_FONT;
+    ctx.fillText(stats, SCORE_TEXT_X, SCORE_TEXT_Y + 100);
   }
 
   /**

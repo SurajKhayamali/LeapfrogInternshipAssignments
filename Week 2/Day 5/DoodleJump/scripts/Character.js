@@ -69,6 +69,8 @@ class Character {
     if (!this.isGrounded) {
       this.y += this.vy * scaleY;
       this.vy += GRAVITY * scaleY;
+    } else {
+      this.vy = PLATFORM_FALLING_SPEED; // Reset vy to platform galling speed when grounded
     }
   }
 
