@@ -67,3 +67,21 @@ function getCollidedPlatform(character, platforms) {
 function isMobileDevice() {
   return navigator.userAgentData.mobile;
 }
+
+/**
+ * Return the maximum jump height of the character
+ * @param {number} jump
+ * @param {number} gravity
+ * @returns {number} jumpHeight
+ */
+function getMaxJumpHeight(jump, gravity) {
+  let jumpHeight = 0;
+
+  while (jump > 0) {
+    jumpHeight += jump;
+    jump -= gravity;
+    gravity += gravity;
+  }
+
+  return jumpHeight;
+}

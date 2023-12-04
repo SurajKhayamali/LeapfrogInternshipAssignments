@@ -2,6 +2,8 @@ const SPEED = 0.1;
 const GRAVITY = 0.05;
 const JUMP_HEIGHT = 5;
 
+const MAX_JUMP_HEIGHT = getMaxJumpHeight(JUMP_HEIGHT, GRAVITY);
+
 const GROUND_HEIGHT = 10;
 
 const CHARACTER_WIDTH = 100;
@@ -10,7 +12,7 @@ const CHARACTER_HEIGHT = 100;
 const PLATFORM_WIDTH = 200;
 const PLATFORM_HEIGHT = 30;
 const PLATFORM_FALLING_SPEED = 0.4;
-const PLATFORM_COUNT = 8;
+const PLATFORM_COUNT = 15;
 
 // Gap between platforms
 const PLATFORM_GAP_VARIATION = 40;

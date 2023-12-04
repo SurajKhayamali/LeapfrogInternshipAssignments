@@ -8,6 +8,7 @@ class Game {
 
     this.groundY = this.height - GROUND_HEIGHT - CHARACTER_HEIGHT;
     this.platformGap = this.groundY / PLATFORM_COUNT;
+    this.lastGeneratedPlatformY = this.groundY;
 
     this.platforms = [];
 
@@ -30,7 +31,7 @@ class Game {
 
     // Generate initial platforms
     for (let count = 0; count < PLATFORM_COUNT; count++) {
-      this.generatePlatform(count * this.getPlatformGap());
+      this.generatePlatform();
     }
 
     // creating a player
@@ -46,7 +47,12 @@ class Game {
    * Get the gap between platforms
    */
   getPlatformGap() {
-    return this.platformGap + getRandomNumber(0, PLATFORM_GAP_VARIATION);
+    return (
+      MAX_JUMP_HEIGHT +
+      CHARACTER_HEIGHT +
+      PLATFORM_HEIGHT -
+      getRandomNumber(0, PLATFORM_GAP_VARIATION)
+    );
   }
 
   /**
@@ -54,11 +60,18 @@ class Game {
    * The platform is generated at a random x position
    * and at the top of the screen unless an offset is provided
    */
-  generatePlatform(offset = 0) {
+  generatePlatform() {
     const x = getRandomNumber(CHARACTER_WIDTH, this.width - PLATFORM_WIDTH);
-    const y = -(this.getPlatformGap() + PLATFORM_HEIGHT) + offset;
 
-    const platform = new Platform(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT);
+    this.lastGeneratedPlatformY -= this.getPlatformGap();
+
+    const platform = new Platform(
+      x,
+      this.lastGeneratedPlatformY,
+      PLATFORM_WIDTH,
+      PLATFORM_HEIGHT
+    );
+
     this.platforms.push(platform);
   }
 
