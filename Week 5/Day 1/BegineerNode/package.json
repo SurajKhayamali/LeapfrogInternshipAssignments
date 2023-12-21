@@ -1,0 +1,13 @@
+{
+  "name": "begineer-node",
+  "version": "1.0.0",
+  "description": "Doing something",
+  "main": "index.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Suraj Khayamali <surajkhayamali.sk@gmail.com>",
+  "license": "ISC"
+}
