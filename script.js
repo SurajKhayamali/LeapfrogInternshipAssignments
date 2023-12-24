@@ -69,6 +69,11 @@ const assignments = [
       codeLink: "https://github.com/SurajKhayamali/Chess",
     },
   },
+  {
+    name: "Todo App (TypeScript)",
+    relativeFolderPath: "Week 5/Day 2/Tasker/dist",
+    codeFolderPath: "Week 5/Day 2/Tasker",
+  },
 ];
 
 const assignmentListTable = document.getElementById("assignment-list-table");
