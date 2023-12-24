@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,31 +6,45 @@
   <link rel="icon" type="image/svg+xml" href="./vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tasker</title>
-  <script type="module" crossorigin src="./assets/index-Psdii97H.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-mTqtJvmB.css">
+  <script type="module" crossorigin src="./assets/index-YX27W8Bw.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-h0gGN0sn.css">
 </head>
 
-<body>
-  <header class="header">
-    <h2>Tasker</h2>
+<body class="container">
+  <header>
+    <h1 class="text--primary">Tasker</h1>
   </header>
-  <div id="app">
-    <div id="search-container" class="search-container">
-      <input type="text" id="search-input" class="input" placeholder="search..." />
-    </div>
-    <div id="controls" class="controls">
-      <button id="add-task" class="btn btn-add">New Task</button>
-    </div>
-    <div id="task-list">
-      <!-- <div class="task-item">
-          <label class="form-control">
-            <input type="checkbox" name="checkbox-checked" checked />
-            <div class="task-item-value">Try something new</div>
-          </label>
-        </div> -->
+  <section class="search">
+    <input type="text" placeholder="Search..." id="filterInput" class="search__input" />
+    <figure class="search__icon">
+      <img src="./icons/magnifying-glass-solid.svg" alt="search" />
+    </figure>
+  </section>
 
-    </div>
-  </div>
+  <section class="add-todo-form-container">
+    <form id="addTodoForm" class="add-todo-form" actiom="#">
+      <input type="text" name="title" id="todoInput" placeholder="Enter a new task" class="add-todo-form__input" />
+      <button type="submit" id="addTodoBtn" class="add-todo-form__submit" title="Add a new task">
+        + Add
+      </button>
+    </form>
+  </section>
+
+  <section>
+    <h2 class="text--primary">Todo List</h2>
+    <ul id="todoList" class="todo-list"></ul>
+  </section>
+
+  <section>
+    <h2 class="text--primary">Pending</h2>
+    <ul id="pendingOnlyTodoList" class="todo-list"></ul>
+  </section>
+
+  <section>
+    <h2 class="text--primary">Completed</h2>
+    <ul id="completedOnlyTodoList" class="todo-list"></ul>
+  </section>
+
 </body>
 
 </html>

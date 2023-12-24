@@ -1,0 +1,104 @@
+.search {
+    position: relative;
+
+    @include e("input") {
+        width: 100%;
+        padding: $padding-small;
+        box-sizing: border-box;
+        border: 1px solid $bg-secondary;
+        border-radius: $border-radius-small;
+        outline-color: $primary;
+    }
+
+    @include e("icon") {
+        position: absolute;
+        right: $padding-small;
+        top: 30%;
+    }
+
+    figure {
+        margin: 0;
+    }
+}
+
+.add-todo-form-container {
+    margin: $margin-medium 0;
+}
+
+.add-todo-form {
+    position: relative;
+
+    @include e("input") {
+        width: 100%;
+        padding: $padding-small;
+        box-sizing: border-box;
+        border: 1px solid $bg-secondary;
+        border-radius: $border-radius-small;
+        outline-color: $primary;
+    }
+
+    @include e("submit") {
+        position: absolute;
+        right: $padding-small;
+        top: 30%;
+        z-index: 2;
+    }
+
+    button {
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: transparent;
+            transition: background-color 0.2s ease-in-out;
+        }
+    }
+    figure {
+        margin: 0;
+    }
+}
+
+.todo-list {
+    @include resetListStyles;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-default;
+
+    @include e("item") {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $padding-small;
+        border: 1px solid $bg-secondary;
+        border-radius: $border-radius-small;
+
+        @include m("done") {
+            text-decoration: line-through;
+            color: transparentize($color: $black, $amount: 0.8);
+        }
+
+        @include e("actions") {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    @include e("actions") {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: $gap-default;
+    }
+
+    @include e("action-btn") {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
