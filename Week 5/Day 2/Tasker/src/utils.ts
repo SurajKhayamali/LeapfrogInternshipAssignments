@@ -1,4 +1,4 @@
-import { ALPHABET_SET, NUMBER_SET } from "./constants";
+import { ALPHABET_SET, NUMBER_SET } from './constants';
 
 const RADIX_VALUE = 36;
 
@@ -15,7 +15,7 @@ export function getRandomString(length: number): string {
 
   const characters = ALPHABET_SET + NUMBER_SET;
 
-  let result = "";
+  let result = '';
 
   const charactersLength = characters.length;
   for (let i = 0; i < length; i++)

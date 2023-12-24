@@ -1,11 +1,11 @@
-import "normalize.css";
-import "./assets/styles/style.css";
+import 'normalize.css';
+import './assets/styles/style.css';
 
-import { Task } from "./Task";
-import { TaskList } from "./TaskList";
+import { Task } from './Task';
+import { TaskList } from './TaskList';
 
-const taskListElement = document.getElementById("task-list");
-const searchInput = document.getElementById("search-input");
+const taskListElement = document.getElementById('task-list');
+const searchInput = document.getElementById('search-input');
 
 const taskList = new TaskList();
 
@@ -30,11 +30,11 @@ function toggleTaskCompleted(id: string): Task {
   return task;
 }
 
-createTask("Learn some new language");
-createTask("Learn how to learn a new language");
-createTask("Fail at learning a new language");
+createTask('Learn some new language');
+createTask('Learn how to learn a new language');
+createTask('Fail at learning a new language');
 
-function search(list: TaskList, searchTerm: string = ""): TaskList {
+function search(list: TaskList, searchTerm: string = ''): TaskList {
   const tasks = list.list.filter((item) => {
     return item.value.toLowerCase().includes(searchTerm.toLowerCase());
   });
@@ -43,28 +43,28 @@ function search(list: TaskList, searchTerm: string = ""): TaskList {
 }
 
 function renderList(tasks: TaskList) {
-  if (!taskListElement) throw new Error("DOM element not found");
+  if (!taskListElement) throw new Error('DOM element not found');
 
-  taskListElement.innerHTML = "";
+  taskListElement.innerHTML = '';
 
   tasks.list.forEach((task) => {
-    const element = document.createElement("div");
-    element.classList.add("task-item");
+    const element = document.createElement('div');
+    element.classList.add('task-item');
 
-    const label = document.createElement("label");
-    label.classList.add("form-control");
+    const label = document.createElement('label');
+    label.classList.add('form-control');
     element.appendChild(label);
 
-    const inputField = document.createElement("input");
-    inputField.setAttribute("type", "checkbox");
+    const inputField = document.createElement('input');
+    inputField.setAttribute('type', 'checkbox');
     inputField.checked = task.completed;
 
-    inputField.addEventListener("change", () => {
+    inputField.addEventListener('change', () => {
       toggleTaskCompleted(task.id);
     });
 
-    const taskValue = document.createElement("div");
-    taskValue.classList.add("task-item-value");
+    const taskValue = document.createElement('div');
+    taskValue.classList.add('task-item-value');
     taskValue.textContent = task.value;
 
     label.appendChild(inputField);
@@ -74,13 +74,13 @@ function renderList(tasks: TaskList) {
   });
 }
 
-searchInput?.addEventListener("input", (e) => {
+searchInput?.addEventListener('input', (e) => {
   const searchParam = (e.target as HTMLInputElement)?.value;
 
   render(searchParam);
 });
 
-function render(searchParam: string = "") {
+function render(searchParam: string = '') {
   const filteredTaskList = search(taskList, searchParam);
 
   renderList(filteredTaskList);

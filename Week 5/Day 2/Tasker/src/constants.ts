@@ -1,5 +1,5 @@
-export const NUMBER_SET = "0123456789";
+export const NUMBER_SET = '0123456789';
 export const ALPHABET_SET =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
 export const RANDOMIZED_CHARACTER_LENGTH_FOR_ID = 8;

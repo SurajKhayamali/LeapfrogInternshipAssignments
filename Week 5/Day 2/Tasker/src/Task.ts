@@ -1,5 +1,5 @@
-import { RANDOMIZED_CHARACTER_LENGTH_FOR_ID } from "./constants";
-import { getRandomString } from "./utils";
+import { RANDOMIZED_CHARACTER_LENGTH_FOR_ID } from './constants';
+import { getRandomString } from './utils';
 
 export interface ITask {
   id: string;
@@ -19,7 +19,7 @@ export class Task implements ITask {
   value: string;
   completed: boolean;
 
-  constructor(value = "", completed = false) {
+  constructor(value = '', completed = false) {
     this.id = getRandomString(RANDOMIZED_CHARACTER_LENGTH_FOR_ID);
     this.value = value;
     this.completed = completed;
