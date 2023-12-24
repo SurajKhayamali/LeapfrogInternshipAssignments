@@ -143,7 +143,7 @@ export class UIControl implements IUIControl {
     });
 
     const deleteImg = document.createElement('img');
-    deleteImg.src = '/icons/circle-xmark.svg';
+    deleteImg.src = './icons/circle-xmark.svg';
     deleteImg.alt = 'delete';
 
     deleteBtn.appendChild(deleteImg);
