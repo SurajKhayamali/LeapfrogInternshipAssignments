@@ -1,0 +1,1 @@
+DROP DATABASE IF EXISTS suraj_khayamali_day_1;
