@@ -1,5 +1,5 @@
 CREATE TABLE categories (
-    categoryid INT PRIMARY KEY,
-    categoryname VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL
+    categoryid SERIAL PRIMARY KEY,
+    categoryname VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL
 );

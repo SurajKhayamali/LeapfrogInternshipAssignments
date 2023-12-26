@@ -1,10 +1,7 @@
 CREATE TABLE orders (
-    orderid INT PRIMARY KEY,
-    customerid INT,
-    employeeid INT,
-    orderdate TIMESTAMP NOT NULL,
-    shipperid INT,
-    FOREIGN KEY (customerid) REFERENCES customers(customerid),
-    FOREIGN KEY (employeeid) REFERENCES employees(employeeid),
-    FOREIGN KEY (shipperid) REFERENCES shippers(shipperid)
+    orderid SERIAL PRIMARY KEY,
+    customerid INT REFERENCES customers(customerid),
+    employeeid INT REFERENCES employees(employeeid),
+    orderdate DATE NOT NULL,
+    shipperid INT REFERENCES shippers(shipperid)
 );
