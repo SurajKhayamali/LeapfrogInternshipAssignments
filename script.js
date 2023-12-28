@@ -11,6 +11,7 @@
 //   name: string;
 //   relativeFolderPath: string;
 //   codeFolderPath?: string;
+//   omitDemoLink?: boolean;
 // }
 
 const ROOT_URL_FOR_DEMO =
@@ -74,6 +75,11 @@ const assignments = [
     relativeFolderPath: "Week 5/Day 2/Tasker/dist",
     codeFolderPath: "Week 5/Day 2/Tasker",
   },
+  {
+    name: "Database Assignment 1",
+    relativeFolderPath: "Week 6/Day 2/sql",
+    omitDemoLink: true,
+  },
 ];
 
 const assignmentListTable = document.getElementById("assignment-list-table");
@@ -86,8 +92,13 @@ function addRowToTable(index, assignment) {
   const demoLinkCell = newRow.insertCell(2);
   const codeLinkCell = newRow.insertCell(3);
 
-  const { name, relativeFolderPath, codeFolderPath, absoluteLinks } =
-    assignment;
+  const {
+    name,
+    relativeFolderPath,
+    codeFolderPath,
+    absoluteLinks,
+    omitDemoLink,
+  } = assignment;
   indexCell.innerHTML = `<p>${index + 1}.</p>`;
   nameCell.innerHTML = `<p>${name}</p>`;
   if (absoluteLinks) {
@@ -95,7 +106,11 @@ function addRowToTable(index, assignment) {
     demoLinkCell.innerHTML = `<a href="${demoLink}" target="_blank">Demo</a>`;
     codeLinkCell.innerHTML = `<a href="${codeLink}" target="_blank">Code</a>`;
   } else {
-    demoLinkCell.innerHTML = `<a href="${ROOT_URL_FOR_DEMO}/${relativeFolderPath}" target="_blank">Demo</a>`;
+    if (omitDemoLink) {
+      demoLinkCell.innerHTML = `<p>-</p>`;
+    } else {
+      demoLinkCell.innerHTML = `<a href="${ROOT_URL_FOR_DEMO}/${relativeFolderPath}" target="_blank">Demo</a>`;
+    }
     codeLinkCell.innerHTML = `<a href="${ROOT_URL_FOR_CODE}/tree/${BRANCH_NAME}/${
       codeFolderPath ? codeFolderPath : relativeFolderPath
     }" target="_blank">Code</a>`;
