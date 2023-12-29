@@ -15,8 +15,9 @@ export async function getUsers(req: Request, res: Response) {
 
   // res.json(users);
 
+  const params = req.query;
   res.json({
-    message: "Hello World!",
+    data: params,
   });
 }
 
