@@ -1,0 +1,33 @@
+@BASE_URL=http://localhost:5000
+@BASE_URL_FOR_TODO={{BASE_URL}}/todos
+
+###
+GET {{BASE_URL_FOR_TODO}}
+
+###
+GET {{BASE_URL_FOR_TODO}}/1
+
+###
+POST {{BASE_URL_FOR_TODO}}
+Content-Type: application/json
+
+{
+    "title": "New Todo"
+}
+
+###
+PATCH {{BASE_URL_FOR_TODO}}/1
+Content-Type: application/json
+
+{
+    "title": "New Title"
+}
+
+###
+PATCH {{BASE_URL_FOR_TODO}}/1/complete
+
+###
+PATCH {{BASE_URL_FOR_TODO}}/1/uncomplete
+
+###
+DELETE {{BASE_URL_FOR_TODO}}/1
