@@ -80,6 +80,10 @@ const assignments = [
     relativeFolderPath: "Week 6/Day 2/sql",
     omitDemoLink: true,
   },
+  {
+    name: "Database Assignment 2",
+    relativeFolderPath: "Week 6/Day 4/Database assignment 2",
+  },
 ];
 
 const assignmentListTable = document.getElementById("assignment-list-table");

@@ -1,3 +1,5 @@
+# Database Assignment 2 Solutions
+
 ### [Japanese Cities' Names](https://www.hackerrank.com/challenges/japanese-cities-name/problem)
 [My Solution](https://www.hackerrank.com/rest/contests/master/challenges/japanese-cities-name/hackers/surajkhayamali/download_solution) \
 [Screenshot](./www.hackerrank.com_challenges_japanese-cities-name_problem(Nest%20Hub%20Max).png "Japanese Cities' Names")
