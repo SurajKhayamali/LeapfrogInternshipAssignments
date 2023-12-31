@@ -33,7 +33,6 @@ export async function getTodos(
 
 export async function getTodoById(req: Request, res: Response) {
   const { id } = req.params;
-  console.log(typeof id);
 
   const todo = await todoService.getTodoById(parseInt(id));
 

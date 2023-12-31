@@ -1,4 +1,4 @@
-import { User } from '../interfaces/user';
+import { CreateUserDto, User } from '../interfaces/user';
 
 const users: User[] = [
   {
@@ -16,6 +16,17 @@ const users: User[] = [
     password: '$2b$10$JptkIFp22UNJLqKRwd5ndefAPXXdhekzOpsQNtJC500It9CcXrsd6',
   },
 ];
+
+export function createUser(createUserDto: CreateUserDto) {
+  const newUser = {
+    id: users.length + 1,
+    ...createUserDto,
+  };
+
+  users.push(newUser);
+
+  return newUser;
+}
 
 export function getAllUsers() {
   return users;
@@ -38,4 +49,29 @@ export function getUserByEmailOrUsername(emailOrUsername: string) {
     (user) =>
       user.email === emailOrUsername || user.username === emailOrUsername
   );
+}
+
+export function updateUser(id: number, updateUserDto: CreateUserDto) {
+  const user = getUserById(id);
+
+  if (!user) return null;
+
+  const index = users.findIndex((user) => user.id === id);
+
+  users[index] = {
+    ...user,
+    ...updateUserDto,
+  };
+
+  return users[index];
+}
+
+export function deleteUser(id: number) {
+  const index = users.findIndex((user) => user.id === id);
+
+  if (index === -1) return null;
+
+  const deletedUsers = users.splice(index, 1);
+
+  return deletedUsers[0];
 }

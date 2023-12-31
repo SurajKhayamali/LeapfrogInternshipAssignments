@@ -1,22 +1,53 @@
 @BASE_URL=http://localhost:5000
+@BASE_URL_FOR_AUTH={{BASE_URL}}/auth
+@accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInRva2VuVHlwZSI6ImFjY2VzcyIsImlhdCI6MTcwNDA0MTg5NSwiZXhwIjoxNzA0MDQyMTk1fQ.N3pP3_CR1Ll8nVXOw-_8Z11UGtwWhdSvXiK4WFhesC0
+@refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInRva2VuVHlwZSI6InJlZnJlc2giLCJpYXQiOjE3MDQwNDE4OTUsImV4cCI6MTcwNjYzMzg5NX0.oUfGnd_a2NVNaySWOpR0WKpnn6IbUQtOQnFyAkAnHXM
 
 ###
-POST {{BASE_URL}}/auth/signup
+POST {{BASE_URL_FOR_AUTH}}/signup
 Content-Type: application/json
 
 {
+    "name": "Test",
+    "email": "test@mail.com",
     "username": "test",
     "password": "test"
 }
 
+# Login with email
 ###
-POST {{BASE_URL}}/auth/login
+POST {{BASE_URL_FOR_AUTH}}/login
 Content-Type: application/json
 
 {
-    "username": "test",
+    "emailOrUsername": "test@mail.com",
     "password": "test"
 }
 
+# Login with username
 ###
-GET {{BASE_URL}}/auth/refresh
+POST {{BASE_URL_FOR_AUTH}}/login
+Content-Type: application/json
+
+{
+    "emailOrUsername": "test",
+    "password": "test"
+}
+
+# Invalid login
+###
+POST {{BASE_URL_FOR_AUTH}}/login
+Content-Type: application/json
+
+{
+    "emailOrUsername": "test",
+    "password": "test1"
+}
+
+###
+POST {{BASE_URL_FOR_AUTH}}/refresh
+Authorization: Bearer {{refreshToken}}
+
+###
+POST {{BASE_URL_FOR_AUTH}}/logout
+Authorization: Bearer {{refreshToken}}

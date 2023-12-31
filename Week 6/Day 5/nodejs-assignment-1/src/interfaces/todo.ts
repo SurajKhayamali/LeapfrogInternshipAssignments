@@ -4,9 +4,7 @@ export interface Todo {
   completed: boolean;
 }
 
-export interface CreateTodoDto {
-  title: string;
-}
+export interface CreateTodoDto extends Omit<Todo, 'id' | 'completed'> {}
 
 export interface UpdateTodoDto extends Partial<CreateTodoDto> {}
 

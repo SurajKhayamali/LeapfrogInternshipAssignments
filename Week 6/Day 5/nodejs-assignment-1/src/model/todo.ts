@@ -72,6 +72,7 @@ export function deleteTodoById(id: number) {
 
   if (todoIndex === -1) return null;
 
-  todos.splice(todoIndex, 1);
-  return true;
+  const deletedTodos = todos.splice(todoIndex, 1);
+
+  return deletedTodos[0];
 }
