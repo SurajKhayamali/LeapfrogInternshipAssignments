@@ -1,15 +1,25 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import config from '../config';
 
 const COOKIE_KEY = 'jwt';
 const COOKIE_REFRESH_KEY = 'jwt-refresh';
 
+const defaultCookieOptions = {
+  httpOnly: true,
+  secure: config.isProduction,
+  signed: true,
+  maxAge: config.cookieMaxAge,
+};
+
 export const getCookie = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  cookies: any,
+  req: Request,
   isRefreshCookie = false
 ): string | null => {
   let token = null;
+  if (!req) return token;
+
+  const cookies = defaultCookieOptions.signed ? req.signedCookies : req.cookies;
+
   if (cookies)
     token = cookies[isRefreshCookie ? COOKIE_REFRESH_KEY : COOKIE_KEY];
 
@@ -22,11 +32,10 @@ export const setCookie = (
   isRefreshCookie = false
 ) => {
   if (!isRefreshCookie)
-    return res.cookie(COOKIE_KEY, token, {
-      maxAge: config.cookieMaxAge,
-    });
+    return res.cookie(COOKIE_KEY, token, defaultCookieOptions);
 
   res.cookie(COOKIE_REFRESH_KEY, token, {
+    ...defaultCookieOptions,
     maxAge: config.cookieRefreshMaxAge,
   });
 };

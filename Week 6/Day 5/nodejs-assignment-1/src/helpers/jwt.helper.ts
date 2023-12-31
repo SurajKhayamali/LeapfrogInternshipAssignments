@@ -51,7 +51,7 @@ export function extractJWTTokenFromRequest(
   let token = extractJWTTokenFromRequestHeaders(req.headers);
 
   if (!token) {
-    token = getCookie(req.cookies, isRefreshToken);
+    token = getCookie(req, isRefreshToken);
   }
 
   return token;
