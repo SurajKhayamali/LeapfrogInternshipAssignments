@@ -1,6 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
 import { HttpException } from '../exceptions';
 
+/**
+ * Error handler middleware
+ *
+ * @param error
+ * @param request
+ * @param response
+ * @param next
+ */
 export async function errorHandlerMiddleware(
   error: HttpException,
   request: Request,
@@ -8,7 +16,6 @@ export async function errorHandlerMiddleware(
   next: NextFunction
 ) {
   const { statusCode, message } = error;
-  // console.log('Catched Error:', error);
 
   if (response.headersSent) {
     return next(error);

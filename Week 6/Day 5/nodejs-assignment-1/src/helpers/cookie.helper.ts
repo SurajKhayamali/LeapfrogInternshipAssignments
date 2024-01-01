@@ -11,6 +11,13 @@ const defaultCookieOptions = {
   maxAge: config.cookieMaxAge,
 };
 
+/**
+ * Get token from request cookies
+ *
+ * @param req
+ * @param isRefreshCookie
+ * @returns token
+ */
 export const getCookie = (
   req: Request,
   isRefreshCookie = false
@@ -26,6 +33,13 @@ export const getCookie = (
   return token;
 };
 
+/**
+ * Set cookie
+ *
+ * @param res
+ * @param token
+ * @param isRefreshCookie
+ */
 export const setCookie = (
   res: Response,
   token: string,
@@ -40,6 +54,11 @@ export const setCookie = (
   });
 };
 
+/**
+ * Clear cookie
+ *
+ * @param res
+ */
 export const clearCookie = (res: Response) => {
   // res.clearCookie(isRefreshCookie ? COOKIE_REFRESH_KEY : COOKIE_KEY);
   res.clearCookie(COOKIE_REFRESH_KEY);

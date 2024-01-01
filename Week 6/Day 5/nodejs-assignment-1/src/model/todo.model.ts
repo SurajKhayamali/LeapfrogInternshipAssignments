@@ -23,15 +23,26 @@ const todos: Todo[] = [
   },
 ];
 
+/**
+ * Get all todos
+ *
+ * @returns todos
+ */
 export function getAllTodos() {
   return todos;
 }
 
+/**
+ * Get filtered todos
+ *
+ * @param queryTodoDto
+ *
+ * @returns todos
+ */
 export function getFilteredTodos(queryTodoDto: QueryTodoDto) {
   const { searchTerm, completed } = queryTodoDto;
 
   const completedBool = completed === 'true' ? true : false;
-  // console.log(searchTerm, completed, completedBool);
 
   return todos.filter(
     (todo) =>
@@ -41,10 +52,24 @@ export function getFilteredTodos(queryTodoDto: QueryTodoDto) {
   );
 }
 
+/**
+ * Get todo by id
+ *
+ * @param id
+ *
+ * @returns todo
+ */
 export function getTodoById(id: number) {
   return todos.find((todo) => todo.id === id) || null;
 }
 
+/**
+ * Create todo
+ *
+ * @param createTodoDto
+ *
+ * @returns todo
+ */
 export function createTodo(createTodoDto: CreateTodoDto) {
   const { title } = createTodoDto;
 
@@ -59,6 +84,14 @@ export function createTodo(createTodoDto: CreateTodoDto) {
   return newTodo;
 }
 
+/**
+ * Update todo by id
+ *
+ * @param id
+ * @param updateTodoDto
+ *
+ * @returns todo
+ */
 export function updateTodoById(id: number, updateTodoDto: UpdateTodoDto) {
   const { title } = updateTodoDto;
   if (!title) return null;
@@ -71,6 +104,14 @@ export function updateTodoById(id: number, updateTodoDto: UpdateTodoDto) {
   return todo;
 }
 
+/**
+ * Update todo completed by id
+ *
+ * @param id
+ * @param completed
+ *
+ * @returns todo
+ */
 export function updateTodoCompletedById(id: number, completed: boolean) {
   const todo = getTodoById(id);
   if (!todo) return null;
@@ -80,6 +121,13 @@ export function updateTodoCompletedById(id: number, completed: boolean) {
   return todo;
 }
 
+/**
+ * Delete todo by id
+ *
+ * @param id
+ *
+ * @returns todo
+ */
 export function deleteTodoById(id: number) {
   const todoIndex = todos.findIndex((todo) => todo.id === id);
 

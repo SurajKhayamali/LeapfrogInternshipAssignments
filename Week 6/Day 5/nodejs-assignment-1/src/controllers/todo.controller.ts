@@ -7,6 +7,12 @@ import {
   UpdateTodoDto,
 } from '../interfaces/todo.interface';
 
+/**
+ * Create a new todo
+ *
+ * @param req
+ * @param res
+ */
 export async function createTodo(
   req: Request<unknown, unknown, CreateTodoDto>,
   res: Response
@@ -18,6 +24,12 @@ export async function createTodo(
   res.status(201).json(todo);
 }
 
+/**
+ * Get all todos
+ *
+ * @param req
+ * @param res
+ */
 export async function getTodos(
   req: Request<unknown, unknown, unknown, QueryTodoDto>,
   res: Response
@@ -29,6 +41,12 @@ export async function getTodos(
   res.json(todos);
 }
 
+/**
+ * Get todo by id
+ *
+ * @param req
+ * @param res
+ */
 export async function getTodoById(req: Request, res: Response) {
   const { id } = req.params;
 
@@ -37,6 +55,12 @@ export async function getTodoById(req: Request, res: Response) {
   res.json(todo);
 }
 
+/**
+ * Update todo by id
+ *
+ * @param req
+ * @param res
+ */
 export async function updateTodoById(
   req: Request<{ id: string }, unknown, UpdateTodoDto>,
   res: Response
@@ -49,6 +73,12 @@ export async function updateTodoById(
   res.json(todo);
 }
 
+/**
+ * Update todo as completed
+ *
+ * @param req
+ * @param res
+ */
 export async function updateTodoAsCompleted(req: Request, res: Response) {
   const { id } = req.params;
 
@@ -57,6 +87,12 @@ export async function updateTodoAsCompleted(req: Request, res: Response) {
   res.json(todo);
 }
 
+/**
+ * Update todo as not completed
+ *
+ * @param req
+ * @param res
+ */
 export async function updateTodoAsNotCompleted(req: Request, res: Response) {
   const { id } = req.params;
 
@@ -65,6 +101,12 @@ export async function updateTodoAsNotCompleted(req: Request, res: Response) {
   res.json(todo);
 }
 
+/**
+ * Delete todo by id
+ *
+ * @param req
+ * @param res
+ */
 export async function deleteTodoById(req: Request, res: Response) {
   const { id } = req.params;
 

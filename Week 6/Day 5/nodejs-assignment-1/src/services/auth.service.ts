@@ -12,6 +12,13 @@ import {
 } from '../helpers/jwt.helper';
 import { JsonWebTokenError } from 'jsonwebtoken';
 
+/**
+ * Handle signup request
+ *
+ * @param signupDto
+ *
+ * @returns tokens
+ */
 export async function handleSignup(signupDto: SignupDto) {
   const { password, ...rest } = signupDto;
   const hashedPassword = await hashPassowrd(password);
@@ -24,6 +31,13 @@ export async function handleSignup(signupDto: SignupDto) {
   return generateJWTTokens({ userId: user.id });
 }
 
+/**
+ * Handle login request
+ *
+ * @param loginDto
+ *
+ * @returns tokens
+ */
 export async function handleLogin(loginDto: LoginDto) {
   const { emailOrUsername, password } = loginDto;
   const user = await userService.getUserByEmailOrUsername(emailOrUsername);
@@ -41,10 +55,15 @@ export async function handleLogin(loginDto: LoginDto) {
   return generateJWTTokens({ userId: user.id });
 }
 
+/**
+ * Handle logout request
+ *
+ * @param req
+ * @param res
+ */
 export async function handleRefreshToken(refreshToken: string) {
   try {
     const payload = verifyJWT(refreshToken);
-    // console.log('Payload:', payload);
 
     if (payload.tokenType !== 'refresh') throw new Error('Invalid token type!');
 

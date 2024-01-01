@@ -5,6 +5,12 @@ import { LoginDto, SignupDto } from '../interfaces/auth.interface';
 import { extractJWTTokenFromRequest } from '../helpers/jwt.helper';
 import { clearCookie, setCookie } from '../helpers/cookie.helper';
 
+/**
+ * Handle signup request
+ *
+ * @param req
+ * @param res
+ */
 export async function handleSignup(
   req: Request<unknown, unknown, SignupDto>,
   res: Response
@@ -22,6 +28,13 @@ export async function handleSignup(
   });
 }
 
+/**
+ * Handle login request
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 export async function handleLogin(
   req: Request<unknown, unknown, LoginDto>,
   res: Response,
@@ -31,7 +44,6 @@ export async function handleLogin(
 
   try {
     const result = await authService.handleLogin(loginDto);
-    // console.log('User logged in:', user);
 
     setCookie(res, result.accessToken);
     setCookie(res, result.refreshToken, true);
@@ -45,13 +57,19 @@ export async function handleLogin(
   }
 }
 
+/**
+ * Handle refresh token request
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 export async function handleRefreshToken(
   req: Request,
   res: Response,
   next: NextFunction
 ) {
   const refreshToken = extractJWTTokenFromRequest(req, true);
-  // console.log('Refresh token request:', refreshToken);
   if (!refreshToken) return next(new Error('Refresh token not found!'));
 
   try {
@@ -69,6 +87,12 @@ export async function handleRefreshToken(
   }
 }
 
+/**
+ * Handle logout request
+ *
+ * @param req
+ * @param res
+ */
 export async function handleLogout(req: Request, res: Response) {
   clearCookie(res);
 
