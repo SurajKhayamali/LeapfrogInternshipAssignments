@@ -1,4 +1,9 @@
-import { CreateTodoDto, Todo, UpdateTodoDto } from '../interfaces/todo';
+import {
+  CreateTodoDto,
+  QueryTodoDto,
+  Todo,
+  UpdateTodoDto,
+} from '../interfaces/todo';
 
 const todos: Todo[] = [
   {
@@ -22,9 +27,17 @@ export function getAllTodos() {
   return todos;
 }
 
-export function getFilteredTodos(searchTerm: string) {
-  return todos.filter((todo) =>
-    todo.title.toLowerCase().includes(searchTerm.toLowerCase())
+export function getFilteredTodos(queryTodoDto: QueryTodoDto) {
+  const { searchTerm, completed } = queryTodoDto;
+
+  const completedBool = completed === 'true' ? true : false;
+  // console.log(searchTerm, completed, completedBool);
+
+  return todos.filter(
+    (todo) =>
+      (searchTerm
+        ? todo.title.toLowerCase().includes(searchTerm.toLowerCase())
+        : true) && (completed ? todo.completed === completedBool : true)
   );
 }
 

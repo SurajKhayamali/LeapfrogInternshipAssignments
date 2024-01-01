@@ -18,15 +18,9 @@ export async function getTodos(
   req: Request<unknown, unknown, unknown, QueryTodoDto>,
   res: Response
 ) {
-  const { searchTerm } = req.query;
+  const queryTodoDto = req.query;
 
-  let todos = [];
-
-  if (searchTerm) {
-    todos = await todoService.getFilteredTodos(searchTerm);
-  } else {
-    todos = await todoService.getTodos();
-  }
+  const todos = await todoService.getFilteredTodos(queryTodoDto);
 
   res.json(todos);
 }

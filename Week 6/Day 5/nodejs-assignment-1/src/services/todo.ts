@@ -1,4 +1,4 @@
-import { CreateTodoDto, UpdateTodoDto } from '../interfaces/todo';
+import { CreateTodoDto, QueryTodoDto, UpdateTodoDto } from '../interfaces/todo';
 import * as Todo from '../model/todo';
 
 export async function createTodo(createTodoDto: CreateTodoDto) {
@@ -9,8 +9,8 @@ export async function getTodos() {
   return Todo.getAllTodos();
 }
 
-export async function getFilteredTodos(searchTerm: string) {
-  return Todo.getFilteredTodos(searchTerm);
+export async function getFilteredTodos(queryTodoDto: QueryTodoDto) {
+  return Todo.getFilteredTodos(queryTodoDto);
 }
 
 export async function getTodoById(id: number) {
