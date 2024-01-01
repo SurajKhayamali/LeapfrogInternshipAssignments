@@ -32,7 +32,7 @@ export async function handleLogin(loginDto: LoginDto) {
     throw new HttpException(401, 'User not found!');
   }
 
-  const isPasswordValid = comparePassword(password, user.password);
+  const isPasswordValid = await comparePassword(password, user.password);
 
   if (!isPasswordValid) {
     throw new HttpException(401, 'Invalid password!');
