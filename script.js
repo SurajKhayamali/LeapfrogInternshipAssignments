@@ -84,6 +84,14 @@ const assignments = [
     name: "Database Assignment 2",
     relativeFolderPath: "Week 6/Day 4/Database assignment 2",
   },
+  {
+    name: "Backend Assignment 1",
+    absoluteLinks: {
+      demoLink: "https://nodejs-assignment-1-cmt6.onrender.com/todos",
+      codeLink:
+        "https://github.com/SurajKhayamali/LeapfrogInternshipAssignments/tree/main/Week%206/Day%205/nodejs-assignment-1",
+    },
+  },
 ];
 
 const assignmentListTable = document.getElementById("assignment-list-table");
