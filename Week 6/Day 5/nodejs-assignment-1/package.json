@@ -10,12 +10,18 @@
     "build": "tsc",
     "lint": "eslint --ext .ts src",
     "lint:fix": "eslint --fix --ext .ts src",
+    "migration:create": "mikro-orm migration:create",
+    "migration:list": "mikro-orm migration:list",
+    "migration:up": "mikro-orm migration:up",
+    "migration:down": "mikro-orm migration:down",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@mikro-orm/cli": "^5.9.7",
+    "@mikro-orm/migrations": "^5.9.7",
     "@types/bcrypt": "^5.0.2",
     "@types/cookie-parser": "^1.4.6",
     "@types/express": "^4.17.21",
@@ -31,11 +37,20 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@mikro-orm/core": "^5.9.7",
+    "@mikro-orm/postgresql": "^5.9.7",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "pino-http": "^9.0.0"
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "configPaths": [
+      "./src/mikro-orm.config.ts",
+      "./dist/mikro-orm.config.js"
+    ]
   }
 }

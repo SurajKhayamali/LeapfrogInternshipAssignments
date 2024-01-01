@@ -1,3 +1,5 @@
+import { orm } from '../db.init';
+import { Todo as TodoEntity } from '../entities/Todo';
 import {
   CreateTodoDto,
   QueryTodoDto,
@@ -22,7 +24,11 @@ export async function createTodo(createTodoDto: CreateTodoDto) {
  * @returns todos
  */
 export async function getTodos() {
-  return Todo.getAllTodos();
+  // return Todo.getAllTodos();
+  // const todos = await Todo.
+  const todos = (orm as any).em.fork().getRepository(TodoEntity).findAll();
+  console.log(todos);
+  return todos;
 }
 
 /**
@@ -33,7 +39,14 @@ export async function getTodos() {
  * @returns todos
  */
 export async function getFilteredTodos(queryTodoDto: QueryTodoDto) {
-  return Todo.getFilteredTodos(queryTodoDto);
+  // return Todo.getFilteredTodos(queryTodoDto);
+
+  const todos = await (orm as any).em
+    .fork()
+    .getRepository(TodoEntity)
+    .findAll();
+  console.log(todos);
+  return todos;
 }
 
 /**
