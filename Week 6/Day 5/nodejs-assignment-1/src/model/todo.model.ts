@@ -3,7 +3,7 @@ import {
   QueryTodoDto,
   Todo,
   UpdateTodoDto,
-} from '../interfaces/todo';
+} from '../interfaces/todo.interface';
 
 const todos: Todo[] = [
   {

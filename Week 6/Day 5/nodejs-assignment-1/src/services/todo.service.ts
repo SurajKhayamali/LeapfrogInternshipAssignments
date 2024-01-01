@@ -1,5 +1,9 @@
-import { CreateTodoDto, QueryTodoDto, UpdateTodoDto } from '../interfaces/todo';
-import * as Todo from '../model/todo';
+import {
+  CreateTodoDto,
+  QueryTodoDto,
+  UpdateTodoDto,
+} from '../interfaces/todo.interface';
+import * as Todo from '../model/todo.model';
 
 export async function createTodo(createTodoDto: CreateTodoDto) {
   return Todo.createTodo(createTodoDto);

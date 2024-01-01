@@ -1,4 +1,4 @@
-import { CreateUserDto, User } from '../interfaces/user';
+import { CreateUserDto, User } from '../interfaces/user.interface';
 
 const users: User[] = [
   {

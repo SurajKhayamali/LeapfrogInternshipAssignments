@@ -1,4 +1,4 @@
-import { CreateUserDto } from './user';
+import { CreateUserDto } from './user.interface';
 
 export interface SignupDto extends CreateUserDto {}
 

@@ -1,7 +1,11 @@
 import { Request, Response } from 'express';
 
-import * as todoService from '../services/todo';
-import { CreateTodoDto, QueryTodoDto, UpdateTodoDto } from '../interfaces/todo';
+import * as todoService from '../services/todo.service';
+import {
+  CreateTodoDto,
+  QueryTodoDto,
+  UpdateTodoDto,
+} from '../interfaces/todo.interface';
 
 export async function createTodo(
   req: Request<unknown, unknown, CreateTodoDto>,

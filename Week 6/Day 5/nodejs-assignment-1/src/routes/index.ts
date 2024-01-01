@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import authRouter from './auth';
-import todoRouter from './todo';
+import authRouter from './auth.route';
+import todoRouter from './todo.route';
 
 const router = Router();
 

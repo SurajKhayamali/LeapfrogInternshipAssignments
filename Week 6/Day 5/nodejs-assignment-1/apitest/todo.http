@@ -11,6 +11,9 @@ GET {{BASE_URL_FOR_TODO}}?searchTerm=learning
 GET {{BASE_URL_FOR_TODO}}?completed=true
 
 ###
+GET {{BASE_URL_FOR_TODO}}?completed=false
+
+###
 GET {{BASE_URL_FOR_TODO}}/1
 
 ###

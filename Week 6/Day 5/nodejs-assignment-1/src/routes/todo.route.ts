@@ -8,7 +8,7 @@ import {
   updateTodoAsCompleted,
   updateTodoAsNotCompleted,
   deleteTodoById,
-} from '../controllers/todo';
+} from '../controllers/todo.controller';
 
 const router = Router();
 

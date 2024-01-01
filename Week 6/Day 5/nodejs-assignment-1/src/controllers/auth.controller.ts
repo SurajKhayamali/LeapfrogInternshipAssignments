@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 
-import * as authService from '../services/auth';
-import { LoginDto, SignupDto } from '../interfaces/auth';
+import * as authService from '../services/auth.service';
+import { LoginDto, SignupDto } from '../interfaces/auth.interface';
 import { extractJWTTokenFromRequest } from '../helpers/jwt.helper';
 import { clearCookie, setCookie } from '../helpers/cookie.helper';
 

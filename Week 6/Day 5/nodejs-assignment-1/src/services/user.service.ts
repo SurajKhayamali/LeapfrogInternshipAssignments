@@ -1,5 +1,5 @@
-import { CreateUserDto } from '../interfaces/user';
-import * as User from '../model/user';
+import { CreateUserDto } from '../interfaces/user.interface';
+import * as User from '../model/user.model';
 
 export async function createUser(createUserDto: CreateUserDto) {
   return User.createUser(createUserDto);

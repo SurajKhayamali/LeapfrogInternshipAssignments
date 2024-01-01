@@ -3,7 +3,7 @@ import { IncomingHttpHeaders } from 'http';
 import { Request } from 'express';
 
 import config from '../config';
-import { JwtPayload } from '../interfaces/jwt';
+import { JwtPayload } from '../interfaces/jwt.interface';
 import { getCookie } from './cookie.helper';
 
 export function signJWT(

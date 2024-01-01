@@ -1,5 +1,5 @@
-import { LoginDto, SignupDto } from '../interfaces/auth';
-import * as userService from './user';
+import { LoginDto, SignupDto } from '../interfaces/auth.interface';
+import * as userService from './user.service';
 import { HttpException } from '../exceptions';
 import {
   comparePassword,
