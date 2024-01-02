@@ -42,14 +42,12 @@ export function getAllTodos() {
 export function getFilteredTodos(queryTodoDto: QueryTodoDto) {
   const { searchTerm, completed } = queryTodoDto;
 
-  const completedBool = completed === 'true' ? true : false;
+  return todos.filter((todo) => {
+    if (searchTerm && !todo.title.includes(searchTerm)) return false;
+    if (completed !== undefined && todo.completed !== completed) return false;
 
-  return todos.filter(
-    (todo) =>
-      (searchTerm
-        ? todo.title.toLowerCase().includes(searchTerm.toLowerCase())
-        : true) && (completed ? todo.completed === completedBool : true)
-  );
+    return true;
+  });
 }
 
 /**

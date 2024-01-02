@@ -14,3 +14,11 @@ export const todoUpdateSchema = Joi.object({
     'string.max': 'Title must be at most 30 characters long',
   }),
 });
+
+export const todoQuerySchema = Joi.object({
+  searchTerm: Joi.string().min(3).max(30).messages({
+    'string.min': 'Search term must be at least 3 characters long',
+    'string.max': 'Search term must be at most 30 characters long',
+  }),
+  completed: Joi.boolean(),
+});
