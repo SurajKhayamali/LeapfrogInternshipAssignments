@@ -15,7 +15,11 @@ export async function errorHandlerMiddleware(
   response: Response,
   next: NextFunction
 ) {
-  const { statusCode, message } = error;
+  const { statusCode, message, stack } = error;
+
+  if (stack) {
+    request.log.error(stack);
+  }
 
   if (response.headersSent) {
     return next(error);
@@ -23,5 +27,11 @@ export async function errorHandlerMiddleware(
 
   return response.status(statusCode || 500).json({
     error: message || 'Something went wrong!',
+  });
+}
+
+export function notFoundHandlerMiddleware(_req: Request, res: Response) {
+  return res.status(404).json({
+    error: 'Not found!',
   });
 }

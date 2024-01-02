@@ -4,7 +4,10 @@ import pino from 'pino-http';
 
 import config from './config';
 import routes from './routes';
-import { errorHandlerMiddleware } from './middlewares/errorHandler.middleware';
+import {
+  errorHandlerMiddleware,
+  notFoundHandlerMiddleware,
+} from './middlewares/errorHandler.middleware';
 
 const app = express();
 
@@ -17,6 +20,8 @@ app.use(pino());
 app.use(routes);
 
 app.use(errorHandlerMiddleware);
+
+app.use(notFoundHandlerMiddleware);
 
 app.listen(config.port, () => {
   console.log(`Server listening on port: ${config.port}`);

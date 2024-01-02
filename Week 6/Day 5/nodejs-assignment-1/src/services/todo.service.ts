@@ -1,3 +1,4 @@
+import { NotFoundException } from '../exceptions';
 import {
   CreateTodoDto,
   QueryTodoDto,
@@ -44,7 +45,11 @@ export async function getFilteredTodos(queryTodoDto: QueryTodoDto) {
  * @returns todo
  */
 export async function getTodoById(id: number) {
-  return Todo.getTodoById(id);
+  const todo = Todo.getTodoById(id);
+
+  if (!todo) throw new NotFoundException('Todo not found!');
+
+  return todo;
 }
 
 /**
@@ -56,7 +61,11 @@ export async function getTodoById(id: number) {
  * @returns todo
  */
 export async function updateTodoById(id: number, updateTodoDto: UpdateTodoDto) {
-  return Todo.updateTodoById(id, updateTodoDto);
+  const todo = Todo.updateTodoById(id, updateTodoDto);
+
+  if (!todo) throw new NotFoundException('Todo not found!');
+
+  return todo;
 }
 
 /**
@@ -68,7 +77,11 @@ export async function updateTodoById(id: number, updateTodoDto: UpdateTodoDto) {
  * @returns todo
  */
 export async function updateTodoCompletedById(id: number, completed: boolean) {
-  return Todo.updateTodoCompletedById(id, completed);
+  const todo = Todo.updateTodoCompletedById(id, completed);
+
+  if (!todo) throw new NotFoundException('Todo not found!');
+
+  return todo;
 }
 
 /**
@@ -77,5 +90,9 @@ export async function updateTodoCompletedById(id: number, completed: boolean) {
  * @param id
  */
 export async function deleteTodoById(id: number) {
-  return Todo.deleteTodoById(id);
+  const todo = Todo.deleteTodoById(id);
+
+  if (!todo) throw new NotFoundException('Todo not found!');
+
+  return todo;
 }

@@ -1,6 +1,10 @@
 import { LoginDto, SignupDto } from '../interfaces/auth.interface';
 import * as userService from './user.service';
-import { HttpException } from '../exceptions';
+import {
+  BadRequestException,
+  NotFoundException,
+  UnauthorizedException,
+} from '../exceptions';
 import {
   comparePassword,
   hashPassowrd,
@@ -43,13 +47,13 @@ export async function handleLogin(loginDto: LoginDto) {
   const user = await userService.getUserByEmailOrUsername(emailOrUsername);
 
   if (!user) {
-    throw new HttpException(401, 'User not found!');
+    throw new NotFoundException('User not found!');
   }
 
   const isPasswordValid = await comparePassword(password, user.password);
 
   if (!isPasswordValid) {
-    throw new HttpException(401, 'Invalid password!');
+    throw new BadRequestException('Invalid password!');
   }
 
   return generateJWTTokens({ userId: user.id });
@@ -71,11 +75,10 @@ export async function handleRefreshToken(refreshToken: string) {
     // return userService.getAllUsers();
   } catch (error) {
     if (error instanceof JsonWebTokenError) {
-      throw new HttpException(401, error.message);
+      throw new UnauthorizedException(error.message);
     }
 
-    throw new HttpException(
-      401,
+    throw new UnauthorizedException(
       (error as Error)?.message || 'Invalid refresh token!'
     );
   }

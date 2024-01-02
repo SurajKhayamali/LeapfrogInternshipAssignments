@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import * as todoService from '../services/todo.service';
 import {
@@ -46,13 +46,22 @@ export async function getTodos(
  *
  * @param req
  * @param res
+ * @param next
  */
-export async function getTodoById(req: Request, res: Response) {
+export async function getTodoById(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   const { id } = req.params;
 
-  const todo = await todoService.getTodoById(parseInt(id));
+  try {
+    const todo = await todoService.getTodoById(parseInt(id));
 
-  res.json(todo);
+    res.json(todo);
+  } catch (error) {
+    next(error);
+  }
 }
 
 /**
@@ -60,17 +69,23 @@ export async function getTodoById(req: Request, res: Response) {
  *
  * @param req
  * @param res
+ * @param next
  */
 export async function updateTodoById(
   req: Request<{ id: string }, unknown, UpdateTodoDto>,
-  res: Response
+  res: Response,
+  next: NextFunction
 ) {
   const { id } = req.params;
   const updateTodoDto = req.body;
 
-  const todo = await todoService.updateTodoById(parseInt(id), updateTodoDto);
+  try {
+    const todo = await todoService.updateTodoById(parseInt(id), updateTodoDto);
 
-  res.json(todo);
+    res.json(todo);
+  } catch (error) {
+    next(error);
+  }
 }
 
 /**
@@ -78,13 +93,22 @@ export async function updateTodoById(
  *
  * @param req
  * @param res
+ * @param next
  */
-export async function updateTodoAsCompleted(req: Request, res: Response) {
+export async function updateTodoAsCompleted(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   const { id } = req.params;
 
-  const todo = await todoService.updateTodoCompletedById(parseInt(id), true);
+  try {
+    const todo = await todoService.updateTodoCompletedById(parseInt(id), true);
 
-  res.json(todo);
+    res.json(todo);
+  } catch (error) {
+    next(error);
+  }
 }
 
 /**
@@ -92,13 +116,22 @@ export async function updateTodoAsCompleted(req: Request, res: Response) {
  *
  * @param req
  * @param res
+ * @param next
  */
-export async function updateTodoAsNotCompleted(req: Request, res: Response) {
+export async function updateTodoAsNotCompleted(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   const { id } = req.params;
 
-  const todo = await todoService.updateTodoCompletedById(parseInt(id), false);
+  try {
+    const todo = await todoService.updateTodoCompletedById(parseInt(id), false);
 
-  res.json(todo);
+    res.json(todo);
+  } catch (error) {
+    next(error);
+  }
 }
 
 /**
@@ -106,11 +139,20 @@ export async function updateTodoAsNotCompleted(req: Request, res: Response) {
  *
  * @param req
  * @param res
+ * @param next
  */
-export async function deleteTodoById(req: Request, res: Response) {
+export async function deleteTodoById(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   const { id } = req.params;
 
-  await todoService.deleteTodoById(parseInt(id));
+  try {
+    await todoService.deleteTodoById(parseInt(id));
 
-  res.status(204).end();
+    res.status(204).end();
+  } catch (error) {
+    next(error);
+  }
 }
