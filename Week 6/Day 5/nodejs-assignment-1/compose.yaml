@@ -9,7 +9,7 @@
 # https://github.com/docker/awesome-compose
 services:
   server:
-    image: surajkhayamali/node-assignment-1
+    image: surajkhayamali/node-assignment-1:submission-for-2
     build:
       context: .
     environment:
