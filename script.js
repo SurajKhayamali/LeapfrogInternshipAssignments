@@ -89,6 +89,14 @@ const assignments = [
     absoluteLinks: {
       demoLink: "https://nodejs-assignment-1-cmt6.onrender.com/todos",
       codeLink:
+        "https://github.com/SurajKhayamali/LeapfrogInternshipAssignments/tree/a834bf75e593adea496c66d4e9c998a09ec1c2ea/Week%206/Day%205/nodejs-assignment-1",
+    },
+  },
+  {
+    name: "Backend Assignment 2",
+    absoluteLinks: {
+      demoLink: "https://nodejs-assignment-2.onrender.com/todos",
+      codeLink:
         "https://github.com/SurajKhayamali/LeapfrogInternshipAssignments/tree/main/Week%206/Day%205/nodejs-assignment-1",
     },
   },
