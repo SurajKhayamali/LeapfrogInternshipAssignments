@@ -9,16 +9,18 @@ import {
   updateTodoAsNotCompleted,
   deleteTodoById,
 } from '../controllers/todo.controller';
+import { validateReqBody } from '../middlewares/validator.middleware';
+import { todoCreateSchema, todoUpdateSchema } from '../schemas/todo.schema';
 
 const router = Router();
 
-router.post('/', createTodo);
+router.post('/', validateReqBody(todoCreateSchema), createTodo);
 
 router.get('/', getTodos);
 
 router.get('/:id', getTodoById);
 
-router.patch('/:id', updateTodoById);
+router.patch('/:id', validateReqBody(todoUpdateSchema), updateTodoById);
 
 router.patch('/:id/complete', updateTodoAsCompleted);
 

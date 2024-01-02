@@ -93,11 +93,12 @@ export function createTodo(createTodoDto: CreateTodoDto) {
  * @returns todo
  */
 export function updateTodoById(id: number, updateTodoDto: UpdateTodoDto) {
-  const { title } = updateTodoDto;
-  if (!title) return null;
-
   const todo = getTodoById(id);
   if (!todo) return null;
+
+  const { title } = updateTodoDto;
+
+  if (!title) return todo;
 
   todo.title = title;
 
