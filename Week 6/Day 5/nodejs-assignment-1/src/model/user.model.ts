@@ -3,14 +3,14 @@ import { CreateUserDto, User } from '../interfaces/user.interface';
 const users: User[] = [
   {
     id: 1,
-    name: 'John',
+    fullname: 'John Doe',
     email: 'john@mail.com',
     username: 'john',
     password: '$2b$10$JptkIFp22UNJLqKRwd5ndefAPXXdhekzOpsQNtJC500It9CcXrsd6',
   },
   {
     id: 2,
-    name: 'Jane',
+    fullname: 'Jane Doe',
     email: 'jane@mail.com',
     username: 'jane',
     password: '$2b$10$JptkIFp22UNJLqKRwd5ndefAPXXdhekzOpsQNtJC500It9CcXrsd6',

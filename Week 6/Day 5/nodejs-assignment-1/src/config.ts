@@ -1,8 +1,9 @@
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+const pathToEnv = __dirname + '/../.env';
+config({ path: pathToEnv });
 
-const config = {
+const serverConfig = {
   port: process.env.PORT || 5000,
   saltRounds:
     (process.env.SALT_ROUNDS && Number(process.env.SALT_ROUNDS)) || 10,
@@ -20,6 +21,17 @@ const config = {
     1000 * 60 * 60 * 24 * 30, // 1 month in milliseconds
 
   isProduction: process.env.NODE_ENV === 'production',
+
+  database: {
+    charset: 'utf8',
+    client: process.env.DB_CLIENT,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    password: process.env.DB_PASSWORD,
+    port: Number(process.env.DB_PORT),
+    timezone: 'UTC',
+    user: process.env.DB_USER,
+  },
 };
 
-export default config;
+export default serverConfig;

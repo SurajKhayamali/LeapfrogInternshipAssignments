@@ -1,17 +1,17 @@
 import Joi from 'joi';
 
 export const signUpSchema = Joi.object({
-  name: Joi.string()
+  fullname: Joi.string()
     .min(3)
     .max(30)
     .pattern(new RegExp('\\s'))
     .required()
     .messages({
-      'string.min': 'Name must be at least 3 characters long',
-      'string.max': 'Name must be at most 30 characters long',
+      'string.min': 'Full name must be at least 3 characters long',
+      'string.max': 'Full name must be at most 30 characters long',
       'string.pattern.base':
-        'Name must be a full name, with a space in between',
-      'any.required': 'Name is required',
+        'Full name must contain at least one space character',
+      'any.required': 'Full name is required',
     }),
   email: Joi.string().email().messages({
     'string.email': 'Email must be a valid email',

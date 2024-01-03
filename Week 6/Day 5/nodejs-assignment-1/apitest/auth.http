@@ -8,7 +8,7 @@ POST {{BASE_URL_FOR_AUTH}}/signup
 Content-Type: application/json
 
 {
-    "name": "John Doe",
+    "fullname": "John Doe",
     "email": "test@mail.com",
     "username": "test",
     "password": "test1234"
