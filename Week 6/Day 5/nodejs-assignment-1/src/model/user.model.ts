@@ -1,3 +1,4 @@
+import { PEOPLE } from '../constants/database.constant';
 import { CreateUserDto, UpdateUserDto } from '../interfaces/user.interface';
 import BaseModel from './base.model';
 
@@ -22,7 +23,7 @@ export class UserModel extends BaseModel {
   static async create(createUserDto: CreateUserDto) {
     const result = await this.queryBuilder()
       .insert(createUserDto)
-      .table('users')
+      .table(PEOPLE)
       .returning('id');
 
     return result?.[0];
@@ -34,7 +35,7 @@ export class UserModel extends BaseModel {
    * @returns users
    */
   static async getAll() {
-    return this.queryBuilder().select(this.selectFields).from('users');
+    return this.queryBuilder().select(this.selectFields).from(PEOPLE);
   }
 
   /**
@@ -47,7 +48,7 @@ export class UserModel extends BaseModel {
   static async getById(id: number) {
     return this.queryBuilder()
       .select(this.selectFields)
-      .from('users')
+      .from(PEOPLE)
       .where({ id })
       .first();
   }
@@ -67,7 +68,7 @@ export class UserModel extends BaseModel {
         password: 'password',
         email: 'email',
       })
-      .from('users')
+      .from(PEOPLE)
       .where({ email })
       .first();
   }
@@ -82,7 +83,7 @@ export class UserModel extends BaseModel {
   static async getByUsername(username: string) {
     return this.queryBuilder()
       .select(this.selectFields)
-      .from('users')
+      .from(PEOPLE)
       .where({ username })
       .first();
   }
@@ -97,7 +98,7 @@ export class UserModel extends BaseModel {
   static async getByEmailOrUsername(emailOrUsername: string) {
     return this.queryBuilder()
       .select(this.selectFields)
-      .from('users')
+      .from(PEOPLE)
       .where({ email: emailOrUsername })
       .orWhere({ username: emailOrUsername })
       .first();
@@ -114,7 +115,7 @@ export class UserModel extends BaseModel {
   static async update(id: number, updateUserDto: UpdateUserDto) {
     return this.queryBuilder()
       .update(updateUserDto)
-      .table('users')
+      .table(PEOPLE)
       .where({ id });
   }
 
@@ -126,6 +127,6 @@ export class UserModel extends BaseModel {
    * @returns user
    */
   static async remove(id: number) {
-    return this.queryBuilder().table('users').where({ id }).del();
+    return this.queryBuilder().table(PEOPLE).where({ id }).del();
   }
 }

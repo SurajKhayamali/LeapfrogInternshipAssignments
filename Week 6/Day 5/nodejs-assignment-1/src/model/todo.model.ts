@@ -1,138 +1,110 @@
+import { TODOS } from '../constants/database.constant';
 import {
   CreateTodoDto,
   QueryTodoDto,
-  Todo,
   UpdateTodoDto,
 } from '../interfaces/todo.interface';
+import BaseModel from './base.model';
 
-const todos: Todo[] = [
-  {
-    id: 1,
-    title: 'Learn some new language',
-    completed: false,
-  },
-  {
-    id: 2,
-    title: 'Learn how to learn a new language',
-    completed: false,
-  },
-  {
-    id: 3,
-    title: 'Fail at learning a new language',
-    completed: false,
-  },
-];
+export class TodoModel extends BaseModel {
+  /**
+   * Create todo
+   *
+   * @param createTodoDto
+   *
+   * @returns todo
+   */
+  static async create(createTodoDto: CreateTodoDto) {
+    const result = await this.queryBuilder()
+      .insert(createTodoDto)
+      .table(TODOS)
+      .returning('id');
 
-/**
- * Get all todos
- *
- * @returns todos
- */
-export function getAllTodos() {
-  return todos;
-}
+    return result?.[0];
+  }
 
-/**
- * Get filtered todos
- *
- * @param queryTodoDto
- *
- * @returns todos
- */
-export function getFilteredTodos(queryTodoDto: QueryTodoDto) {
-  const { searchTerm, completed } = queryTodoDto;
+  /**
+   * Get all todos
+   *
+   * @returns todos
+   */
+  static async getAll() {
+    return this.queryBuilder().select().from(TODOS);
+  }
 
-  return todos.filter((todo) => {
-    if (searchTerm && !todo.title.includes(searchTerm)) return false;
-    if (completed !== undefined && todo.completed !== completed) return false;
+  /**
+   * Get filtered todos
+   *
+   * @param queryTodoDto
+   *
+   * @returns todos
+   */
+  static async getFiltered(queryTodoDto: QueryTodoDto) {
+    const { searchTerm, completed } = queryTodoDto;
 
-    return true;
-  });
-}
+    const query = this.queryBuilder().select().from(TODOS);
 
-/**
- * Get todo by id
- *
- * @param id
- *
- * @returns todo
- */
-export function getTodoById(id: number) {
-  return todos.find((todo) => todo.id === id) || null;
-}
+    if (searchTerm) {
+      query.whereILike('title', `%${searchTerm}%`);
+    }
 
-/**
- * Create todo
- *
- * @param createTodoDto
- *
- * @returns todo
- */
-export function createTodo(createTodoDto: CreateTodoDto) {
-  const { title } = createTodoDto;
+    if (completed !== undefined) {
+      query.where({ completed });
+    }
 
-  const newTodo = {
-    id: todos.length + 1,
-    title,
-    completed: false,
-  };
+    return query;
+  }
 
-  todos.push(newTodo);
+  /**
+   * Get todo by id
+   *
+   * @param id
+   *
+   * @returns todo
+   */
+  static async getById(id: number) {
+    return this.queryBuilder().select().from(TODOS).where({ id }).first();
+  }
 
-  return newTodo;
-}
+  /**
+   * Update todo by id
+   *
+   * @param id
+   * @param updateTodoDto
+   *
+   * @returns todo
+   */
+  static async update(id: number, updateTodoDto: UpdateTodoDto) {
+    return this.queryBuilder().update(updateTodoDto).table(TODOS).where({ id });
+  }
 
-/**
- * Update todo by id
- *
- * @param id
- * @param updateTodoDto
- *
- * @returns todo
- */
-export function updateTodoById(id: number, updateTodoDto: UpdateTodoDto) {
-  const todo = getTodoById(id);
-  if (!todo) return null;
+  /**
+   * Update todo completed by id
+   *
+   * @param id
+   * @param completed
+   *
+   * @returns todo
+   */
+  static async updateCompleted(
+    id: number,
+    completed: boolean,
+    updatedBy: number
+  ) {
+    return this.queryBuilder()
+      .update({ completed, updatedBy })
+      .table(TODOS)
+      .where({ id });
+  }
 
-  const { title } = updateTodoDto;
-
-  if (!title) return todo;
-
-  todo.title = title;
-
-  return todo;
-}
-
-/**
- * Update todo completed by id
- *
- * @param id
- * @param completed
- *
- * @returns todo
- */
-export function updateTodoCompletedById(id: number, completed: boolean) {
-  const todo = getTodoById(id);
-  if (!todo) return null;
-
-  todo.completed = completed;
-
-  return todo;
-}
-
-/**
- * Delete todo by id
- *
- * @param id
- *
- * @returns todo
- */
-export function deleteTodoById(id: number) {
-  const todoIndex = todos.findIndex((todo) => todo.id === id);
-
-  if (todoIndex === -1) return null;
-
-  const deletedTodos = todos.splice(todoIndex, 1);
-
-  return deletedTodos[0];
+  /**
+   * Delete todo by id
+   *
+   * @param id
+   *
+   * @returns todo
+   */
+  static async remove(id: number) {
+    return this.queryBuilder().table(TODOS).where({ id }).del();
+  }
 }

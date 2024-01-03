@@ -2,6 +2,8 @@ export interface Todo {
   id: number;
   title: string;
   completed: boolean;
+  createdBy: number;
+  updatedBy?: number;
 }
 
 export interface CreateTodoDto extends Omit<Todo, 'id' | 'completed'> {}

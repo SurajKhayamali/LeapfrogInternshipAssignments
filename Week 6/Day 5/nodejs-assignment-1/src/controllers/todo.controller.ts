@@ -6,6 +6,7 @@ import {
   QueryTodoDto,
   UpdateTodoDto,
 } from '../interfaces/todo.interface';
+import { JwtPayload } from '../interfaces/jwt.interface';
 
 /**
  * Create a new todo
@@ -14,12 +15,20 @@ import {
  * @param res
  */
 export async function createTodo(
-  req: Request<unknown, unknown, CreateTodoDto>,
+  req: Request<unknown, unknown, CreateTodoDto> & {
+    user?: JwtPayload;
+  },
   res: Response
 ) {
   const createTodoDto = req.body;
+  const createdById = req.user?.userId;
 
-  const todo = await todoService.createTodo(createTodoDto);
+  if (!createdById) throw new Error('User not found');
+
+  const todo = await todoService.create({
+    ...createTodoDto,
+    createdBy: createdById,
+  });
 
   res.status(201).json(todo);
 }
@@ -36,7 +45,7 @@ export async function getTodos(
 ) {
   const queryTodoDto = req.query;
 
-  const todos = await todoService.getFilteredTodos(queryTodoDto);
+  const todos = await todoService.getFiltered(queryTodoDto);
 
   res.json(todos);
 }
@@ -56,7 +65,7 @@ export async function getTodoById(
   const { id } = req.params;
 
   try {
-    const todo = await todoService.getTodoById(parseInt(id));
+    const todo = await todoService.getById(parseInt(id));
 
     res.json(todo);
   } catch (error) {
@@ -72,15 +81,23 @@ export async function getTodoById(
  * @param next
  */
 export async function updateTodoById(
-  req: Request<{ id: string }, unknown, UpdateTodoDto>,
+  req: Request<{ id: string }, unknown, UpdateTodoDto> & {
+    user?: JwtPayload;
+  },
   res: Response,
   next: NextFunction
 ) {
   const { id } = req.params;
   const updateTodoDto = req.body;
+  const updatedById = req.user?.userId;
+
+  if (!updatedById) throw new Error('User not found');
 
   try {
-    const todo = await todoService.updateTodoById(parseInt(id), updateTodoDto);
+    const todo = await todoService.update(parseInt(id), {
+      ...updateTodoDto,
+      updatedBy: updatedById,
+    });
 
     res.json(todo);
   } catch (error) {
@@ -96,14 +113,23 @@ export async function updateTodoById(
  * @param next
  */
 export async function updateTodoAsCompleted(
-  req: Request,
+  req: Request & {
+    user?: JwtPayload;
+  },
   res: Response,
   next: NextFunction
 ) {
   const { id } = req.params;
+  const updatedById = req.user?.userId;
+
+  if (!updatedById) throw new Error('User not found');
 
   try {
-    const todo = await todoService.updateTodoCompletedById(parseInt(id), true);
+    const todo = await todoService.updateCompleted(
+      parseInt(id),
+      true,
+      updatedById
+    );
 
     res.json(todo);
   } catch (error) {
@@ -119,14 +145,23 @@ export async function updateTodoAsCompleted(
  * @param next
  */
 export async function updateTodoAsNotCompleted(
-  req: Request,
+  req: Request & {
+    user?: JwtPayload;
+  },
   res: Response,
   next: NextFunction
 ) {
   const { id } = req.params;
+  const updatedById = req.user?.userId;
+
+  if (!updatedById) throw new Error('User not found');
 
   try {
-    const todo = await todoService.updateTodoCompletedById(parseInt(id), false);
+    const todo = await todoService.updateCompleted(
+      parseInt(id),
+      false,
+      updatedById
+    );
 
     res.json(todo);
   } catch (error) {
@@ -149,7 +184,7 @@ export async function deleteTodoById(
   const { id } = req.params;
 
   try {
-    await todoService.deleteTodoById(parseInt(id));
+    await todoService.remove(parseInt(id));
 
     res.status(204).end();
   } catch (error) {

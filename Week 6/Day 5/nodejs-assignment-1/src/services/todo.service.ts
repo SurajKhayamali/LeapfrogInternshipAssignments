@@ -4,7 +4,7 @@ import {
   QueryTodoDto,
   UpdateTodoDto,
 } from '../interfaces/todo.interface';
-import * as Todo from '../model/todo.model';
+import { TodoModel } from '../model/todo.model';
 
 /**
  * Create a new todo
@@ -13,8 +13,8 @@ import * as Todo from '../model/todo.model';
  *
  * @returns todo
  */
-export async function createTodo(createTodoDto: CreateTodoDto) {
-  return Todo.createTodo(createTodoDto);
+export async function create(createTodoDto: CreateTodoDto) {
+  return TodoModel.create(createTodoDto);
 }
 
 /**
@@ -22,8 +22,8 @@ export async function createTodo(createTodoDto: CreateTodoDto) {
  *
  * @returns todos
  */
-export async function getTodos() {
-  return Todo.getAllTodos();
+export async function getAll() {
+  return TodoModel.getAll();
 }
 
 /**
@@ -33,8 +33,8 @@ export async function getTodos() {
  *
  * @returns todos
  */
-export async function getFilteredTodos(queryTodoDto: QueryTodoDto) {
-  return Todo.getFilteredTodos(queryTodoDto);
+export async function getFiltered(queryTodoDto: QueryTodoDto) {
+  return TodoModel.getFiltered(queryTodoDto);
 }
 
 /**
@@ -44,8 +44,8 @@ export async function getFilteredTodos(queryTodoDto: QueryTodoDto) {
  *
  * @returns todo
  */
-export async function getTodoById(id: number) {
-  const todo = Todo.getTodoById(id);
+export async function getById(id: number) {
+  const todo = await TodoModel.getById(id);
 
   if (!todo) throw new NotFoundException('Todo not found!');
 
@@ -60,8 +60,8 @@ export async function getTodoById(id: number) {
  *
  * @returns todo
  */
-export async function updateTodoById(id: number, updateTodoDto: UpdateTodoDto) {
-  const todo = Todo.updateTodoById(id, updateTodoDto);
+export async function update(id: number, updateTodoDto: UpdateTodoDto) {
+  const todo = await TodoModel.update(id, updateTodoDto);
 
   if (!todo) throw new NotFoundException('Todo not found!');
 
@@ -76,8 +76,12 @@ export async function updateTodoById(id: number, updateTodoDto: UpdateTodoDto) {
  *
  * @returns todo
  */
-export async function updateTodoCompletedById(id: number, completed: boolean) {
-  const todo = Todo.updateTodoCompletedById(id, completed);
+export async function updateCompleted(
+  id: number,
+  completed: boolean,
+  updatedBy: number
+) {
+  const todo = await TodoModel.updateCompleted(id, completed, updatedBy);
 
   if (!todo) throw new NotFoundException('Todo not found!');
 
@@ -89,8 +93,8 @@ export async function updateTodoCompletedById(id: number, completed: boolean) {
  *
  * @param id
  */
-export async function deleteTodoById(id: number) {
-  const todo = Todo.deleteTodoById(id);
+export async function remove(id: number) {
+  const todo = await TodoModel.remove(id);
 
   if (!todo) throw new NotFoundException('Todo not found!');
 
