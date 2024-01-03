@@ -1,8 +1,9 @@
-import { camelCase, snakeCase } from 'change-case';
 import knex, { Knex } from 'knex';
+import camelCase from 'camelize';
+import toSnakeCase from 'to-snake-case';
+import { NextFunction } from 'express';
 
 import { baseKnexConfig } from './knexFile';
-import { NextFunction } from 'express';
 
 const knexConfig: Knex.Config = {
   ...baseKnexConfig,
@@ -22,7 +23,7 @@ const knexConfig: Knex.Config = {
       return origImpl(value);
     }
 
-    return origImpl(snakeCase(value));
+    return origImpl(toSnakeCase(value));
   },
   postProcessResponse: (result) => {
     return camelCase(result);

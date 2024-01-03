@@ -1,5 +1,5 @@
 import { CreateUserDto } from '../interfaces/user.interface';
-import * as User from '../model/user.model';
+import { UserModel } from '../model/user.model';
 
 /**
  * Create a new user
@@ -8,8 +8,8 @@ import * as User from '../model/user.model';
  *
  * @returns user
  */
-export async function createUser(createUserDto: CreateUserDto) {
-  return User.createUser(createUserDto);
+export async function create(createUserDto: CreateUserDto) {
+  return UserModel.create(createUserDto);
 }
 
 /**
@@ -17,8 +17,8 @@ export async function createUser(createUserDto: CreateUserDto) {
  *
  * @returns users
  */
-export async function getAllUsers() {
-  return User.getAllUsers();
+export async function getAll() {
+  return UserModel.getAll();
 }
 
 /**
@@ -28,8 +28,8 @@ export async function getAllUsers() {
  *
  * @returns user
  */
-export async function getUserById(id: number) {
-  return User.getUserById(id);
+export async function getById(id: number) {
+  return UserModel.getById(id);
 }
 
 /**
@@ -39,8 +39,8 @@ export async function getUserById(id: number) {
  *
  * @returns user
  */
-export async function getUserByEmail(email: string) {
-  return User.getUserByEmail(email);
+export async function getByEmail(email: string) {
+  return UserModel.getByEmail(email);
 }
 
 /**
@@ -50,8 +50,8 @@ export async function getUserByEmail(email: string) {
  *
  * @returns user
  */
-export async function getUserByUsername(username: string) {
-  return User.getUserByUsername(username);
+export async function getByUsername(username: string) {
+  return UserModel.getByUsername(username);
 }
 
 /**
@@ -61,8 +61,8 @@ export async function getUserByUsername(username: string) {
  *
  * @returns user
  */
-export async function getUserByEmailOrUsername(emailOrUsername: string) {
-  return User.getUserByEmailOrUsername(emailOrUsername);
+export async function getByEmailOrUsername(emailOrUsername: string) {
+  return UserModel.getByEmailOrUsername(emailOrUsername);
 }
 
 /**
@@ -73,8 +73,8 @@ export async function getUserByEmailOrUsername(emailOrUsername: string) {
  *
  * @returns user
  */
-export async function updateUser(id: number, updateUserDto: CreateUserDto) {
-  return User.updateUser(id, updateUserDto);
+export async function update(id: number, updateUserDto: CreateUserDto) {
+  return UserModel.update(id, updateUserDto);
 }
 
 /**
@@ -82,6 +82,6 @@ export async function updateUser(id: number, updateUserDto: CreateUserDto) {
  *
  * @param id
  */
-export async function deleteUser(id: number) {
-  return User.deleteUser(id);
+export async function remove(id: number) {
+  return UserModel.remove(id);
 }

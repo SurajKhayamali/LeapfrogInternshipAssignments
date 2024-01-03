@@ -27,7 +27,7 @@ export async function handleSignup(signupDto: SignupDto) {
   const { password, ...rest } = signupDto;
   const hashedPassword = await hashPassowrd(password);
 
-  const user = await userService.createUser({
+  const user = await userService.create({
     ...rest,
     password: hashedPassword,
   });
@@ -44,7 +44,7 @@ export async function handleSignup(signupDto: SignupDto) {
  */
 export async function handleLogin(loginDto: LoginDto) {
   const { emailOrUsername, password } = loginDto;
-  const user = await userService.getUserByEmailOrUsername(emailOrUsername);
+  const user = await userService.getByEmailOrUsername(emailOrUsername);
 
   if (!user) {
     throw new NotFoundException('User not found!');

@@ -8,10 +8,10 @@ import * as userService from '../services/user.service';
  * @param req
  * @param res
  */
-export async function createUser(req: Request, res: Response) {
+export async function create(req: Request, res: Response) {
   const createUserDto = req.body;
 
-  const user = await userService.createUser(createUserDto);
+  const user = await userService.create(createUserDto);
 
   res.status(201).json(user);
 }
@@ -22,8 +22,8 @@ export async function createUser(req: Request, res: Response) {
  * @param req
  * @param res
  */
-export async function getAllUsers(req: Request, res: Response) {
-  const users = await userService.getAllUsers();
+export async function getAll(req: Request, res: Response) {
+  const users = await userService.getAll();
 
   res.json(users);
 }
@@ -35,15 +35,11 @@ export async function getAllUsers(req: Request, res: Response) {
  * @param res
  * @param next
  */
-export async function getUserById(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
+export async function getById(req: Request, res: Response, next: NextFunction) {
   const { id } = req.params;
 
   try {
-    const user = await userService.getUserById(parseInt(id));
+    const user = await userService.getById(parseInt(id));
 
     res.json(user);
   } catch (error) {
@@ -58,16 +54,12 @@ export async function getUserById(
  * @param res
  * @param next
  */
-export async function updateUser(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
+export async function update(req: Request, res: Response, next: NextFunction) {
   const { id } = req.params;
   const updateUserDto = req.body;
 
   try {
-    const user = await userService.updateUser(parseInt(id), updateUserDto);
+    const user = await userService.update(parseInt(id), updateUserDto);
 
     res.json(user);
   } catch (error) {
@@ -82,15 +74,11 @@ export async function updateUser(
  * @param res
  * @param next
  */
-export async function deleteUser(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
+export async function remove(req: Request, res: Response, next: NextFunction) {
   const { id } = req.params;
 
   try {
-    const user = await userService.deleteUser(parseInt(id));
+    const user = await userService.remove(parseInt(id));
 
     res.json(user);
   } catch (error) {
