@@ -97,8 +97,13 @@ const assignments = [
     absoluteLinks: {
       demoLink: "https://nodejs-assignment-2.onrender.com/todos",
       codeLink:
-        "https://github.com/SurajKhayamali/LeapfrogInternshipAssignments/tree/main/Week%206/Day%205/nodejs-assignment-1",
+        "https://github.com/SurajKhayamali/LeapfrogInternshipAssignments/tree/f013a970dbf33313832cede6408c41994763c722/Week%206/Day%205/nodejs-assignment-1",
     },
+  },
+  {
+    name: "Backend Assignment 3",
+    relativeFolderPath: "Week 6/Day 5/nodejs-assignment-1",
+    omitDemoLink: true,
   },
 ];
 
