@@ -1,4 +1,4 @@
-import { TODOS } from '../constants/database.constant';
+import { PEOPLE, TODOS } from '../constants/database.constant';
 import {
   CreateTodoDto,
   QueryTodoDto,
@@ -29,7 +29,19 @@ export class TodoModel extends BaseModel {
    * @returns todos
    */
   static async getAll() {
-    return this.queryBuilder().select().from(TODOS);
+    return this.queryBuilder()
+      .select({
+        id: 't.id',
+        title: 't.title',
+        completed: 't.completed',
+        createdBy: 't.createdBy',
+        createdByName: 'uC.fullname',
+        updatedBy: 't.updatedBy',
+        updatedByName: 'uU.fullname',
+      })
+      .from({ t: TODOS })
+      .leftJoin({ uC: PEOPLE }, 'uC.id', 't.createdBy')
+      .leftJoin({ uU: PEOPLE }, 'uU.id', 't.updatedBy');
   }
 
   /**
@@ -42,7 +54,17 @@ export class TodoModel extends BaseModel {
   static async getFiltered(queryTodoDto: QueryTodoDto) {
     const { searchTerm, completed } = queryTodoDto;
 
-    const query = this.queryBuilder().select().from(TODOS);
+    const query = this.queryBuilder()
+      .select({
+        id: 't.id',
+        title: 't.title',
+        completed: 't.completed',
+        createdBy: 't.createdBy',
+        createdByName: 'uC.fullname',
+        updatedBy: 't.updatedBy',
+        updatedByName: 'uU.fullname',
+      })
+      .from({ t: TODOS });
 
     if (searchTerm) {
       query.whereILike('title', `%${searchTerm}%`);
@@ -52,7 +74,9 @@ export class TodoModel extends BaseModel {
       query.where({ completed });
     }
 
-    return query;
+    return query
+      .leftJoin({ uC: PEOPLE }, 'uC.id', 't.createdBy')
+      .leftJoin({ uU: PEOPLE }, 'uU.id', 't.updatedBy');
   }
 
   /**
@@ -63,7 +87,21 @@ export class TodoModel extends BaseModel {
    * @returns todo
    */
   static async getById(id: number) {
-    return this.queryBuilder().select().from(TODOS).where({ id }).first();
+    return this.queryBuilder()
+      .select({
+        id: 't.id',
+        title: 't.title',
+        completed: 't.completed',
+        createdBy: 't.createdBy',
+        createdByName: 'uC.fullname',
+        updatedBy: 't.updatedBy',
+        updatedByName: 'uU.fullname',
+      })
+      .from({ t: TODOS })
+      .where({ 't.id': id })
+      .first()
+      .leftJoin({ uC: PEOPLE }, 'uC.id', 't.createdBy')
+      .leftJoin({ uU: PEOPLE }, 'uU.id', 't.updatedBy');
   }
 
   /**
