@@ -12,6 +12,7 @@
 //   relativeFolderPath: string;
 //   codeFolderPath?: string;
 //   omitDemoLink?: boolean;
+//   commitHash?: string;
 // }
 
 const ROOT_URL_FOR_DEMO =
@@ -104,6 +105,12 @@ const assignments = [
     name: "Backend Assignment 3",
     relativeFolderPath: "Week 6/Day 5/nodejs-assignment-1",
     omitDemoLink: true,
+    commitHash: "dd9c7abab84c82957b78ee0db376a8ad4ef0bff8",
+  },
+  {
+    name: "Backend Assignment 4",
+    relativeFolderPath: "Week 6/Day 5/nodejs-assignment-1",
+    omitDemoLink: true,
   },
 ];
 
@@ -123,6 +130,7 @@ function addRowToTable(index, assignment) {
     codeFolderPath,
     absoluteLinks,
     omitDemoLink,
+    commitHash,
   } = assignment;
   indexCell.innerHTML = `<p>${index + 1}.</p>`;
   nameCell.innerHTML = `<p>${name}</p>`;
@@ -136,7 +144,9 @@ function addRowToTable(index, assignment) {
     } else {
       demoLinkCell.innerHTML = `<a href="${ROOT_URL_FOR_DEMO}/${relativeFolderPath}" target="_blank">Demo</a>`;
     }
-    codeLinkCell.innerHTML = `<a href="${ROOT_URL_FOR_CODE}/tree/${BRANCH_NAME}/${
+    codeLinkCell.innerHTML = `<a href="${ROOT_URL_FOR_CODE}/tree/${
+      commitHash || BRANCH_NAME
+    }/${
       codeFolderPath ? codeFolderPath : relativeFolderPath
     }" target="_blank">Code</a>`;
   }
