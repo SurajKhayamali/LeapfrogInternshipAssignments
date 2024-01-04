@@ -1,3 +1,5 @@
+import { PaginationQuery } from './pagination.interface';
+
 export interface Todo {
   id: number;
   title: string;
@@ -10,7 +12,7 @@ export interface CreateTodoDto extends Omit<Todo, 'id' | 'completed'> {}
 
 export interface UpdateTodoDto extends Partial<CreateTodoDto> {}
 
-export interface QueryTodoDto {
+export interface QueryTodoDto extends PaginationQuery {
   searchTerm?: string;
   completed?: boolean;
 }

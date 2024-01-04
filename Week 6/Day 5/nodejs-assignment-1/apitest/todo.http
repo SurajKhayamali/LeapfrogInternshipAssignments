@@ -15,7 +15,11 @@ GET {{BASE_URL_FOR_TODO}}
 Authorization: Bearer {{accessToken}}
 
 ###
-GET {{BASE_URL_FOR_TODO}}?searchTerm=New
+GET {{BASE_URL_FOR_TODO}}?page=2&size=30
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{BASE_URL_FOR_TODO}}?searchTerm=Todo's Title 1
 Authorization: Bearer {{accessToken}}
 
 ###
@@ -24,6 +28,10 @@ Authorization: Bearer {{accessToken}}
 
 ###
 GET {{BASE_URL_FOR_TODO}}?completed=false
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{BASE_URL_FOR_TODO}}?page=1&size=2&searchTerm=title 3&completed=false
 Authorization: Bearer {{accessToken}}
 
 ###

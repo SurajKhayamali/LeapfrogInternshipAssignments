@@ -1,3 +1,5 @@
+import { PaginationQuery } from './pagination.interface';
+
 export interface User {
   id: number;
   fullname: string;
@@ -9,3 +11,5 @@ export interface User {
 export interface CreateUserDto extends Omit<User, 'id'> {}
 
 export interface UpdateUserDto extends Partial<CreateUserDto> {}
+
+export interface GetAllUsersQuery extends PaginationQuery {}

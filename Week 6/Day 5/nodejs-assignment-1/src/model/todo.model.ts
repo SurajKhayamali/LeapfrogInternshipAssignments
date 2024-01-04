@@ -50,7 +50,7 @@ export class TodoModel extends BaseModel {
    * @returns todos
    */
   static async getFiltered(queryTodoDto: QueryTodoDto) {
-    const { searchTerm, completed } = queryTodoDto;
+    const { searchTerm, completed, page, size } = queryTodoDto;
 
     const query = this.queryBuilder()
       .select({
@@ -61,6 +61,8 @@ export class TodoModel extends BaseModel {
         updatedBy: 'uU.fullname',
       })
       .from({ t: TODOS });
+
+    query.offset(size * (page - 1)).limit(size);
 
     if (searchTerm) {
       query.whereILike('title', `%${searchTerm}%`);
@@ -73,6 +75,30 @@ export class TodoModel extends BaseModel {
     return query
       .leftJoin({ uC: PEOPLE }, 'uC.id', 't.createdBy')
       .leftJoin({ uU: PEOPLE }, 'uU.id', 't.updatedBy');
+  }
+
+  /**
+   * Count all todos
+   *
+   * @param queryTodoDto
+   */
+  static countAll(queryTodoDto: QueryTodoDto) {
+    const { searchTerm, completed } = queryTodoDto;
+
+    const query = this.queryBuilder()
+      .table(TODOS)
+      .count({ count: 'id' })
+      .first();
+
+    if (searchTerm) {
+      query.whereILike('title', `%${searchTerm}%`);
+    }
+
+    if (completed !== undefined) {
+      query.where({ completed });
+    }
+
+    return query;
   }
 
   /**

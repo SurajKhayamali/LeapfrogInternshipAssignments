@@ -1,4 +1,5 @@
 import { NotFoundException } from '../exceptions';
+import { buildMeta, getPaginationOptions } from '../helpers/pagination.helper';
 import {
   CreateTodoDto,
   QueryTodoDto,
@@ -34,7 +35,25 @@ export async function getAll() {
  * @returns todos
  */
 export async function getFiltered(queryTodoDto: QueryTodoDto) {
-  return TodoModel.getFiltered(queryTodoDto);
+  const { page, size } = queryTodoDto;
+
+  const pageDetails = getPaginationOptions({ page, size });
+
+  const projectsPromise = TodoModel.getFiltered({
+    ...pageDetails,
+    ...queryTodoDto,
+  });
+  const countPromise = TodoModel.countAll(queryTodoDto);
+
+  const [projects, count] = await Promise.all([projectsPromise, countPromise]);
+
+  const total = count.count;
+  const meta = buildMeta(total, size, page);
+
+  return {
+    data: projects,
+    meta,
+  };
 }
 
 /**

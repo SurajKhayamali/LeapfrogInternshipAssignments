@@ -39,11 +39,8 @@ export async function createTodo(
  * @param req
  * @param res
  */
-export async function getTodos(
-  req: Request<unknown, unknown, unknown, QueryTodoDto>,
-  res: Response
-) {
-  const queryTodoDto = req.query;
+export async function getTodos(req: Request, res: Response) {
+  const queryTodoDto = req.query as unknown as QueryTodoDto;
 
   const todos = await todoService.getFiltered(queryTodoDto);
 
