@@ -16,7 +16,8 @@
     "migrate": "pnpm knex migrate:latest --verbose",
     "rollback": "pnpm knex migrate:rollback --verbose",
     "seed": "pnpm knex seed:run --verbose",
-    "make:seeder": "pnpm knex seed:make -x ts --env development"
+    "make:seeder": "pnpm knex seed:make -x ts --env development",
+    "reset:db": "pnpm run rollback && pnpm run migrate && pnpm run seed"
   },
   "keywords": [],
   "author": "",

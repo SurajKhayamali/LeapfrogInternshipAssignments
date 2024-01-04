@@ -24,7 +24,8 @@ export async function up(knex: Knex): Promise<void> {
       .unsigned()
       .notNullable()
       .references('id')
-      .inTable(PEOPLE);
+      .inTable(PEOPLE)
+      .onDelete('CASCADE');
 
     table.timestamp('updated_at').nullable();
 
@@ -32,7 +33,8 @@ export async function up(knex: Knex): Promise<void> {
       .bigInteger('updated_by')
       .unsigned()
       .references('id')
-      .inTable(TABLE_NAME)
+      .inTable(PEOPLE)
+      .onDelete('SET NULL')
       .nullable();
   });
 }
