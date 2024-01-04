@@ -7,6 +7,8 @@ import {
   // update,
   // remove,
 } from '../controllers/user.controller';
+import { validateReqQuery } from '../middlewares/validator.middleware';
+import { queryUserSchema } from '../schemas/user.schema';
 // import { validateReqBody } from '../middlewares/validator.middleware';
 // import { updateUserSchema } from '../schemas/user.schema';
 
@@ -14,7 +16,7 @@ const router = Router();
 
 // router.post('/', create);
 
-router.get('/', getAll);
+router.get('/', validateReqQuery(queryUserSchema), getAll);
 
 router.get('/:id', getById);
 

@@ -1,5 +1,9 @@
 import { PEOPLE } from '../constants/database.constant';
-import { CreateUserDto, UpdateUserDto } from '../interfaces/user.interface';
+import {
+  CreateUserDto,
+  GetAllUsersQuery,
+  UpdateUserDto,
+} from '../interfaces/user.interface';
 import BaseModel from './base.model';
 
 export class UserModel extends BaseModel {
@@ -34,8 +38,37 @@ export class UserModel extends BaseModel {
    *
    * @returns users
    */
-  static async getAll() {
-    return this.queryBuilder().select(this.selectFields).from(PEOPLE);
+  static async getAll(getAllUsersQuery: GetAllUsersQuery) {
+    const { name, page, size } = getAllUsersQuery;
+    const query = this.queryBuilder().select(this.selectFields).from(PEOPLE);
+
+    query.offset(size * (page - 1)).limit(size);
+
+    if (name) {
+      query.whereILike('fullname', `%${name}%`);
+    }
+
+    return query;
+  }
+
+  /**
+   * Count all users
+   *
+   * @param queryTodoDto
+   */
+  static countAll(getAllUsersQuery: GetAllUsersQuery) {
+    const { name } = getAllUsersQuery;
+
+    const query = this.queryBuilder()
+      .table(PEOPLE)
+      .count({ count: 'id' })
+      .first();
+
+    if (name) {
+      query.whereILike('fullname', `%${name}%`);
+    }
+
+    return query;
   }
 
   /**

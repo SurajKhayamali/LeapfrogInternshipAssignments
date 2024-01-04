@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 
 import * as userService from '../services/user.service';
+import { GetAllUsersQuery } from '../interfaces/user.interface';
 
 /**
  * Create user
@@ -23,7 +24,9 @@ export async function create(req: Request, res: Response) {
  * @param res
  */
 export async function getAll(req: Request, res: Response) {
-  const users = await userService.getAll();
+  const query = req.query as unknown as GetAllUsersQuery;
+
+  const users = await userService.getAll(query);
 
   res.json(users);
 }

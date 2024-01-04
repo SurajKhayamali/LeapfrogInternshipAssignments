@@ -5,6 +5,15 @@
 GET {{BASE_URL_FOR_USER}}
 
 ###
+GET {{BASE_URL_FOR_USER}}?size=7&page=3
+
+###
+GET {{BASE_URL_FOR_USER}}?name=Name 3
+
+###
+GET {{BASE_URL_FOR_USER}}?name=Name 3&size=2&page=3
+
+###
 GET {{BASE_URL_FOR_USER}}/1
 
 ###

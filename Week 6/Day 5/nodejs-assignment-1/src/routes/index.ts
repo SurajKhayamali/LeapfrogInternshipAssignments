@@ -8,7 +8,7 @@ import { auth } from '../middlewares/auth.middleware';
 const router = Router();
 
 router.use('/auth', authRouter);
-router.use('/users', userRouter);
+router.use('/users', auth, userRouter);
 router.use('/todos', auth, todoRouter);
 
 export default router;

@@ -20,8 +20,18 @@ export const todoUpdateSchema = Joi.object({
 });
 
 export const todoQuerySchema = Joi.object({
-  page: Joi.number().integer().min(1).default(DEFAULT_PAGE),
-  size: Joi.number().integer().min(1).max(40).default(DEFAULT_PAGE_SIZE),
+  page: Joi.number().integer().min(1).default(DEFAULT_PAGE).messages({
+    'number.min': 'Page must be at least 1',
+  }),
+  size: Joi.number()
+    .integer()
+    .min(1)
+    .max(40)
+    .default(DEFAULT_PAGE_SIZE)
+    .messages({
+      'number.min': 'Size must be at least 1',
+      'number.max': 'Size must be at most 40',
+    }),
   searchTerm: Joi.string().min(3).max(30).messages({
     'string.min': 'Search term must be at least 3 characters long',
     'string.max': 'Search term must be at most 30 characters long',

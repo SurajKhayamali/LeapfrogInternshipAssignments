@@ -1,4 +1,5 @@
-import { CreateUserDto } from '../interfaces/user.interface';
+import { buildMeta, getPaginationOptions } from '../helpers/pagination.helper';
+import { CreateUserDto, GetAllUsersQuery } from '../interfaces/user.interface';
 import { UserModel } from '../model/user.model';
 
 /**
@@ -17,8 +18,23 @@ export async function create(createUserDto: CreateUserDto) {
  *
  * @returns users
  */
-export async function getAll() {
-  return UserModel.getAll();
+export async function getAll(query: GetAllUsersQuery) {
+  const { page, size } = query;
+
+  const pageDetails = getPaginationOptions({ page, size });
+
+  const projectsPromise = UserModel.getAll({ ...pageDetails, ...query });
+  const countPromise = UserModel.countAll(query);
+
+  const [projects, count] = await Promise.all([projectsPromise, countPromise]);
+
+  const total = count.count;
+  const meta = buildMeta(total, size, page);
+
+  return {
+    data: projects,
+    meta,
+  };
 }
 
 /**

@@ -12,4 +12,6 @@ export interface CreateUserDto extends Omit<User, 'id'> {}
 
 export interface UpdateUserDto extends Partial<CreateUserDto> {}
 
-export interface GetAllUsersQuery extends PaginationQuery {}
+export interface GetAllUsersQuery extends PaginationQuery {
+  name?: string;
+}
