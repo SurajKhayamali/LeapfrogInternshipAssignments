@@ -34,10 +34,8 @@ export class TodoModel extends BaseModel {
         id: 't.id',
         title: 't.title',
         completed: 't.completed',
-        createdBy: 't.createdBy',
-        createdByName: 'uC.fullname',
-        updatedBy: 't.updatedBy',
-        updatedByName: 'uU.fullname',
+        createdBy: 'uC.fullname',
+        updatedBy: 'uU.fullname',
       })
       .from({ t: TODOS })
       .leftJoin({ uC: PEOPLE }, 'uC.id', 't.createdBy')
@@ -59,10 +57,8 @@ export class TodoModel extends BaseModel {
         id: 't.id',
         title: 't.title',
         completed: 't.completed',
-        createdBy: 't.createdBy',
-        createdByName: 'uC.fullname',
-        updatedBy: 't.updatedBy',
-        updatedByName: 'uU.fullname',
+        createdBy: 'uC.fullname',
+        updatedBy: 'uU.fullname',
       })
       .from({ t: TODOS });
 
@@ -92,10 +88,8 @@ export class TodoModel extends BaseModel {
         id: 't.id',
         title: 't.title',
         completed: 't.completed',
-        createdBy: 't.createdBy',
-        createdByName: 'uC.fullname',
-        updatedBy: 't.updatedBy',
-        updatedByName: 'uU.fullname',
+        createdBy: 'uC.fullname',
+        updatedBy: 'uU.fullname',
       })
       .from({ t: TODOS })
       .where({ 't.id': id })
