@@ -68,7 +68,7 @@ const assignments = [
     name: "Chess (Major Project)",
     absoluteLinks: {
       demoLink: "https://chess.surajkhayamali.com.np/",
-      codeLink: "https://github.com/SurajKhayamali/Chess",
+      codeLink: "https://github.com/SurajKhayamali/Chess/tree/main/frontend",
     },
   },
   {
@@ -112,6 +112,13 @@ const assignments = [
     relativeFolderPath: "Week 6/Day 5/nodejs-assignment-1",
     omitDemoLink: true,
   },
+  {
+    name: "Chess with online multiplayer functionality (Final full stack project)",
+    omitDemoLink: true,
+    absoluteLinks: {
+      codeLink: "https://github.com/SurajKhayamali/Chess",
+    },
+  },
 ];
 
 const assignmentListTable = document.getElementById("assignment-list-table");
@@ -136,7 +143,11 @@ function addRowToTable(index, assignment) {
   nameCell.innerHTML = `<p>${name}</p>`;
   if (absoluteLinks) {
     const { demoLink, codeLink } = absoluteLinks;
-    demoLinkCell.innerHTML = `<a href="${demoLink}" target="_blank">Demo</a>`;
+    if (omitDemoLink) {
+      demoLinkCell.innerHTML = `<p>-</p>`;
+    } else {
+      demoLinkCell.innerHTML = `<a href="${demoLink}" target="_blank">Demo</a>`;
+    }
     codeLinkCell.innerHTML = `<a href="${codeLink}" target="_blank">Code</a>`;
   } else {
     if (omitDemoLink) {
