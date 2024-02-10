@@ -67,7 +67,7 @@ const assignments = [
   {
     name: "Chess (Major Project)",
     absoluteLinks: {
-      demoLink: "https://chess.surajkhayamali.com.np/",
+      demoLink: "https://chess-frontend.surajkhayamali.com.np/",
       codeLink: "https://github.com/SurajKhayamali/Chess/tree/main/frontend",
     },
   },
@@ -114,8 +114,8 @@ const assignments = [
   },
   {
     name: "Chess with online multiplayer functionality (Final full stack project)",
-    omitDemoLink: true,
     absoluteLinks: {
+      demoLink: "https://chess.surajkhayamali.com.np/",
       codeLink: "https://github.com/SurajKhayamali/Chess",
     },
   },
